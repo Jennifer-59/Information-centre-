@@ -233,25 +233,17 @@
         </form>
     </div>
 
-
 <div class="hero-image">
-  <!-- Fallback Image -->
-  <img
-    id="hero-img"
-    class="hero-image-content"
-    src="./image/TIC.jfif"
-    alt="Tamil heritage image"
-  >
+    <img id="hero-img" class="hero-image-content" 
+         src="./image/TIC.jfif"
+         alt="Tamil heritage image">
 
-  <!-- Google Drive Video -->
-  <iframe
-    id="hero-vid"
-    class="hero-image-content"
-    src="https://drive.google.com/file/d/18OMDr2N2aexk2az8r2jpSYcR8VtBl4UN/preview"
-    allow="autoplay"
-    loading="lazy">
-  </iframe>
+    <video id="hero-vid" class="hero-image-content" style="display: none;" muted loop>
+        <source src="image/Tamil TIC   promo 2023 final.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 </div>
+</section>
 
 
 
@@ -756,5 +748,6 @@ document.querySelectorAll(".featured-card").forEach(card => {
 </body>
 
 </html>
+
 
 
