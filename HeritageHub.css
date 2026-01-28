@@ -1,0 +1,337 @@
+/* ===================================================
+   GLOBAL VARIABLES
+=================================================== */
+:root {
+    --primary-bg: #f6e3c5;
+    --accent-dark: #0f2540;
+    --accent-muted: #bfa98b;
+    --card-bg:#f6e3c5;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --card-hover-shadow: rgba(0, 0, 0, 0.2);
+    --text-color: #000000;
+}
+
+/* ===================================================
+   MAIN CONTAINER
+=================================================== */
+.explore-heritage {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.explore-heritage .page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.explore-heritage .page-intro {
+    font-size: 1.1rem;
+    color: var(--accent-dark);
+}
+
+/* ===================================================
+   GRID AND CARDS
+=================================================== */
+.explore-heritage .row {
+    margin-top: 2rem;
+}
+
+.heritage-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 1.0rem;
+    box-shadow: 0 4px 8px var(--card-shadow);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.heritage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--card-hover-shadow);
+}
+
+.heritage-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #000000;
+}
+
+.heritage-desc {
+    font-size: 0.95rem;
+    color: #000000;
+    line-height: 1.5;
+}
+
+/* ===================================================
+   RESPONSIVE GRID
+=================================================== */
+@media (max-width: 992px) {
+    .heritage-card {
+        padding: 1.2rem;
+    }
+
+    .heritage-title {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .heritage-card {
+        padding: 1rem;
+    }
+
+    .heritage-title {
+        font-size: 1.1rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .page-intro {
+        font-size: 1rem;
+    }
+}
+.heritage-spa-content {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Sidebar */
+.heritage-sidebar {
+  width: 280px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.heritage-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.heritage-sidebar li {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.heritage-sidebar li:hover,
+.heritage-sidebar li.active {
+  background: var(--accent-dark);
+  color: white;
+}
+
+/* Detail area */
+.heritage-detail {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.heritage-detail .hero-image {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+ 
+}
+
+.heritage-detail .hero-image img {
+  width: 120%;
+  height: 150%;
+  object-fit: cover;
+}
+
+.heritage-detail h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.heritage-detail p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Scrollbar Styling */
+.heritage-sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+.heritage-sidebar::-webkit-scrollbar-thumb {
+  background: var(--accent-muted);
+  border-radius: 4px;
+}
+.heritage-sidebar::-webkit-scrollbar-track {
+  background:  #bfa98b;
+}
+ /* Hero Image Container */
+.heritage-detail .hero-image {
+  position: relative;
+  width: 100%;
+  min-height: 490px;
+  background-color: #000;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+}
+
+
+.heritage-detail .hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7; 
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero-text {
+  position: relative; 
+  z-index: 2; 
+  padding: 3rem 2rem;
+  color: #ffffff; 
+  text-align: left;
+  max-width: 90%;
+}
+
+.hero-text h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+
+  color: #0f2540;
+  /*  -webkit-text-stroke: 0.5px #ffffff; /* White outline */
+
+  /* Fallback for browsers without text-stroke */
+  text-shadow:
+    -1px -1px 0 #ffffff,
+     1px -1px 0 #ffffff,
+    -1px  1px 0 #ffffff,
+     1px  1px 0 #ffffff;
+}
+
+.hero-text p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #f1f1f1;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* Improve image visibility */
+    filter: brightness(1.45) contrast(1.05) saturate(1.1);
+}
+
+/* Soft dark overlay for text readability */
+.hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.55)
+    );
+    z-index: 1;
+}
+     .heritage-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+
+  width: 100%;
+  max-width: 1400px;   /* ⬅ INCREASE WIDTH */
+  padding: 20px 40px;
+
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.brand-logo {
+  width: 100px;
+  height: 80px;
+  background-color: #0f172a;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 2px;
+}
+
+.brand-text {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #000000;
+}
+
+.brand-title {
+  font-size: 50px;
+  letter-spacing: 3px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.brand-tagline {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.divider {
+  font-size: 30px;
+}
+
+@media (max-width: 767px) {
+  .brand-container {
+    flex-direction: column; /* stack logo and text */
+    align-items: center;    /* center all */
+    gap: 12px;
+   
+  }
+
+  .brand-logo {
+    width: 80px;
+    height: 80px;         /* keep square on mobile */
+    font-size: 24px;
+  }
+
+  .brand-title {
+    font-size: 28px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  .brand-tagline {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .divider {
+    font-size: 20px;
+  }
+}

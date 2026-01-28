@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TIC Archives-Discover the Collections</title>
+    <meta name="description" content="@yield('meta_description', 'Tamil Bookshop Archives - Preserving Tamil heritage, culture, and literature since 1983')">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+Tamil:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="./style.css">
+     <link rel="stylesheet" href="./collection.css">
+    <link rel="stylesheet" href="./exhibition.css">
+    
+</head>
+<body>
+  <!-- Header -->
+    <header role="banner">
+        <div class="header-container">
+            <div class="header-main">
+                <!-- Logo -->
+                <a href="{{ route('client.home') }}" class="logo" aria-label="Tamil Bookshop Archives Home">
+                    <img src="./image/newlogo.jpeg" alt="Tamil Bookshop Archives Logo" width="60" height="60">
+                    <div class="logo-text">
+                        <span class="ta">THE TIC <br>ARCHIVES</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                    <ul>
+                        <li>
+                            <a href="./index.html" 
+                               class="{{ Route::is('client.home') ? 'active' : '' }}"
+>
+                                Home
+                            </a>
+                        </li>
+
+                      
+
+                        <li class="dropdown-parent">
+                            <a href="./aboutus.html" 
+                               class="{{ Route::is('client.about') || Route::is('client.news') ? 'active' : '' }}"
+                               aria-haspopup="true">
+                                About
+                            </a>
+                            <div class="dropdown" role="menu">
+                                <a href="./aboutus.html" role="menuitem">About Us</a>
+                                 <!-- <a href="./news.html" role="menuitem">News</a>  -->
+                                <a href="./supportus.html" role="menuitem">Support Us</a>
+                            </div>
+                        </li>
+
+                        <li class="dropdown-parent">
+                            <a href="./archive.html" class="{{ Route::is('client.archivecentrecollection') ? 'active' : '' }}"
+                               aria-haspopup="true">
+                                Archive Centre
+                            </a>
+                            <!--  <div class="dropdown" role="menu">
+                                <a href="./archive.html" role="menuitem">Collection</a>
+                                <a href="./archive.html" role="menuitem">Online Catalogue</a>
+                                <a href="./archive.html" role="menuitem">Google Arts & Heritage</a>
+                            </div> 
+                        </li> -->
+
+                        <li class="dropdown-parent">
+                            <a href="./HeritageCentre.html" aria-haspopup="true">Exhibition </a>
+                            <!--  <div class="dropdown" role="menu">
+                                <a href="./ToL.html" role="menuitem">ToL Exhibition</a>
+                                <a href="./HeritageCentre.html" role="menuitem">Heritage Centre</a>
+                                <a href="./subjectguide.html" role="menuitem">Subject Guides</a>
+                                <a href="./historical-timeline.html" role="menuitem">Historical Timeline</a>
+                                <a href="./workshop.html" role="menuitem">Learning Workshops</a>
+                            </div>
+                        </li> -->
+
+                        <li class="dropdown-parent">
+                            <a href="./ToL.html" aria-haspopup="true">Heritage Museum</a>
+                          <!--    <div class="dropdown" role="menu">
+                                <a href="./event.html" role="menuitem">Latest Events</a>
+                                <a href="./project.html" role="menuitem">Projects & Programs</a>
+                                <a href="./collaborate.html" role="menuitem">Collaborate</a>
+                            </div>
+                        </li>-->
+
+                        <li class="dropdown-parent">
+                            <a href="#" aria-haspopup="true">Join</a>
+                            <div class="dropdown" role="menu">
+                                <a href="./member.html" role="menuitem">Membership</a>
+                                <a href="#donate" role="menuitem">Donate</a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="./publication.html" 
+                               class="{{ Route::is('client.publications') ? 'active' : '' }}">
+                                Shop
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html" 
+                               class="{{ Route::is('client.contactus') ? 'active' : '' }}">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" 
+                        id="mobileMenuBtn" 
+                        aria-label="Open mobile menu"
+                        aria-expanded="false"
+                        aria-controls="mobileNavOffcanvas">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Mobile Navigation Offcanvas -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <div class="mobile-nav-offcanvas" id="mobileNavOffcanvas" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div class="mobile-nav-header">
+            <span style="font-weight: 700; color: var(--accent-dark);">Menu</span>
+            <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close mobile menu">✕</button>
+        </div>
+        <nav class="mobile-nav-menu" role="navigation" aria-label="Mobile navigation">
+            <ul>
+                <li><a href="./index.html" class="{{ Route::is('client.home') ? 'active' : '' }}">Home</a></li>
+                
+                <li>
+                    <button class="mobile-dropdown-toggle" data-target="aboutDropdown" aria-expanded="false">
+                        About <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-content" id="aboutDropdown">
+                        <a href="./aboutus.html">About Us</a>
+                         <!-- <a href="./news.html">News</a>-->
+                        <a href="./supportus.html">Support Us</a>
+                    </div>
+                </li>
+                    <li><a href="./archive.html">  Archive Centre </a></li>
+
+                <!--   <li>
+                    <button class="mobile-dropdown-toggle" data-target="archiveDropdown" aria-expanded="false">
+                        Archive Centre 
+                    </button>
+                    <div class="mobile-dropdown-content" id="archiveDropdown">
+                        <a href="./archive.html">Collection</a>
+                       <a href="./archive.html">Online Catalogue</a>
+                        <a href="./archive.html">Google Arts & Heritage</a>
+                    </div>
+                </li>-->
+                         <li><a href="./Heritage Hub.html">   Exhibition</a></li>
+                  <!--<li>
+                    <button class="mobile-dropdown-toggle" data-target="exhibitionDropdown" aria-expanded="false">
+                Exhibition
+                    </button>
+                    <div class="mobile-dropdown-content" id="exhibitionDropdown">
+                        <a href="./ToL.html">ToL Exhibition</a>
+                        <a href="./HeritageCentre.html">Heritage Centre</a>
+                         <!--<a href="./subjectguide.html">Subject Guides</a>
+                        <a href="./historical-timeline.html">Historical Timeline</a>
+                        <a href="./workshop.html">Learning Workshops</a>
+                    </div>
+                </li>-->
+                     <li><a href="./ToL.html">Heritage Museum</a></li>
+                <!--  <li>
+                    <button class="mobile-dropdown-toggle" data-target="whatsOnDropdown" aria-expanded="false">
+                        What's On 
+                    </button>
+                    <div class="mobile-dropdown-content" id="whatsOnDropdown">
+                        <a href="./event.html">Latest Events</a>
+                        <a href="./project.html">Projects & Programs</a>
+                        <a href="./collaborate.html">Collaborate</a>
+                    </div>
+                </li>-->
+
+                <li>
+                    <button class="mobile-dropdown-toggle" data-target="joinDropdown" aria-expanded="false">
+                        Join <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-content" id="joinDropdown">
+                        <a href="./member.html">Membership</a>
+                        <a href="#donate">Donate</a>
+                    </div>
+                </li>
+
+                <li><a href="./publication.html">Shop</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+<!--/header-->
+
+
+    <!--main -->
+<section class="heritage-brand">
+    <div class="brand-logo">
+        <img src="./image/tol.jpg" alt="TIC Logo" style="width:60px; height:auto;">
+    </div>
+    <div class="brand-text">
+        <span class="brand-title"> WELCOME TO OUR COLLECTIONS</span>
+       
+    </div>
+</section>
+
+<main id="main-content" class="px-4 sm:px-8 lg:px-16">
+    <div class="max-w-6xl mx-auto relative">
+
+        <!-- Collage hero – now added like exhibition page -->
+        <div class="hero-container">
+            <img src="image/news.jfif"  class="collage-img z-10" alt="">
+            <img src="image/low.jfif"  class="collage-img z-20" alt="">
+            <img src="image/tamil.jpg" class="collage-img z-30" alt="">
+            <img src="image/confidence.jpg"  class="collage-img z-10" alt="">
+        </div>
+
+        <!-- Sidebar + Intro text – same structure as exhibition -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-16">
+            
+            <!-- Mobile sidebar -->
+            <div class="block md:hidden col-span-1 my-6">
+                <div class="intro-box bg-red-600 text-white font-bold text-sm uppercase p-3 mb-4 text-center rounded">
+                    COLLECTIONS
+                </div>
+                <ul class="space-y-3">
+                    <li><a href="#" data-page="welcome" class="js-spa-link text-black font-semibold uppercase hover:text-red-600 block text-center py-2 border-b">ALL COLLECTIONS</a></li>
+                    <li><a href="#" data-page="history"  class="js-spa-link text-black font-semibold uppercase hover:text-red-600 block text-center py-2 border-b">HISTORY</a></li>
+                    <li><a href="#" data-page="politics" class="js-spa-link text-black font-semibold uppercase hover:text-red-600 block text-center py-2 border-b">POLITICS</a></li>
+                    <li><a href="#" data-page="culture"  class="js-spa-link text-black font-semibold uppercase hover:text-red-600 block text-center py-2 border-b">CULTURE</a></li>
+                    <li><a href="#" data-page="reports"  class="js-spa-link text-black font-semibold uppercase hover:text-red-600 block text-center py-2 border-b">REPORTS</a></li>
+                </ul>
+                <hr class="my-6">
+            </div>
+
+            <!-- Desktop sidebar -->
+            <aside class="sidebar hidden md:block md:col-span-1 h-full p-4 border-r border-gray-200">
+                <div class="intro-box bg-red-600 text-white font-bold text-sm uppercase p-3 mb-8 text-center rounded">
+                    COLLECTIONS
+                </div>
+                <ul class="space-y-6">
+                    <li><a href="#" data-page="welcome" class="js-spa-link text-black font-semibold uppercase hover:text-red-600 block">ALL COLLECTIONS</a></li>
+                    <li><a href="#" data-page="history"  class="js-spa-link text-black font-semibold uppercase hover:text-red-600 block">HISTORY</a></li>
+                    <li><a href="#" data-page="politics" class="js-spa-link text-black font-semibold uppercase hover:text-red-600 block">POLITICS</a></li>
+                    <li><a href="#" data-page="culture"  class="js-spa-link text-black font-semibold uppercase hover:text-red-600 block">CULTURE</a></li>
+                    <li><a href="#" data-page="reports"  class="js-spa-link text-black font-semibold uppercase hover:text-red-600 block">REPORTS</a></li>
+                </ul>
+            </aside>
+
+            <!-- Main welcome text -->
+<div class="md:col-span-3 hero-text-content" id="content-area">
+    <h2 class="text-4xl font-bold mb-2 text-black">வணக்கம்</h2>
+    <h1 class="text-5xl font-extrabold mb-6 tracking-tight text-black">DISCOVER THE COLLECTIONS</h1>
+    
+    <div class="text-lg leading-relaxed text-black max-w-3xl">
+        <div id="intro-text" class="intro-content">
+            <p class="mb-4">
+                <strong>The TIC Archives</strong> is an independent and authoritative digital archive of the Tamil Information Centre (TIC), dedicated to the collection, preservation, and public access of historical, cultural, and human rights records relating to the Tamil-speaking people of Sri Lanka.
+            </p>
+                <p class="mb-4">
+                    Founded on the pioneering work of the Tamil Information Centre, established in London in 1979, the archive represents more than four decades of principled research, documentation, and human rights advocacy. It brings together first-hand, authentic, and verifiable materials gathered through the dedication and sacrifice of researchers, activists, and community members who worked under challenging and often dangerous conditions to ensure that history, memory, and evidence were not lost.
+                </p>
+                            <div id="more-content" style="display: none;">
+
+                <p class="mb-4">
+                    At this crucial stage, as TIC fulfils a long-standing vision of its founders, pioneers, supporters, and the wider Tamil-speaking community, The TIC Archives makes these invaluable collections publicly accessible for the first time. In doing so, the archive honours the memory and lifelong contributions of those who laid its foundations—including the late Mr. Kanthasamy, the late Mr. Varadakumar, and the late Fr. James Pathinathar, among many others—whose commitment, courage, and integrity continue to guide this work.
+                </p>
+                <p class="mb-4">
+                    Guided by the principles of justice, equality, accuracy, and respect for fundamental human rights, and informed by the Universal Declaration of Human Rights (UDHR) and other international human rights instruments, The TIC Archives serves as both a historical record and a living resource. It exists to support research, education, public understanding, and intergenerational memory, while carrying forward a respected legacy for generations to come.
+                </p>
+                <p>
+                    We invite researchers, students, educators, community members, and the wider public to explore The TIC Archives—to engage with preserved records, to bear witness to documented histories, and to share in the responsibility of safeguarding truth, memory, and heritage for the future.
+                </p>
+            </div>
+
+            <button id="read-more-btn" 
+                    class="mt-3 text-red-600 font-semibold hover:text-red-800 transition-colors flex items-center gap-2">
+                Read more <span class="text-xl">↓</span>
+            </button>
+        </div>
+    </div>
+</div></div></div>
+<!--cards-->
+
+<!-- Row 1: 3 items -->
+
+</div>
+
+
+<div class="books-row row-2">
+
+    <a href="archive.html?topic=politics&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+    <div class="book-card book4">
+        <div class="book-content">
+            <div class="watermark">T</div>
+            <div class="book-title-tamil">பாகுபாடு மற்றும் சமத்துவமின்மை</div>
+            <div class="book-title-english">Discrimination and Inequality</div>
+        </div>
+    </div>
+</a>
+
+    <a href="archive.html?topic=history&type=documents&year=1900-1950&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book5" data-link="./archive.html" data-from="collection" data-topic="history" data-type="documents" data-year="1900-1950">
+    <div class="book-content">
+      <div class="watermark">T</div>
+      <div class="book-title-tamil">சுதந்திரப் போராளிகள் மற்றும் எதிர்ப்பு இயக்கங்கள்</div>
+      <div class="book-title-english">Freedom Fighters and Resistance Movements</div>
+    </div>
+  </div>
+</a>
+</div>
+
+<div class="books-row row-3">
+<a href="archive.html?topic=politics&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book6" data-link="./archive.html" data-from="collection" data-topic="politics" data-type="documents" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">H</div>
+      <div class="book-title-tamil">மனித உரிமை மீறல்கள்</div>
+      <div class="book-title-english">Human Rights Violations</div>
+    </div>
+  </div>
+</a>
+
+<a href="archive.html?topic=history&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book7" data-link="./archive.html" data-from="collection" data-topic="history" data-type="documents" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">S</div>
+      <div class="book-title-tamil">கொலை, கடத்தல்கள் மற்றும் கட்டாயகாணாமல் போகச் செய்தல்</div>
+      <div class="book-title-english">Abductions, Kidnappings, and Enforced Disappearances</div>
+    </div>
+  </div>
+</a>
+
+  <a href="archive.html?topic=politics&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book8" data-link="./archive.html" data-from="collection" data-topic="politics" data-type="documents" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">C</div>
+      <div class="book-title-tamil">கொலைகள் மற்றும் நீதிக்குறிய அம்சமில்லாத செயல்கள்</div>
+      <div class="book-title-english">Killings and Extrajudicial Executions</div>
+    </div>
+  </div>
+</a></div>
+
+
+<div class="books-row row-2">
+   <a href="archive.html?topic=history&type=documents&year=1900-1950&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book9" data-link="./archive.html" data-from="collection" data-topic="history" data-type="documents" data-year="1900-1950">
+    <div class="book-content">
+      <div class="watermark">E</div>
+      <div class="book-title-tamil">பலவகை பதிவுகள்</div>
+      <div class="book-title-english">Miscellaneous Records</div>
+    </div>
+  </div>
+</a>
+
+
+  <a href="archive.html?topic=politics&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book10" data-link="./archive.html" data-from="collection" data-topic="politics" data-type="documents" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">R</div>
+      <div class="book-title-tamil">பத்திரிகை மற்றும் ஊடகச் செய்திகள்</div>
+      <div class="book-title-english">Press and Media Clippings</div>
+    </div>
+  </div>
+</a>
+</div>  
+
+<div class="books-row row-3">
+<a href="archive.html?topic=politics&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book11" data-link="./archive.html" data-from="collection" data-topic="politics" data-type="documents" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">M</div>
+      <div class="book-title-tamil">அமைதி பேச்சுவார்த்தைகள் மற்றும் கலந்துரையாடல்கள்</div>
+      <div class="book-title-english">Peace Negotiations and Talks</div>
+    </div>
+  </div>
+</a>
+
+
+   <a href="archive.html?topic=politics&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book12" data-link="./archive.html" data-from="collection" data-topic="politics" data-type="documents" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">L</div>
+      <div class="book-title-tamil">பத்திரிகை வெளியீடுகள் மற்றும் அறிக்கைகள்</div>
+      <div class="book-title-english">Press Releases and Statements</div>
+    </div>
+  </div>
+</a>
+
+
+    <a href="archive.html?topic=culture&type=manuscripts&year=1900-1950&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book13" data-link="./archive.html" data-from="collection" data-topic="culture" data-type="manuscripts" data-year="1900-1950">
+    <div class="book-content">
+      <div class="watermark">F</div>
+      <div class="book-title-tamil">புத்தகங்கள், கட்டுரைகள் மற்றும் வெளியீடுகள்</div>
+      <div class="book-title-english">Books, Articles, and Publications</div>
+    </div>
+  </div>
+</a>
+
+</div>
+
+<div class="books-row row-2">
+   <a href="archive.html?topic=history&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book14" data-link="./archive.html" data-from="collection" data-topic="history" data-type="documents" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">A</div>
+      <div class="book-title-tamil">அகதிகள் மற்றும் இடம்பெயர்ச்சி</div>
+      <div class="book-title-english">Refugees and Displacement</div>
+    </div>
+  </div>
+</a>
+
+
+   <a href="archive.html?topic=history&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book15" data-link="./archive.html" data-from="collection" data-topic="history" data-type="documents" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">D</div>
+      <div class="book-title-tamil">மறுஉறுதிப்படுத்தல் மற்றும் மீளமைப்பு</div>
+      <div class="book-title-english">Rehabilitation and Reconstruction</div>
+    </div>
+  </div>
+</a>
+
+</div>
+
+<div class="books-row row-3">
+<a href="archive.html?topic=history&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book16" data-link="./archive.html" data-from="collection" data-topic="history" data-type="documents" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">M</div>
+      <div class="book-title-tamil">TIC நிறுவன ஆவணங்கள்</div>
+      <div class="book-title-english">TIC Institutional Documents</div>
+    </div>
+  </div>
+</a>
+
+
+   <a href="archive.html?topic=politics&type=documents&year=1900-1950&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book17" data-link="./archive.html" data-from="collection" data-topic="politics" data-type="documents" data-year="1900-1950">
+    <div class="book-content">
+      <div class="watermark">L</div>
+      <div class="book-title-tamil">பிரிட்டிஷ் அரசு மற்றும் ஹோம் ஆபீஸ் பதிவுகள்</div>
+      <div class="book-title-english">UK Government and Home Office Records</div>
+    </div>
+  </div>
+</a>
+
+<a href="archive.html?topic=politics&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book18" data-link="./archive.html" data-from="collection" data-topic="politics" data-type="documents" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">F</div>
+      <div class="book-title-tamil">ஐக்கிய நாடுகள் அமைப்பு அறிக்கைகள் மற்றும் ஆவணங்கள்</div>
+      <div class="book-title-english">United Nations Reports and Documentation</div>
+    </div>
+  </div>
+</a>
+
+</div>
+
+<div class="books-row row-2">
+    <a href="archive.html?topic=history&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book19" data-link="./archive.html" data-from="collection" data-topic="history" data-type="documents" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">A</div>
+      <div class="book-title-tamil">பயிற்சி மற்றும் மாநாடு ஆவணங்கள்</div>
+      <div class="book-title-english">Workshop Papers and Conference Material</div>
+    </div>
+  </div>
+</a>
+
+
+    <a href="archive.html?topic=culture&type=photographs&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book20" data-link="./archive.html" data-from="collection" data-topic="culture" data-type="photographs" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">V</div>
+      <div class="book-title-tamil">வீடியோ பதிவுகள்</div>
+      <div class="book-title-english">Video Recordings</div>
+    </div>
+  </div>
+</a>
+
+</div>
+
+<div class="books-row row-3">
+   <a href="archive.html?topic=culture&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book21" data-link="./archive.html" data-from="collection" data-topic="culture" data-type="documents" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">O</div>
+      <div class="book-title-tamil">வாய்மொழி வரலாறு</div>
+      <div class="book-title-english">Oral History</div>
+    </div>
+  </div>
+</a>
+
+<a href="archive.html?topic=history&type=photographs&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book22" data-link="./archive.html" data-from="collection" data-topic="history" data-type="photographs" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">P</div>
+      <div class="book-title-tamil">புகைப்படங்கள்</div>
+      <div class="book-title-english">Photographs</div>
+    </div>
+  </div>
+</a>
+
+
+  <a href="archive.html?topic=history&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book23" data-link="./archive.html" data-from="collection" data-topic="history" data-type="documents" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">D</div>
+      <div class="book-title-tamil">புலம்பெயர் தமிழர்கள் மற்றும் செயல்பாடு</div>
+      <div class="book-title-english">Diaspora and Activism</div>
+    </div>
+  </div>
+</a>
+
+</div>
+
+<div class="books-row row-2">
+   <a href="archive.html?topic=history&type=manuscripts&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book24" data-link="./archive.html" data-from="collection" data-topic="history" data-type="manuscripts" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">R</div>
+      <div class="book-title-tamil">ஆய்வுகள் மற்றும் இதழ்கள்</div>
+      <div class="book-title-english">Research and Journals</div>
+    </div>
+  </div>
+</a>
+
+
+   <a href="archive.html?topic=culture&type=photographs&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book25" data-link="./archive.html" data-from="collection" data-topic="culture" data-type="photographs" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">S</div>
+      <div class="book-title-tamil">சமூக ஊடக பொருட்கள்</div>
+      <div class="book-title-english">Social Media Materials</div>
+    </div>
+  </div>
+</a>
+
+</div>
+
+<div class="books-row row-3">
+   <a href="archive.html?topic=history&type=documents&year=1900-1950&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book1" data-link="./archive.html" data-from="collection" data-topic="history" data-type="documents" data-year="1900-1950">
+    <div class="book-content">
+      <div class="watermark">A</div>
+      <div class="book-title-tamil">ரகசிய ஆவணங்கள்</div>
+      <div class="book-title-english">Confidential Records</div>
+    </div>
+  </div>
+</a>
+
+
+<a href="archive.html?topic=politics&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book2" data-link="./archive.html" data-from="collection" data-topic="politics" data-type="documents" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">P</div>
+      <div class="book-title-tamil">சட்ட செயல்முறைகள் மற்றும் நீதிமன்ற வழக்குகள்</div>
+      <div class="book-title-english">Legal Proceedings<br> and Court Cases</div>
+    </div>
+  </div>
+</a>
+
+
+<a href="archive.html?topic=culture&type=documents&year=1700-1900&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book3" data-link="./archive.html" data-from="collection" data-topic="culture" data-type="documents" data-year="1700-1900">
+    <div class="book-content">
+      <div class="watermark">C</div>
+      <div class="book-title-tamil">கலாச்சார பாரம்பரியம் மற்றும் மரபுகள்</div>
+      <div class="book-title-english">Cultural Heritage<br>and Traditions</div>
+    </div>
+  </div>
+</a>
+
+</div>
+
+<div class="books-row row-1" style="justify-content: center;">
+ <a href="archive.html?topic=politics&type=documents&year=1950-2000&from=collection" style="text-decoration: none; display: block;">
+  <div class="book-card book26" data-link="./archive.html" data-from="collection" data-topic="politics" data-type="documents" data-year="1950-2000">
+    <div class="book-content">
+      <div class="watermark">D</div>
+      <div class="book-title-tamil">நிழல் அரசாங்கம்</div>
+      <div class="book-title-english">De facto State</div>
+    </div>
+  </div>
+</a>
+
+</div>    
+
+
+
+
+
+
+</div></div>
+<!--/cards-->
+
+
+<!-- footer  -->
+  
+
+<footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+  
+        <!-- PayPal Donate Button -->
+   
+
+    <!-- Existing Footer Content -->
+    <h3>Tamil News</h3>
+    <p style="color: #ccc; font-size: 0.9rem;">
+        Your trusted source for Tamil community news, culture, and heritage updates from Sri Lanka and around the world.
+    </p>
+    <p style="color: #999; font-size: 0.85rem; margin-top: 1rem;">
+        © Tamil Information Centre • Est. 1983
+    </p>
+     <div style="margin-bottom: 1.2rem;">
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+            <input type="hidden" name="hosted_button_id" value=""> 
+            <button type="submit" 
+                style="
+                    background-color:#0070ba;
+                    color:white;
+                    padding:10px 18px;
+                    border:none;
+                    border-radius:6px;
+                    cursor:pointer;
+                    font-size:0.95rem;
+                    font-weight:600;
+                    display:inline-flex;
+                    align-items:center;
+                    gap:8px;
+                "
+            >
+                <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" 
+                     alt="PayPal" 
+                     style="height:18px;">
+                Donate with PayPal
+            </button>
+        </form>
+    </div>
+</div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="./aboutus.html">About Us</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="./publication.html">Publications</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="./Heritage Hub.html">Heritage</a></li>
+            <li><a href="./Heritage Hub.html">Culture</a></li>
+            <li><a href="./Heritage Hub.html">Community</a></li>
+            <li><a href="./publication.html">Shop</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="./legal.html">Privacy Policy</a></li>
+            <li><a href="./legal.html">Terms of Service</a></li>
+            <li><a href="./legal.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+     <div class="footer-bottom">
+         <p> ©Tamil Information Centre TIC Archives || 2025 All rights reserved</p>
+        
+</div>
+
+    </div>
+  </footer>
+<!-- footer  -->
+
+
+
+  <!-- Accesss Modal -->
+
+   <!-- Payment Request Modal -->
+    <div class="modal-backdrop" id="accessModal">
+        <div class="modal-content-wrapper">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            
+            <!-- Left Side: Book Details -->
+            <div class="modal-book-details">
+                <img id="modalBookImage" src="" alt="Book Cover" class="modal-book-image">
+                <div class="modal-book-info">
+                    <h3 id="modalBookTitle"></h3>
+                    <p><strong>Type:</strong> <span id="modalBookType"></span></p>
+                    <p><strong>Category:</strong> <span id="modalBookCategory"></span></p>
+                    <p id="modalBookDescription"></p>
+                    <div class="modal-book-price" id="modalBookPrice"></div>
+                </div>
+            </div>
+
+            <!-- Right Side: Request Form -->
+            <div class="modal-form-section">
+                <h3>Payment Request Form</h3>
+                <form id="paymentForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+
+        
+                    <div class="form-group">
+                        <label for="message">Additional Notes</label>
+                        <textarea id="message"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Submit Request</button>
+                        <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+     <!-- Payment Request Modal -->
+    <div class="modal-backdrop" id="paymentModal">
+        <div class="modal-content-wrapper">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            
+            <!-- Left Side: Book Details -->
+            <div class="modal-book-details">
+                <img id="modalBookImage" src="" alt="Book Cover" class="modal-book-image">
+                <div class="modal-book-info">
+                    <h3 id="modalBookTitle"></h3>
+                    <p><strong>Type:</strong> <span id="modalBookType"></span></p>
+                    <p><strong>Category:</strong> <span id="modalBookCategory"></span></p>
+                    <p id="modalBookDescription"></p>
+                    <div class="modal-book-price" id="modalBookPrice"></div>
+
+                    <!-- Payment Details -->
+<div class="modal-payment-details">
+    <h4>Payment Methods</h4>
+
+    <div class="paypal-button-wrapper">
+    <button type="button" class="paypal-btn">
+        <i class="fab fa-paypal"></i>
+        Pay with PayPal
+    </button>
+</div>
+<br>
+    <p class="payment-note">
+        Secure payment via PayPal. Credit & Debit cards accepted.
+    </p>
+</div>
+
+                </div>
+            </div>
+
+            <!-- Right Side: Request Form -->
+            <div class="modal-form-section">
+                <h3>Payment Request Form</h3>
+                <form id="paymentForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+
+        
+                    <div class="form-group">
+                        <label for="message">Additional Notes</label>
+                        <textarea id="message"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Submit Request</button>
+                        <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+ <script>
+// Mobile menu toggle
+(function() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNavOffcanvas = document.getElementById('mobileNavOffcanvas');
+    const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+    const mobileNavClose = document.getElementById('mobileNavClose');
+    
+    if (!mobileMenuBtn || !mobileNavOffcanvas) return;
+    
+    function openMobileMenu() {
+        mobileNavOffcanvas.classList.add('active');
+        mobileNavOverlay?.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMobileMenu() {
+        mobileNavOffcanvas.classList.remove('active');
+        mobileNavOverlay?.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    mobileNavClose?.addEventListener('click', closeMobileMenu);
+    mobileNavOverlay?.addEventListener('click', closeMobileMenu);
+    
+    // Mobile dropdowns
+    document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const target = document.getElementById(this.dataset.target);
+            target?.classList.toggle('active');
+            this.setAttribute('aria-expanded', target?.classList.contains('active'));
+        });
+    });
+})();
+
+// Read more toggle
+document.getElementById('read-more-btn')?.addEventListener('click', function () {
+    const more = document.getElementById('more-content');
+    if (more.style.display === 'none' || !more.style.display) {
+        more.style.display = 'block';
+        this.innerHTML = 'Show less <span class="text-xl">↑</span>';
+    } else {
+        more.style.display = 'none';
+        this.innerHTML = 'Read more <span class="text-xl">↓</span>';
+    }
+});
+
+// SPA filtering (sidebar clicks filter cards)
+(function() {
+    const links = document.querySelectorAll('.js-spa-link');
+    
+    const pageContent = {
+        welcome: { subheading: "DISCOVER THE COLLECTIONS" },
+        history:  { subheading: "HISTORY" },
+        politics: { subheading: "POLITICS" },
+        culture:  { subheading: "CULTURE" },
+        reports:  { subheading: "REPORTS" }
+    };
+
+    links.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const page = link.dataset.page;
+            
+            // Update active style
+            links.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+
+            // Update title (optional)
+            if (pageContent[page]) {
+                document.querySelector('h1').textContent = pageContent[page].subheading;
+            }
+
+            // Filter cards
+            const topic = page === 'welcome' ? null : page.charAt(0).toUpperCase() + page.slice(1);
+            
+            document.querySelectorAll('.book-card').forEach(card => {
+                if (!topic || card.dataset.topic?.toLowerCase() === topic.toLowerCase()) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Hide empty rows
+            document.querySelectorAll('.books-row').forEach(row => {
+                const visible = Array.from(row.querySelectorAll('.book-card'))
+                    .some(c => c.style.display !== 'none');
+                row.style.display = visible ? '' : 'none';
+            });
+
+            // Close mobile menu if open
+            document.getElementById('mobileNavOffcanvas')?.classList.remove('active');
+            document.getElementById('mobileNavOverlay')?.classList.remove('active');
+        });
+    });
+})();
+</script>
+
+<!-- Keep your card redirect logic if needed -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.book-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const link = card.dataset.link;
+            const topic = card.dataset.topic;
+            const type  = card.dataset.type;
+            const year  = card.dataset.year;
+
+            if (link) {
+                const url = new URL(link, window.location.origin);
+                url.searchParams.set('from', 'collection');
+                if (topic) url.searchParams.set('topic', topic);
+                if (type)  url.searchParams.set('type', type);
+                if (year)  url.searchParams.set('year', year);
+                window.location.href = url.toString();
+            }
+        });
+    });
+});
+    // Make all book-cards clickable
+    document.querySelectorAll('.book-card').forEach(card => {
+        card.style.cursor = 'pointer'; // Shows hand on hover
+        card.addEventListener('click', () => {
+            const link = card.getAttribute('data-link');
+            if (link) window.location.href = link;
+        });
+    });
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.book-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const link = card.dataset.link; // 
+            const topic = card.dataset.topic;
+            const type  = card.dataset.type;
+            const year  = card.dataset.year;
+
+            if (link) {
+                const url = new URL(link, window.location.origin);
+                
+                if (topic) url.searchParams.set('topic', topic);
+                if (type)  url.searchParams.set('type', type);
+                if (year)  url.searchParams.set('year', year);
+                url.searchParams.set('from', 'collection');
+
+                window.location.href = url.toString();
+            }
+        });
+    });
+});
+
+</script>
+</body>
+</html>

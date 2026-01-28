@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Archive - TIC Archives</title>
+    <meta name="description" content="Tamil Information Centre - Committed to Human Rights and Community Development since 1983">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+     
+    <!-- Additional Styles for Carousel -->
+    <style>
+        /* Archive Hero Section Style */
+.archive-hero {
+    width: 100%; 
+    margin: 0 auto 1.5rem auto !important; 
+    
+    text-align: center;
+    display: flex;
+    /* Hero-vin height-ai kuraikka padding adjust seiyappattuள்ளது */
+    padding: 2.5rem 1rem 2rem !important; 
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* Background & Border Style - Consistent across site */
+    background: linear-gradient(to bottom, var(--card-bg) 0%, var(--primary-bg) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.08); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    border-radius: var(--border-radius); 
+}
+
+.archive-hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent-dark);
+    margin: 0 0 0.8rem 0;
+    letter-spacing: -1px;
+}
+
+.archive-hero p {
+    font-size: 1.2rem;
+    color: var(--accent-dark);
+    opacity: 0.85;
+    margin: 0;
+    max-width: 700px;
+}
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .carousel-inner img {
+            object-fit: cover;
+            height: 280px;
+            width: 100%;
+        }
+        .carousel-indicators [data-bs-target] {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .carousel-control-prev, .carousel-control-next {
+            width: 12%;
+            opacity: 0.7;
+        }
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            padding: 20px;
+        }
+        h2.text-primary {
+    color: #0f2540 !important;
+}
+.search-filter-wrapper {
+    position: relative;
+}
+
+/* Overlay layer */
+.no-results-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+/* Overlay box */
+.no-results-box {
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.no-results-box h4 {
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+.no-results-box p {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+/* NO RESULTS OVERLAY */
+.no-results {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(246, 236, 224, 0.65);
+    backdrop-filter: blur(3px);
+}
+
+.no-results-box {
+    max-width: 420px;
+    padding: 2.2rem 2rem;
+    background: #f6ece0;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.no-results-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background: #f6ece0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.no-results-box h3 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+}
+
+.no-results-desc {
+    font-size: 0.9rem;
+    color:  #0f2540;
+    margin-bottom: 1.2rem;
+}
+
+.no-results-actions {
+    margin-bottom: 1rem;
+}
+
+.no-results-hint {
+    font-size: 0.9rem;
+    color: #111111;
+}
+
+    </style>
+</head>
+<body>
+
+   <!-- Header -->
+    <header role="banner">
+        <div class="header-container">
+            <div class="header-main">
+                <!-- Logo -->
+                <a href="{{ route('client.home') }}" class="logo" aria-label="Tamil Bookshop Archives Home">
+                    <img src="./image/newlogo.jpeg" alt="Tamil Bookshop Archives Logo" width="60" height="60">
+                    <div class="logo-text">
+                        <span class="ta">THE TIC <br>ARCHIVES</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                    <ul>
+                        <li>
+                            <a href="./index.html" 
+                               class="{{ Route::is('client.home') ? 'active' : '' }}"
+>
+                                Home
+                            </a>
+                        </li>
+
+                      
+
+                        <li class="dropdown-parent">
+                            <a href="./aboutus.html" 
+                               class="{{ Route::is('client.about') || Route::is('client.news') ? 'active' : '' }}"
+                               aria-haspopup="true">
+                                About
+                            </a>
+                            <div class="dropdown" role="menu">
+                                <a href="./aboutus.html" role="menuitem">About Us</a>
+                                 <!-- <a href="./news.html" role="menuitem">News</a>  -->
+                                <a href="./supportus.html" role="menuitem">Support Us</a>
+                            </div>
+                        </li>
+
+                        <li class="dropdown-parent">
+                            <a href="./archive.html" class="{{ Route::is('client.archivecentrecollection') ? 'active' : '' }}"
+                               aria-haspopup="true">
+                                Archive Centre
+                            </a>
+                            <!--  <div class="dropdown" role="menu">
+                                <a href="./archive.html" role="menuitem">Collection</a>
+                                <a href="./archive.html" role="menuitem">Online Catalogue</a>
+                                <a href="./archive.html" role="menuitem">Google Arts & Heritage</a>
+                            </div> 
+                        </li> -->
+
+                        <li class="dropdown-parent">
+                            <a href="./HeritageCentre.html" aria-haspopup="true">Exhibition </a>
+                            <!--  <div class="dropdown" role="menu">
+                                <a href="./ToL.html" role="menuitem">ToL Exhibition</a>
+                                <a href="./HeritageCentre.html" role="menuitem">Heritage Centre</a>
+                                <a href="./subjectguide.html" role="menuitem">Subject Guides</a>
+                                <a href="./historical-timeline.html" role="menuitem">Historical Timeline</a>
+                                <a href="./workshop.html" role="menuitem">Learning Workshops</a>
+                            </div>
+                        </li> -->
+
+                        <li class="dropdown-parent">
+                            <a href="./ToL.html" aria-haspopup="true">Heritage Museum</a>
+                          <!--    <div class="dropdown" role="menu">
+                                <a href="./event.html" role="menuitem">Latest Events</a>
+                                <a href="./project.html" role="menuitem">Projects & Programs</a>
+                                <a href="./collaborate.html" role="menuitem">Collaborate</a>
+                            </div>
+                        </li>-->
+
+                        <li class="dropdown-parent">
+                            <a href="#" aria-haspopup="true">Join</a>
+                            <div class="dropdown" role="menu">
+                                <a href="./member.html" role="menuitem">Membership</a>
+                                <a href="#donate" role="menuitem">Donate</a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="./publication.html" 
+                               class="{{ Route::is('client.publications') ? 'active' : '' }}">
+                                Shop
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html" 
+                               class="{{ Route::is('client.contactus') ? 'active' : '' }}">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" 
+                        id="mobileMenuBtn" 
+                        aria-label="Open mobile menu"
+                        aria-expanded="false"
+                        aria-controls="mobileNavOffcanvas">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Mobile Navigation Offcanvas -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <div class="mobile-nav-offcanvas" id="mobileNavOffcanvas" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div class="mobile-nav-header">
+            <span style="font-weight: 700; color: var(--accent-dark);">Menu</span>
+            <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close mobile menu">✕</button>
+        </div>
+        <nav class="mobile-nav-menu" role="navigation" aria-label="Mobile navigation">
+            <ul>
+                <li><a href="./index.html" class="{{ Route::is('client.home') ? 'active' : '' }}">Home</a></li>
+                
+                <li>
+                    <button class="mobile-dropdown-toggle" data-target="aboutDropdown" aria-expanded="false">
+                        About <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-content" id="aboutDropdown">
+                        <a href="./aboutus.html">About Us</a>
+                         <!-- <a href="./news.html">News</a>-->
+                        <a href="./supportus.html">Support Us</a>
+                    </div>
+                </li>
+                    <li><a href="./archive.html">  Archive Centre </a></li>
+
+                <!--   <li>
+                    <button class="mobile-dropdown-toggle" data-target="archiveDropdown" aria-expanded="false">
+                        Archive Centre 
+                    </button>
+                    <div class="mobile-dropdown-content" id="archiveDropdown">
+                        <a href="./archive.html">Collection</a>
+                       <a href="./archive.html">Online Catalogue</a>
+                        <a href="./archive.html">Google Arts & Heritage</a>
+                    </div>
+                </li>-->
+                         <li><a href="./Heritage Hub.html">   Exhibition</a></li>
+                  <!--<li>
+                    <button class="mobile-dropdown-toggle" data-target="exhibitionDropdown" aria-expanded="false">
+                Exhibition
+                    </button>
+                    <div class="mobile-dropdown-content" id="exhibitionDropdown">
+                        <a href="./ToL.html">ToL Exhibition</a>
+                        <a href="./HeritageCentre.html">Heritage Centre</a>
+                         <!--<a href="./subjectguide.html">Subject Guides</a>
+                        <a href="./historical-timeline.html">Historical Timeline</a>
+                        <a href="./workshop.html">Learning Workshops</a>
+                    </div>
+                </li>-->
+                     <li><a href="./ToL.html">Heritage Museum</a></li>
+                <!--  <li>
+                    <button class="mobile-dropdown-toggle" data-target="whatsOnDropdown" aria-expanded="false">
+                        What's On 
+                    </button>
+                    <div class="mobile-dropdown-content" id="whatsOnDropdown">
+                        <a href="./event.html">Latest Events</a>
+                        <a href="./project.html">Projects & Programs</a>
+                        <a href="./collaborate.html">Collaborate</a>
+                    </div>
+                </li>-->
+
+                <li>
+                    <button class="mobile-dropdown-toggle" data-target="joinDropdown" aria-expanded="false">
+                        Join <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-content" id="joinDropdown">
+                        <a href="./member.html">Membership</a>
+                        <a href="#donate">Donate</a>
+                    </div>
+                </li>
+
+                <li><a href="./publication.html">Shop</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+<!--/header-->
+
+    <!-- Main Content -->
+<style>
+    .carousel {
+        background-color: #f0f0f0;
+        min-height: 160px;
+        border-radius: 8px 8px 0 0;
+        overflow: hidden;
+    }
+    .carousel-item img {
+        height: 160px; 
+        width: 100%;
+        object-fit: cover;
+    }
+    .carousel-indicators [data-bs-target] {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: #000;
+    }
+    .card {
+        transition: transform 0.2s;
+        border: 1px solid #ddd !important;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    .card-title-text {
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-top: 5px;
+    }
+    .card-desc-text {
+        font-size: 0.8rem;
+        color: #666;
+    }
+</style>
+<main class="container my-5 py-4">
+
+    <section class="archive-hero text-center mb-5">
+        <h1>Archive Centre Collection</h1>
+        <p>Explore curated guides on Tamil heritage topics</p>
+    </section>
+
+    <!-- Search + Filter -->
+    <section class="search-section mb-5 position-relative">
+
+        <!-- NO RESULTS OVERLAY -->
+<div id="noResults" class="no-results d-none" role="status" aria-live="polite">
+    <div class="no-results-box">
+        <div class="no-results-icon">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <h3>No matching collections</h3>
+
+        <p class="no-results-desc">
+            Your search or selected filters didn’t return any results.
+        </p>
+
+        <div class="no-results-actions">
+            <button id="clearFiltersBtn" class="btn btn-dark btn-sm">
+    Clear all filters
+</button>
+        </div>
+
+        <p class="no-results-hint">
+            Tip: Try broader keywords or remove one filter at a time.
+        </p>
+    </div>
+</div>
+        <div class="card shadow border-0 p-4 p-md-5" style="border-radius: 15px; background: #f6ece0;">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="input-group input-group-lg shadow-sm">
+                        <span class="input-group-text bg-white border-end-0"><i class="fas fa-search text-primary"></i></span>
+                        <input type="text" class="form-control border-start-0 ps-0" input id="searchInput" placeholder="Search by title, keyword or description...">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-3 justify-content-center">
+                <div class="col-6 col-md-4">
+                    <label class="small fw-bold mb-1 text-secondary"><i class="fas fa-filter me-1"></i> Category</label>
+                    <select class="form-select filter-select shadow-sm" id="typeFilter">
+                        <option value="">All Types</option>
+                        <option value="documents">Documents</option>
+                        <option value="photographs">Photographs</option>
+                        <option value="manuscripts">Manuscripts</option>
+                        <option value="maps">Maps</option>
+                    </select>
+                </div>
+                <div class="col-6 col-md-4">
+                    <label class="small fw-bold mb-1 text-secondary"><i class="fas fa-calendar-alt me-1"></i> Era</label>
+                    <select class="form-select filter-select shadow-sm" id="yearFilter">
+                        <option value="">All Years</option>
+                        <option value="1700-1900">1700-1900</option>
+                        <option value="1900-1950">1900-1950</option>
+                        <option value="1950-2000">1950-2000</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-4">
+                    <label class="small fw-bold mb-1 text-secondary"><i class="fas fa-tags me-1"></i> Topic</label>
+                    <select class="form-select filter-select shadow-sm" id="topicFilter">
+                        <option value="">All Topics</option>
+                         <option value="Reports">Reports</option>
+                        <option value="history">History</option>
+                        <option value="culture">Culture</option>
+                        <option value="politics">Politics</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="row g-4" id="collectionGrid">
+        <div id="collectionsContainer">
+
+            <section class="collection-section mb-5">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card " data-type="documents" data-year="1900-1950" data-topic="history"  >
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://d1sxy7l4fhu207.cloudfront.net/uploads/production/1812/conversions/BOA_TEIC_Volume8_1632393273-800x600.jpg" class="card-img-top" alt="Colonial Era Records">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Documents</span>
+                                <h5 class="card-title fw-bold">Colonial Era Records</h5>
+                                <p class="card-text text-muted small flex-grow-1">Comprehensive collection of administrative documents from 1796-1948 
+                                    covering governance and social policies .</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card " data-type="photographs" data-year="1950-1980" data-topic="culture" >
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=3655869134452631" class="card-img-top" alt="Jaffna Through Decades">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Photographs</span>
+                                <h5 class="card-title fw-bold">Jaffna Through Decades</h5>
+                                <p class="card-text text-muted small flex-grow-1">Rare photographic journey capturing daily life, festivals, and architecture from 1920s to 1980s.</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card" data-type="manuscripts" data-year="1900-1950" data-topic="Culture" >
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Odia_palm_leaf_manuscript.JPG" class="card-img-top" alt="Ancient Palm Leaf">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Manuscripts</span>
+                                <h5 class="card-title fw-bold">Ancient Tamil Palm Leaf</h5>
+                                <p class="card-text text-muted small flex-grow-1">Preserved palm leaf manuscripts containing classical Tamil literature and religious texts.</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card " data-type="documents" data-year="1980-2000" data-topic="culture" >
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://www.tamilguardian.com/sites/default/files/Image/pictures/2019/Diaspora/UK/190521%20TIC%20TFL%20event/190521%20TIC%20TFL%20event4.jpeg" class="card-img-top" alt="Cultural Artifacts">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Heritage</span>
+                                <h5 class="card-title fw-bold">Cultural Artifacts</h5>
+                                <p class="card-text text-muted small flex-grow-1">Digital documentation of traditional tools and heritage items.</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="collection-section mb-5">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card " data-type="documents" data-year="1900-1950" data-topic="politics">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://dhjg5nm5426ht.cloudfront.net/collection-thumbnails/_800x418_fit_center-center_82_none_ns/east-india-company-thumbnail.jpg?v=1759999695" class="card-img-top" alt="Legislative Minutes">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Documents</span>
+                                <h5 class="card-title fw-bold">Legislative Minutes</h5>
+                                <p class="card-text text-muted small flex-grow-1">Original minutes and proceedings from Ceylon Legislative Council meetings 1833-1931.</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card " data-type="publication" data-year="1900-1950" data-topic="history">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=10227326672487834" class="card-img-top" alt="Tamil Periodicals">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Publications</span>
+                                <h5 class="card-title fw-bold">Tamil Periodicals Archive</h5>
+                                <p class="card-text text-muted small flex-grow-1">Complete collection of Tamil newspapers and magazines from early 20th century Ceylon.</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card " data-type="correspondence"data-year="1900-1950" data-topic="politics">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://www.oldfonts.com/antiquepenman/wp-content/uploads/2015/12/DadLetters_envelope-1024x588.jpg" class="card-img-top" alt="Leaders' Letters">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Correspondence</span>
+                                <h5 class="card-title fw-bold">Leaders' Letters</h5>
+                                <p class="card-text text-muted small flex-grow-1">Personal correspondence between Tamil political leaders documenting independence movement.</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card " data-type="documents"data-year="1700-1900" data-topic="history">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://dhjg5nm5426ht.cloudfront.net/masthead/_masthead/India-Raj-and-Empire_masthead.jpg?v=1760001612" class="card-img-top" alt="Historical Census">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Reports</span>
+                                <h5 class="card-title fw-bold">Historical Census</h5>
+                                <p class="card-text text-muted small flex-grow-1">Population data and census reports from the 19th century.</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="collection-section mb-5">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card " data-type="photographs"data-year="1950-2000" data-topic="culture">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://c8.alamy.com/comp/2T24PDD/hindu-temple-festival-in-srilanka-tamil-cultural-event-for-famous-festival-tamils-peoples-2T24PDD.jpg" class="card-img-top" alt="Festival Photos">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Photographs</span>
+                                <h5 class="card-title fw-bold">Festival Photos</h5>
+                                <p class="card-text text-muted small flex-grow-1">Images of Tamil Hindu festivals and temple celebrations.</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card " data-type="photographs"data-year="1950-2000" data-topic="culture">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/Nallur_Kandasamy_front_entrance.jpg" class="card-img-top" alt="Temple Survey">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Architecture</span>
+                                <h5 class="card-title fw-bold">Temple Survey</h5>
+                                <p class="card-text text-muted small flex-grow-1">Photographic survey of Hindu temples in Northern provinces.</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card " data-type="photographs"data-year="1900-1950" data-topic="history">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3574817195416081065" class="card-img-top" alt="Notable Figures">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Portraits</span>
+                                <h5 class="card-title fw-bold">Notable Figures</h5>
+                                <p class="card-text text-muted small flex-grow-1">Portrait collection of Tamil scholars, artists, politicians, and community leaders.</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card " data-type="photographs"data-year="1950-2000" data-topic="history">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3047176209028949343" class="card-img-top" alt="Vintage Street Views">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Vintage</span>
+                                <h5 class="card-title fw-bold">Vintage Street Views</h5>
+                                <p class="card-text text-muted small flex-grow-1">Daily life scenes from Batticaloa and Jaffna markets (1950s).</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="collection-section">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card " data-type="maps"data-year="1700-1900" data-topic="history">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://sanderusmaps.com/assets/WEBP/m09278.webp" class="card-img-top" alt="Historical Maps">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Maps</span>
+                                <h5 class="card-title fw-bold">Historical Maps</h5>
+                                <p class="card-text text-muted small flex-grow-1">Rare cartography depicting Tamil regions and Ceylon.</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card " data-type="audio" data-year="1950-2000" data-topic="culture">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://s3.amazonaws.com/files.commons.gc.cuny.edu/wp-content/blogs.dir/25815/files/2023/10/RSLocalFile-85E7B9CA-200F-4E02-A5F7-A7054B8C098E.png" class="card-img-top" alt="Oral Histories">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Audio/Video</span>
+                                <h5 class="card-title fw-bold">Oral Histories</h5>
+                                <p class="card-text text-muted small flex-grow-1">Recorded interviews with elders sharing heritage memories.</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card " data-type="manuscripts" data-year="1950-2000" data-topic="culture">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://i.ytimg.com/vi/Q72KDDMnjp4/maxresdefault.jpg" class="card-img-top" alt="Modern Authors">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Literature</span>
+                                <h5 class="card-title fw-bold">Modern Authors</h5>
+                                <p class="card-text text-muted small flex-grow-1">Handwritten works by modern Sri Lankan Tamil writers.</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 collection-card " data-type="documents"data-year="1950-2000" data-topic="history">
+                        <div class="card h-100 border-0 shadow-sm text-center">
+                            <img src="https://images.immediate.co.uk/production/volatile/sites/7/2018/01/The-Monteagle-letter-26-October-1606-dabb610.jpg?resize=768,509" class="card-img-top" alt="Diaspora Archives">
+                            <div class="card-body d-flex flex-column">
+                                <span class="badge bg-danger mb-3 mx-auto">Social</span>
+                                <h5 class="card-title fw-bold">Diaspora Archives</h5>
+                                <p class="card-text text-muted small flex-grow-1">Early migration records and community life in foreign lands.</p>
+                                <a href="#" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- book1 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1900-1950" data-topic="history">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_webp,s_webp/cbn.co.za/wp-content/uploads/2022/03/cd.jpg" 
+             class="card-img-top" alt="ரகசிய ஆவணங்கள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">ரகசிய ஆவணங்கள்</h5>
+            <p class="card-text text-muted small flex-grow-1">Confidential Records</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book2 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1950-2000" data-topic="politics">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2020/01/10/Pictures/_942f15b2-3341-11ea-bc15-9abc7b7a1843.jpg" 
+             class="card-img-top" alt="சட்ட செயல்முறைகள் மற்றும் நீதிமன்ற வழக்குகள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">சட்ட செயல்முறைகள் மற்றும் நீதிமன்ற வழக்குகள்</h5>
+            <p class="card-text text-muted small flex-grow-1">Legal Proceedings and Court Cases</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book3 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1700-1900" data-topic="culture">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqirk3AC81vIR2HPAjr0kK44Lir5-J3kXJ7Q&s" 
+             class="card-img-top" alt="கலாச்சார பாரம்பரியம் மற்றும் மரபுகள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">கலாச்சார பாரம்பரியம் மற்றும் மரபுகள்</h5>
+            <p class="card-text text-muted small flex-grow-1">Cultural Heritage and Traditions</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book4 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1950-2000" data-topic="politics">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://resources.cdn.yaclass.in/2bb21add-c105-430b-a85b-adbd66a8c69a/shutterstock1274213677w300.jpg" 
+             class="card-img-top" alt="பாகுபாடு மற்றும் சமத்துவமின்மை" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">பாகுபாடு மற்றும் சமத்துவமின்மை</h5>
+            <p class="card-text text-muted small flex-grow-1">Discrimination and Inequality</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book5 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1900-1950" data-topic="history">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://femena.net/wp-content/uploads/2023/08/enforced-disappearances.jpg" 
+             class="card-img-top" alt="சுதந்திரப் போராளிகள் மற்றும் எதிர்ப்பு இயக்கங்கள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">சுதந்திரப் போராளிகள் மற்றும் எதிர்ப்பு இயக்கங்கள்</h5>
+            <p class="card-text text-muted small flex-grow-1">Freedom Fighters and Resistance Movements</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book6 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1950-2000" data-topic="politics">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTjOUfUriZgaxZ4RnP0AriqffPUaeTfzbR1Q&s" 
+             class="card-img-top" alt="மனித உரிமை மீறல்கள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">மனித உரிமை மீறல்கள்</h5>
+            <p class="card-text text-muted small flex-grow-1">Human Rights Violations</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book7 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1950-2000" data-topic="history">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://femena.net/wp-content/uploads/2023/08/enforced-disappearances.jpg" 
+             class="card-img-top" alt="கொலை, கடத்தல்கள் மற்றும் கட்டாயகாணாமல் போகச் செய்தல்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">கொலை, கடத்தல்கள் மற்றும் கட்டாயகாணாமல் போகச் செய்தல்</h5>
+            <p class="card-text text-muted small flex-grow-1">Abductions, Kidnappings, and Enforced Disappearances</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book8 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1950-2000" data-topic="politics">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAJJ32tfzJiCIGdEzioZ6HrrmuSYJssU4AJQ&s" 
+             class="card-img-top" alt="கொலைகள் மற்றும் நீதிக்குறிய அம்சமில்லாத செயல்கள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">கொலைகள் மற்றும் நீதிக்குறிய அம்சமில்லாத செயல்கள்</h5>
+            <p class="card-text text-muted small flex-grow-1">Killings and Extrajudicial Executions</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book9 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1900-1950" data-topic="history">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://c8.alamy.com/comp/ARERN2/rows-of-miscellaneous-secondhand-vinyl-records-in-shop-in-notting-ARERN2.jpg" 
+             class="card-img-top" alt="பலவகை பதிவுகள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">பலவகை பதிவுகள்</h5>
+            <p class="card-text text-muted small flex-grow-1">Miscellaneous Records</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book10 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1950-2000" data-topic="politics">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://blog.sonicbids.com/hs-fs/hub/245581/file-1346216223.jpg" 
+             class="card-img-top" alt="பத்திரிகை மற்றும் ஊடகச் செய்திகள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">பத்திரிகை மற்றும் ஊடகச் செய்திகள்</h5>
+            <p class="card-text text-muted small flex-grow-1">Press and Media Clippings</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book11 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1950-2000" data-topic="politics">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://i.guim.co.uk/img/media/aa58bcae56058215affe0df3c29578201d53862b/177_670_6015_3609/master/6015.jpg?width=465&dpr=1&s=none&crop=none2" 
+             class="card-img-top" alt="அமைதி பேச்சுவார்த்தைகள் மற்றும் கலந்துரையாடல்கள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">அமைதி பேச்சுவார்த்தைகள் மற்றும் கலந்துரையாடல்கள்</h5>
+            <p class="card-text text-muted small flex-grow-1">Peace Negotiations and Talks</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book12 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1950-2000" data-topic="politics">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSko2UH0thQMIvkOdIKm7n3y4xlcUGrxCM3aA&s" 
+             class="card-img-top" alt="பத்திரிகை வெளியீடுகள் மற்றும் அறிக்கைகள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">பத்திரிகை வெளியீடுகள் மற்றும் அறிக்கைகள்</h5>
+            <p class="card-text text-muted small flex-grow-1">Press Releases and Statements</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book13 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="manuscripts" data-year="1900-1950" data-topic="culture">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLX_tparPLnd1e5AvuqXZkg4uj6NRzLcXlZQ&s" 
+             class="card-img-top" alt="புத்தகங்கள், கட்டுரைகள் மற்றும் வெளியீடுகள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">புத்தகங்கள், கட்டுரைகள் மற்றும் வெளியீடுகள்</h5>
+            <p class="card-text text-muted small flex-grow-1">Books, Articles, and Publications</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book14 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1950-2000" data-topic="history">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://umojaoperation.ca/wp-content/uploads/2019/06/Refugees.jpg" 
+             class="card-img-top" alt="அகதிகள் மற்றும் இடம்பெயர்ச்சி" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">அகதிகள் மற்றும் இடம்பெயர்ச்சி</h5>
+            <p class="card-text text-muted small flex-grow-1">Refugees and Displacement</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book15 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1950-2000" data-topic="history">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://i.ytimg.com/vi/9EWZvwE2548/maxresdefault.jpg" 
+             class="card-img-top" alt="மறுஉறுதிப்படுத்தல் மற்றும் மீளமைப்பு" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">மறுஉறுதிப்படுத்தல் மற்றும் மீளமைப்பு</h5>
+            <p class="card-text text-muted small flex-grow-1">Rehabilitation and Reconstruction</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book16 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1950-2000" data-topic="history">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://ticonline.org/images/topbanner.png?id=927982" 
+             class="card-img-top" alt="TIC நிறுவன ஆவணங்கள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">TIC நிறுவன ஆவணங்கள்</h5>
+            <p class="card-text text-muted small flex-grow-1">TIC Institutional Documents</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book17 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1900-1950" data-topic="politics">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://i.guim.co.uk/img/media/06952e193d5508da973d0aae4562dd9880cb7ce3/0_192_5760_3456/master/5760.jpg?width=465&dpr=1&s=none&crop=none" 
+             class="card-img-top" alt="பிரிட்டிஷ் அரசு மற்றும் ஹோம் ஆபீஸ் பதிவுகள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">பிரிட்டிஷ் அரசு மற்றும் ஹோம் ஆபீஸ் பதிவுகள்</h5>
+            <p class="card-text text-muted small flex-grow-1">UK Government and Home Office Records</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book18 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1950-2000" data-topic="politics">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLICt_VScdHZvk6le1FZWVbN0WJo8oYgZ-9g&s" 
+             class="card-img-top" alt="ஐக்கிய நாடுகள் அமைப்பு அறிக்கைகள் மற்றும் ஆவணங்கள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">ஐக்கிய நாடுகள் அமைப்பு அறிக்கைகள் மற்றும் ஆவணங்கள்</h5>
+            <p class="card-text text-muted small flex-grow-1">United Nations Reports and Documentation</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book19 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1950-2000" data-topic="history">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQDaBLqVrE3bG3QC9MgzLVk66H6v_kbhJswQ&s" 
+             class="card-img-top" alt="பயிற்சி மற்றும் மாநாடு ஆவணங்கள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">பயிற்சி மற்றும் மாநாடு ஆவணங்கள்</h5>
+            <p class="card-text text-muted small flex-grow-1">Workshop Papers and Conference Material</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book20 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="photographs" data-year="1950-2000" data-topic="culture">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://legacybox.com/cdn/shop/articles/first-recording_c6c46997-9a41-4b69-b35c-da107d25585c_600x.jpg?v=1563395395" 
+             class="card-img-top" alt="வீடியோ பதிவுகள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">வீடியோ பதிவுகள்</h5>
+            <p class="card-text text-muted small flex-grow-1">Video Recordings</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book21 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1950-2000" data-topic="culture">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2QBgbJ6fhoTTrLucTQEdQja6wfhEbQfxdYw&s" 
+             class="card-img-top" alt="வாய்மொழி வரலாறு" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">வாய்மொழி வரலாறு</h5>
+            <p class="card-text text-muted small flex-grow-1">Oral History</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book22 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="photographs" data-year="1950-2000" data-topic="history">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://therakshinisaran.wordpress.com/wp-content/uploads/2020/10/polish_20201010_161250498.jpg?w=1024" 
+             class="card-img-top" alt="புகைப்படங்கள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">புகைப்படங்கள்</h5>
+            <p class="card-text text-muted small flex-grow-1">Photographs</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book23 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="documents" data-year="1950-2000" data-topic="history">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://noria-research.com/wp-content/uploads/2017/05/Tamils-block-Gardiner-Expressway-1.jpeg" 
+             class="card-img-top" alt="புலம்பெயர் தமிழர்கள் மற்றும் செயல்பாடு" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">புலம்பெயர் தமிழர்கள் மற்றும் செயல்பாடு</h5>
+            <p class="card-text text-muted small flex-grow-1">Diaspora and Activism</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+<!-- book24 -->
+<div class="collection-card discover-card col-12 col-sm-6 col-lg-3" 
+     data-type="manuscripts" data-year="1950-2000" data-topic="history">
+    <div class="card h-100 border-0 shadow-sm text-center position-relative">
+        <img src="https://i0.wp.com/carijournals.org/wp-content/uploads/2023/04/How-to-Format-Your-Research-Paper-for-Publication-under-CARI-Journals.png?fit=1000%2C600&ssl=1" 
+             class="card-img-top" alt="ஆய்வுகள் மற்றும் இதழ்கள்" style="height:220px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+            <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+            <h5 class="card-title fw-bold">ஆய்வுகள் மற்றும் இதழ்கள்</h5>
+            <p class="card-text text-muted small flex-grow-1">Research and Journals</p>
+            <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="row justify-content-center g-4 mt-4">
+    <!-- book25 - center  -->
+    <div class="collection-card discover-card col-12 col-sm-6 col-lg-4 mx-auto" 
+         data-type="photographs" data-year="1950-2000" data-topic="culture">
+        <div class="card h-100 border-0 shadow-sm text-center position-relative">
+            <img src="https://vmedu.com/backoffice/images/Articleimages/social-media.jpg"
+                 class="card-img-top" alt="சமூக ஊடக பொருட்கள்" style="height:220px; object-fit:cover;">
+            <div class="card-body d-flex flex-column">
+                <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+                <h5 class="card-title fw-bold">சமூக ஊடக பொருட்கள்</h5>
+                <p class="card-text text-muted small flex-grow-1">Social Media Materials</p>
+                <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- book26 - center  -->
+    <div class="collection-card discover-card col-12 col-sm-6 col-lg-4 mx-auto" 
+         data-type="documents" data-year="1950-2000" data-topic="politics">
+        <div class="card h-100 border-0 shadow-sm text-center position-relative">
+            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=400"
+                 class="card-img-top" alt="நிழல் அரசாங்கம்" style="height:220px; object-fit:cover;">
+            <div class="card-body d-flex flex-column">
+                <div class="watermark position-absolute top-0 end-0 bg-dark text-white px-3 py-1 rounded-bottom-left fw-bold fs-5"></div>
+                <h5 class="card-title fw-bold">நிழல் அரசாங்கம்</h5>
+                <p class="card-text text-muted small flex-grow-1">De facto State</p>
+                <a href="./archive.html" class="btn btn-dark btn-sm mt-auto mx-auto">View Collection</a>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+     <!-- footer -->
+<!-- footer  -->
+   <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+  
+        <!-- PayPal Donate Button -->
+   
+
+    <!-- Existing Footer Content -->
+    <h3>Tamil News</h3>
+    <p style="color: #ccc; font-size: 0.9rem;">
+        Your trusted source for Tamil community news, culture, and heritage updates from Sri Lanka and around the world.
+    </p>
+    <p style="color: #999; font-size: 0.85rem; margin-top: 1rem;">
+        © Tamil Information Centre • Est. 1983
+    </p>
+     <div style="margin-bottom: 1.2rem;">
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+            <input type="hidden" name="hosted_button_id" value=""> 
+            <button type="submit" 
+                style="
+                    background-color:#0070ba;
+                    color:white;
+                    padding:10px 18px;
+                    border:none;
+                    border-radius:6px;
+                    cursor:pointer;
+                    font-size:0.95rem;
+                    font-weight:600;
+                    display:inline-flex;
+                    align-items:center;
+                    gap:8px;
+                "
+            >
+                <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" 
+                     alt="PayPal" 
+                     style="height:18px;">
+                Donate with PayPal
+            </button>
+        </form>
+    </div>
+</div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="./aboutus.html">About Us</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="./publication.html">Publications</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="./Heritage Hub.html">Heritage</a></li>
+            <li><a href="./Heritage Hub.html">Culture</a></li>
+            <li><a href="./Heritage Hub.html">Community</a></li>
+            <li><a href="./publication.html">Shop</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="./legal.html">Privacy Policy</a></li>
+            <li><a href="./legal.html">Terms of Service</a></li>
+            <li><a href="./legal.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+     <div class="footer-bottom">
+         <p> ©Tamil Information Centre TIC Archives || 2025 All rights reserved</p>
+        
+</div>
+
+    </div>
+  </footer>
+<!-- footer  -->
+<!-- footer -->
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        type: params.get('type') || '',
+        year: params.get('year') || '',
+        topic: params.get('topic') || ''
+    };
+}
+
+function applyInitialFilters() {
+    const { type, year, topic } = getQueryParams();
+
+    if (type) document.getElementById('typeFilter').value = type;
+    if (year) document.getElementById('yearFilter').value = year;
+    if (topic) document.getElementById('topicFilter').value = topic;
+
+    filterCollections(); // call your existing filter function
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    applyInitialFilters();
+});
+
+function filterCollections() {
+    const type = document.getElementById('typeFilter').value.toLowerCase();
+    const year = document.getElementById('yearFilter').value.toLowerCase();
+    const topic = document.getElementById('topicFilter').value.toLowerCase();
+
+    const cards = document.querySelectorAll('.collection-card');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+        const cardType = card.dataset.type.toLowerCase();
+        const cardYear = card.dataset.year.toLowerCase();
+        const cardTopic = card.dataset.topic.toLowerCase();
+
+        if ((type === '' || cardType === type) &&
+            (year === '' || cardYear === year) &&
+            (topic === '' || cardTopic === topic)) {
+            card.style.display = 'block';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    // show "no results" if none
+    document.getElementById('noResults').classList.toggle('d-none', visibleCount > 0);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const typeFilter  = document.getElementById('typeFilter');
+    const yearFilter  = document.getElementById('yearFilter');
+    const topicFilter = document.getElementById('topicFilter');
+    const noResults   = document.getElementById('noResults');
+    const clearBtn    = document.getElementById('clearFiltersBtn');
+
+    const allCards = document.querySelectorAll('.collection-card');
+    const discoverCards = document.querySelectorAll('.discover-card');
+
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const hasUrlParam = urlParams.has('topic') || urlParams.has('type') || urlParams.has('year');
+
+    // Initial state
+    if (hasUrlParam) {
+     
+        allCards.forEach(card => card.style.display = 'none');
+    } else {
+        // Normal page load → discover cards hide, original show
+        discoverCards.forEach(card => card.style.display = 'none');
+        allCards.forEach(card => {
+            if (!card.classList.contains('discover-card')) {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    
+    const urlTopic = urlParams.get('topic');
+    const urlType  = urlParams.get('type');
+    const urlYear  = urlParams.get('year');
+
+    if (urlTopic) topicFilter.value = urlTopic;
+    if (urlType)  typeFilter.value  = urlType;
+    if (urlYear)  yearFilter.value  = urlYear;
+
+    function applyFilters() {
+        const searchValue = searchInput.value.toLowerCase().trim();
+        const typeValue   = typeFilter.value;
+        const yearValue   = yearFilter.value;
+        const topicValue  = topicFilter.value;
+
+        const hasFilter = searchValue || typeValue || yearValue || topicValue;
+        let visibleCount = 0;
+
+        allCards.forEach(card => {
+            const titleTamil   = card.querySelector('.card-title')?.innerText.toLowerCase() || '';
+            const titleEnglish = card.querySelector('.card-text')?.innerText.toLowerCase() || '';
+            const combined     = titleTamil + ' ' + titleEnglish;
+
+            const matchesSearch = combined.includes(searchValue);
+            const matchesType   = !typeValue   || card.dataset.type  === typeValue;
+            const matchesYear   = !yearValue   || card.dataset.year  === yearValue;
+            const matchesTopic  = !topicValue  || card.dataset.topic === topicValue;
+
+            const shouldShow = matchesSearch && matchesType && matchesYear && matchesTopic;
+
+            if (hasFilter || hasUrlParam) {
+             
+                card.style.display = shouldShow ? 'block' : 'none';
+                if (shouldShow) visibleCount++;
+            } else {
+                card.style.display = card.classList.contains('discover-card') ? 'none' : 'block';
+            }
+        });
+
+        if ((hasFilter || hasUrlParam) && visibleCount === 0) {
+            noResults.classList.remove('d-none');
+        } else {
+            noResults.classList.add('d-none');
+        }
+    }
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', function() {
+            searchInput.value = '';
+            typeFilter.value  = '';
+            yearFilter.value  = '';
+            topicFilter.value = '';
+
+            noResults.classList.add('d-none');
+
+            discoverCards.forEach(card => card.style.display = 'none');
+            allCards.forEach(card => {
+                if (!card.classList.contains('discover-card')) {
+                    card.style.display = 'block';
+                }
+            });
+
+            window.history.replaceState({}, document.title, window.location.pathname);
+        });
+    }
+
+    searchInput.addEventListener('input', applyFilters);
+    typeFilter.addEventListener('change', applyFilters);
+    yearFilter.addEventListener('change', applyFilters);
+    topicFilter.addEventListener('change', applyFilters);
+
+    applyFilters();
+});
+</script>
+</body>
+</html>

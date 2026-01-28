@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exhibition & Heritage Centre - TIC Archives</title>
+    <meta name="description" content="Discover our exhibitions and heritage displays at Tamil Information Centre.">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./HeritageHub.css">
+    <link rel="stylesheet" href="./aboutus.css">
+    <style>
+        /* Exhibition Page Hero Section Style */
+.exhibition-header {
+    width: 100%; 
+    
+    margin: 0 auto 4rem auto; 
+    
+    text-align: center;
+    display: flex;
+    padding: 5rem 1rem 4rem; /* Consistent height padding */
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* Background & Border Style - Consistent with Image 1 */
+    background: linear-gradient(to bottom, var(--card-bg) 0%, var(--primary-bg) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.08); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    border-radius: var(--border-radius); 
+}
+
+.exhibition-header i {
+    color: var(--accent-dark);
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+.exhibition-header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--accent-dark);
+    margin: 0 0 1rem 0;
+    letter-spacing: -1.5px;
+    line-height: 1.2;
+}
+
+.exhibition-header .section-subtitle {
+    font-size: 1.25rem;
+    color: var(--accent-dark);
+    opacity: 0.8;
+    margin: 0;
+    max-width: 800px;
+}
+        .current-exhibitions {
+            padding: 0.5rem;
+        }
+        .featured-grid {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            padding-bottom: 1rem;
+        }
+        .featured-card {
+            min-width: 250px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .card-thumb img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .featured-card-content {
+            padding: 1rem;
+        }
+        .now-open {
+            background: red;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        
+        .upcoming-grid {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.5rem;
+            padding-bottom: 1rem;
+        }
+        .upcoming-card {
+            min-width: 300px;
+            background: #f6ece0;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-muted);
+        }
+        .month-badge {
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        .month-badge.red { background: #ff0000; }
+        .month-badge.orange { background: #ff6600; }
+        .month-badge.yellow { background: #ffcc00; }
+        .month-badge.green { background: #00cc00; }
+        .month-badge.blue { background: #0066ff; }
+        .visitor-info {
+            padding: 2rem;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .info-card {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .highlights-section {
+            padding: 2rem;
+            background: #f6ece0;
+        }
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        .highlights-grid img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        @media (max-width: 768px) {
+            .featured-grid, .upcoming-grid {
+                flex-wrap: nowrap;
+            }
+        }
+        /* Upcoming Exhibitions - Single Card Horizontal Scroll */
+    .upcoming-container {
+        max-width: 600px; 
+        margin: 0 auto;
+    }
+
+    .upcoming-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1.5rem; 
+        padding-bottom: 15px;
+        scrollbar-width: thin; /* Firefox */
+    }
+
+    /* Scrollbar Styling for Chrome/Safari */
+    .upcoming-grid::-webkit-scrollbar {
+        height: 8px;
+    }
+    .upcoming-grid::-webkit-scrollbar-thumb {
+        background: var(--accent-dark);
+        border-radius: 10px;
+    }
+
+    .upcoming-card {
+        min-width: 100%; 
+        scroll-snap-align: start;
+        background: #f6ece0;
+        border-radius: 12px;
+        padding: 2rem;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        margin-right: 10px;
+    }
+
+    /* Uniform Badge Color */
+    .month-badge, 
+    .month-badge.red, 
+    .month-badge.orange, 
+    .month-badge.yellow, 
+    .month-badge.green, 
+    .month-badge.blue {
+        background: var(--accent-dark, #003366) !important; /* Theme Color */
+        color: white;
+        display: inline-block;
+        padding: 0.5rem 1.2rem;
+        border-radius: 50px;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    /* Exhibition Highlights Images */
+    .highlights-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+    
+    .highlights-grid img:hover {
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        .upcoming-container {
+            max-width: 100%;
+        }
+        .featured-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    /* Visitor Information Section Styling */
+
+.visitor-info h2, 
+.visitor-info p {
+    text-align: center; /* Heading and subtitle centered */
+}
+
+.visitor-info h2 {
+    font-weight: 800;
+    color: var(--accent-dark);
+    margin-bottom: 1.5rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info-card {
+    background:#f6ece0;
+    padding: 2.rem 1.rem;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+
+/* Hover Effect */
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border-color: var(--accent-dark);
+}
+
+.info-card i {
+    font-size: 2.5rem;
+    color: var(--accent-dark);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover i {
+    transform: scale(1.1);
+}
+
+.info-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.info-card p {
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.info-card ul li {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.info-card ul li::before {
+    content: "✓";
+    color: var(--accent-dark);
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.alert-text {
+    color: #d9534f; /* Modern red */
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .visitor-info {
+        padding: 3rem 1rem;
+    }
+}
+ .search-filter-wrapper {
+    position: relative;
+}   
+/* Overlay layer */
+.no-results-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+/* Overlay box */
+.no-results-box {
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.no-results-box h4 {
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+.no-results-box p {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+/* NO RESULTS OVERLAY */
+.no-results {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(246, 236, 224, 0.65);
+    backdrop-filter: blur(3px);
+}
+
+.no-results-box {
+    max-width: 420px;
+    padding: 2.2rem 2rem;
+    background: #f6ece0;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.no-results-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background: #f6ece0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.no-results-box h3 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+}
+
+.no-results-desc {
+    font-size: 0.9rem;
+    color:  #0f2540;
+    margin-bottom: 1.2rem;
+}
+
+.no-results-actions {
+    margin-bottom: 1rem;
+}
+
+.no-results-hint {
+    font-size: 0.9rem;
+    color: #111111;
+}
+
+    </style>
+</head>
+<body>
+  <!-- Header -->
+    <header role="banner">
+        <div class="header-container">
+            <div class="header-main">
+                <!-- Logo -->
+                <a href="{{ route('client.home') }}" class="logo" aria-label="Tamil Bookshop Archives Home">
+                    <img src="./image/newlogo.jpeg" alt="Tamil Bookshop Archives Logo" width="60" height="60">
+                    <div class="logo-text">
+                        <span class="ta">THE TIC <br>ARCHIVES</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                    <ul>
+                        <li>
+                            <a href="./index.html" 
+                               class="{{ Route::is('client.home') ? 'active' : '' }}"
+>
+                                Home
+                            </a>
+                        </li>
+
+                      
+
+                        <li class="dropdown-parent">
+                            <a href="./aboutus.html" 
+                               class="{{ Route::is('client.about') || Route::is('client.news') ? 'active' : '' }}"
+                               aria-haspopup="true">
+                                About
+                            </a>
+                            <div class="dropdown" role="menu">
+                                <a href="./aboutus.html" role="menuitem">About Us</a>
+                                 <!-- <a href="./news.html" role="menuitem">News</a>  -->
+                                <a href="./supportus.html" role="menuitem">Support Us</a>
+                            </div>
+                        </li>
+
+                        <li class="dropdown-parent">
+                            <a href="./archive.html" class="{{ Route::is('client.archivecentrecollection') ? 'active' : '' }}"
+                               aria-haspopup="true">
+                                Archive Centre
+                            </a>
+                            <!--  <div class="dropdown" role="menu">
+                                <a href="./archive.html" role="menuitem">Collection</a>
+                                <a href="./archive.html" role="menuitem">Online Catalogue</a>
+                                <a href="./archive.html" role="menuitem">Google Arts & Heritage</a>
+                            </div> 
+                        </li> -->
+
+                        <li class="dropdown-parent">
+                            <a href="./HeritageCentre.html" aria-haspopup="true">Exhibition </a>
+                            <!--  <div class="dropdown" role="menu">
+                                <a href="./ToL.html" role="menuitem">ToL Exhibition</a>
+                                <a href="./HeritageCentre.html" role="menuitem">Heritage Centre</a>
+                                <a href="./subjectguide.html" role="menuitem">Subject Guides</a>
+                                <a href="./historical-timeline.html" role="menuitem">Historical Timeline</a>
+                                <a href="./workshop.html" role="menuitem">Learning Workshops</a>
+                            </div>
+                        </li> -->
+
+                        <li class="dropdown-parent">
+                            <a href="./ToL.html" aria-haspopup="true">Heritage Museum</a>
+                          <!--    <div class="dropdown" role="menu">
+                                <a href="./event.html" role="menuitem">Latest Events</a>
+                                <a href="./project.html" role="menuitem">Projects & Programs</a>
+                                <a href="./collaborate.html" role="menuitem">Collaborate</a>
+                            </div>
+                        </li>-->
+
+                        <li class="dropdown-parent">
+                            <a href="#" aria-haspopup="true">Join</a>
+                            <div class="dropdown" role="menu">
+                                <a href="./member.html" role="menuitem">Membership</a>
+                                <a href="#donate" role="menuitem">Donate</a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="./publication.html" 
+                               class="{{ Route::is('client.publications') ? 'active' : '' }}">
+                                Shop
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html" 
+                               class="{{ Route::is('client.contactus') ? 'active' : '' }}">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" 
+                        id="mobileMenuBtn" 
+                        aria-label="Open mobile menu"
+                        aria-expanded="false"
+                        aria-controls="mobileNavOffcanvas">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Mobile Navigation Offcanvas -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <div class="mobile-nav-offcanvas" id="mobileNavOffcanvas" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div class="mobile-nav-header">
+            <span style="font-weight: 700; color: var(--accent-dark);">Menu</span>
+            <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close mobile menu">✕</button>
+        </div>
+        <nav class="mobile-nav-menu" role="navigation" aria-label="Mobile navigation">
+            <ul>
+                <li><a href="./index.html" class="{{ Route::is('client.home') ? 'active' : '' }}">Home</a></li>
+                
+                <li>
+                    <button class="mobile-dropdown-toggle" data-target="aboutDropdown" aria-expanded="false">
+                        About <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-content" id="aboutDropdown">
+                        <a href="./aboutus.html">About Us</a>
+                         <!-- <a href="./news.html">News</a>-->
+                        <a href="./supportus.html">Support Us</a>
+                    </div>
+                </li>
+                    <li><a href="./archive.html">  Archive Centre </a></li>
+
+                <!--   <li>
+                    <button class="mobile-dropdown-toggle" data-target="archiveDropdown" aria-expanded="false">
+                        Archive Centre 
+                    </button>
+                    <div class="mobile-dropdown-content" id="archiveDropdown">
+                        <a href="./archive.html">Collection</a>
+                       <a href="./archive.html">Online Catalogue</a>
+                        <a href="./archive.html">Google Arts & Heritage</a>
+                    </div>
+                </li>-->
+                         <li><a href="./Heritage Hub.html">   Exhibition</a></li>
+                  <!--<li>
+                    <button class="mobile-dropdown-toggle" data-target="exhibitionDropdown" aria-expanded="false">
+                Exhibition
+                    </button>
+                    <div class="mobile-dropdown-content" id="exhibitionDropdown">
+                        <a href="./ToL.html">ToL Exhibition</a>
+                        <a href="./HeritageCentre.html">Heritage Centre</a>
+                         <!--<a href="./subjectguide.html">Subject Guides</a>
+                        <a href="./historical-timeline.html">Historical Timeline</a>
+                        <a href="./workshop.html">Learning Workshops</a>
+                    </div>
+                </li>-->
+                     <li><a href="./ToL.html">Heritage Museum</a></li>
+                <!--  <li>
+                    <button class="mobile-dropdown-toggle" data-target="whatsOnDropdown" aria-expanded="false">
+                        What's On 
+                    </button>
+                    <div class="mobile-dropdown-content" id="whatsOnDropdown">
+                        <a href="./event.html">Latest Events</a>
+                        <a href="./project.html">Projects & Programs</a>
+                        <a href="./collaborate.html">Collaborate</a>
+                    </div>
+                </li>-->
+
+                <li>
+                    <button class="mobile-dropdown-toggle" data-target="joinDropdown" aria-expanded="false">
+                        Join <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-content" id="joinDropdown">
+                        <a href="./member.html">Membership</a>
+                        <a href="#donate">Donate</a>
+                    </div>
+                </li>
+
+                <li><a href="./publication.html">Shop</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+<!--/header-->
+    <!-- Main Content -->
+    <main>
+        <section class="exhibition-header">
+            <h1>Exhibition & Heritage Centre</h1>
+            <p class="section-subtitle">Discover our exhibitions and heritage displays</p>
+        </section>
+
+<section class="search-section mb-5 position-relative">
+
+        <!-- NO RESULTS OVERLAY -->
+<div id="noResults" class="no-results d-none" role="status" aria-live="polite">
+    <div class="no-results-box">
+        <div class="no-results-icon">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <h3>No matching collections</h3>
+
+        <p class="no-results-desc">
+            Your search or selected filters didn’t return any results.
+        </p>
+
+        <div class="no-results-actions">
+            <button id="clearFiltersBtn" class="btn btn-dark btn-sm">
+    Clear all filters
+</button>
+        </div>
+
+        <p class="no-results-hint">
+            Tip: Try broader keywords or remove one filter at a time.
+        </p>
+    </div>
+</div>
+        <div class="card shadow border-0 p-4 p-md-5" style="border-radius: 15px; background: #f6ece0;">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="input-group input-group-lg shadow-sm">
+                        <span class="input-group-text bg-white border-end-0"><i class="fas fa-search text-primary"></i></span>
+                        <input type="text" class="form-control border-start-0 ps-0" input id="searchInput" placeholder="Search by title, keyword or description...">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-3 justify-content-center">
+                <div class="col-6 col-md-4">
+                    <label class="small fw-bold mb-1 text-secondary"><i class="fas fa-filter me-1"></i> Category</label>
+                    <select class="form-select filter-select shadow-sm" id="typeFilter">
+                        <option value="">All Types</option>
+                        <option value="documents">Documents</option>
+                        <option value="photographs">Photographs</option>
+                        <option value="manuscripts">Manuscripts</option>
+                        <option value="maps">Maps</option>
+                    </select>
+                </div>
+                <div class="col-6 col-md-4">
+                    <label class="small fw-bold mb-1 text-secondary"><i class="fas fa-calendar-alt me-1"></i> Era</label>
+                    <select class="form-select filter-select shadow-sm" id="yearFilter">
+                        <option value="">All Years</option>
+                        <option value="1700-1900">1700-1900</option>
+                        <option value="1900-1950">1900-1950</option>
+                        <option value="1950-2000">1950-2000</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-4">
+                    <label class="small fw-bold mb-1 text-secondary"><i class="fas fa-tags me-1"></i> Topic</label>
+                    <select class="form-select filter-select shadow-sm" id="topicFilter">
+                        <option value="">All Topics</option>
+                         <option value="Reports">Reports</option>
+                        <option value="history">History</option>
+                        <option value="culture">Culture</option>
+                        <option value="politics">Politics</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <section class="current-exhibitions">
+    
+    <div class="featured-grid">
+
+        <!-- Card 1 -->
+        <div class="featured-card"
+             data-type="photographs"
+             data-year="1900-1950"
+             data-topic="history,culture,women,social reform">
+            <div class="card-thumb">
+                <img src="https://www.aljazeera.com/wp-content/uploads/2020/03/434734f2ddf8461cb909a6343295a4ca_18.jpeg?resize=770%2C513&quality=80" 
+                     alt="Voices of Resilience">
+                <span class="now-open">NOW OPEN</span>
+            </div>
+            <div class="featured-card-content">
+                <h3>Voices of Resilience: Tamil Women in History</h3>
+                <p><i class="fas fa-calendar"></i> September 2025 - February 2026</p>
+                <p>Celebrating the untold stories of Tamil women who shaped society through politics, arts, education, and social reform. Features rare photographs, personal artifacts, and multimedia presentations.</p>
+                <a href="./exhibition.html" class="explore-btn">Explore Exhibition</a>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="featured-card"
+             data-type="documents"
+             data-year="1700-1900"
+             data-topic="architecture,heritage,temples">
+            <div class="card-thumb">
+                <img src="https://www.remotelands.com/travelogues/app/uploads/2019/09/Unearthing-Jaffna-2.jpg" 
+                     alt="Sacred Spaces">
+                <span class="now-open">NOW OPEN</span>
+            </div>
+            <div class="featured-card-content">
+                <h3>Sacred Spaces: Temple Architecture of Jaffna</h3>
+                <p><i class="fas fa-calendar"></i> October 2025 - January 2026</p>
+                <p>Architectural journey through centuries of temple building traditions. Original blueprints, scale models, and photographic documentation of historic Hindu temples.</p>
+                <a href="./exhibition.html" class="explore-btn">Explore Exhibition</a>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="featured-card"
+             data-type="manuscripts"
+             data-year="1700-1900"
+             data-topic="history,literature,publishing">
+            <div class="card-thumb">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Christian_prayers_in_tamil_on_palm_leaves.jpg/250px-Christian_prayers_in_tamil_on_palm_leaves.jpg" 
+                     alt="Written Heritage">
+                <span class="now-open">NOW OPEN</span>
+            </div>
+            <div class="featured-card-content">
+                <h3>Written Heritage: Tamil Manuscripts & Publishing</h3>
+                <p><i class="fas fa-calendar"></i> August 2025 - March 2026</p>
+                <p>Exploring the evolution of Tamil writing from palm leaves to modern printing. Rare manuscripts, first editions, and the history of Tamil publishing in Ceylon.</p>
+                <a href="./exhibition.html" class="explore-btn">Explore Exhibition</a>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="featured-card"
+             data-type="photographs"
+             data-year="1950-2000"
+             data-topic="culture,music,traditions">
+            <div class="card-thumb">
+                <img src="https://www.open.edu/openlearn/pluginfile.php/2937074/mod_oucontent/oucontent/102919/1487f302/52f719ce/tam_1_poster_instruments.tif.jpg" 
+                     alt="Musical Traditions">
+                <span class="now-open">NOW OPEN</span>
+            </div>
+            <div class="featured-card-content">
+                <h3>Musical Traditions: Classical & Folk</h3>
+                <p><i class="fas fa-calendar"></i> July 2025 - December 2025</p>
+                <p>Interactive exhibition featuring traditional instruments, audio recordings, and the evolution of Tamil musical forms from Carnatic classical to contemporary folk.</p>
+                <a href="./exhibition.html" class="explore-btn">Explore Exhibition</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--<section class="upcoming-exhibitions">
+    <div class="container text-center">
+        <h2>Upcoming Exhibitions</h2>
+        <p>Mark your calendar for these exciting upcoming exhibitions</p>
+        
+        <div class="upcoming-container">
+            <div class="upcoming-grid">
+                <div class="upcoming-card">
+                    <div class="month-badge">March 2026</div>
+                    <h3>Tamil Cinema: Golden Age</h3>
+                    <p>Retrospective of Tamil cinema from Ceylon, featuring posters, costumes, and rare film footage from 1950s-1980s.</p>
+                </div>
+                <div class="upcoming-card">
+                    <div class="month-badge">April 2026</div>
+                    <h3>Agricultural Heritage</h3>
+                    <p>Traditional farming practices and tools of Tamil communities. Interactive displays on irrigation and cultivation techniques.</p>
+                </div>
+                <div class="upcoming-card">
+                    <div class="month-badge">May 2026</div>
+                    <h3>Festivals & Celebrations</h3>
+                    <p>Immersive exhibition on Tamil festivals, religious ceremonies, and community celebrations through the decades.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>-->
+       <section class="visitor-info">
+    <h2>Visitor Information</h2>
+    <p>Everything you need to know for a seamless visit to our Heritage Centre</p>
+    
+    <div class="info-grid">
+        <div class="info-card">
+            <i class="fas fa-clock"></i>
+            <h3>Opening Hours</h3>
+            <p>Monday - Friday: 10:00 AM - 6:00 PM</p>
+            <p>Saturday: 10:00 AM - 4:00 PM</p>
+            <p>Sunday: Closed</p>
+            <p class="alert-text">Last entry: 30 mins before closing</p>
+        </div>
+
+        <div class="info-card">
+            <i class="fas fa-ticket-alt"></i>
+            <h3>Tickets & Pricing</h3>
+            <p>General Admission: LKR 500</p>
+            <p>Students/Seniors: LKR 250</p>
+            <p>Children under 12: Free</p>
+            <p class="alert-text">Book online for 10% discount</p>
+        </div>
+
+        <div class="info-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Location</h3>
+            <p>Tamil Information Centre<br>123 Heritage Lane, Colombo 07</p>
+            <p><strong>Transport:</strong> Bus 138, 154<br>Train: Colombo Fort</p>
+            <p class="alert-text">Free on-site parking available</p>
+        </div>
+
+        <div class="info-card">
+            <i class="fas fa-universal-access"></i>
+            <h3>Accessibility</h3>
+            <ul>
+                <li>Wheelchair accessible</li>
+                <li>Accessible restrooms</li>
+                <li>Elevators & Hearing loops</li>
+            </ul>
+            <p class="alert-text">Contact for special assistance</p>
+        </div>
+    </div>
+</section>
+
+      <section class="highlights-section">
+    <h2>Exhibition Highlights</h2>
+    <p>Browse through our collection of Tamil cultural artifacts and events</p>
+    <div class="highlights-grid">
+        <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=600" alt="Tamil Temple Architecture">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQER2eBQAMtBVxQrm9JklUBBTlUDEy3qbY8yg&s" alt="Traditional Tamil Arts">
+        <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&q=80&w=600" alt="Palm Leaf Manuscripts">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHvqBk2n-myjZNyidbdmzYOPIAaqPjzf2lJQ&s" alt="Traditional Music">
+        <img src="https://s3.india.com/wp-content/uploads/2024/10/festival-in-madurai.jpg?impolicy=Medium_Widthonly&w=350&h=263" alt="Tamil Festivals">
+        <img src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&q=80&w=600" alt="Historical Documents">
+    </div>
+</section>
+
+    </main>
+
+  <!-- footer  -->
+   <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+  
+        <!-- PayPal Donate Button -->
+   
+
+    <!-- Existing Footer Content -->
+    <h3>Tamil News</h3>
+    <p style="color: #ccc; font-size: 0.9rem;">
+        Your trusted source for Tamil community news, culture, and heritage updates from Sri Lanka and around the world.
+    </p>
+    <p style="color: #999; font-size: 0.85rem; margin-top: 1rem;">
+        © Tamil Information Centre • Est. 1983
+    </p>
+     <div style="margin-bottom: 1.2rem;">
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+            <input type="hidden" name="hosted_button_id" value=""> 
+            <button type="submit" 
+                style="
+                    background-color:#0070ba;
+                    color:white;
+                    padding:10px 18px;
+                    border:none;
+                    border-radius:6px;
+                    cursor:pointer;
+                    font-size:0.95rem;
+                    font-weight:600;
+                    display:inline-flex;
+                    align-items:center;
+                    gap:8px;
+                "
+            >
+                <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" 
+                     alt="PayPal" 
+                     style="height:18px;">
+                Donate with PayPal
+            </button>
+        </form>
+    </div>
+</div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="./aboutus.html">About Us</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="./publication.html">Publications</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="./Heritage Hub.html">Heritage</a></li>
+            <li><a href="./Heritage Hub.html">Culture</a></li>
+            <li><a href="./Heritage Hub.html">Community</a></li>
+            <li><a href="./publication.html">Shop</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="./legal.html">Privacy Policy</a></li>
+            <li><a href="./legal.html">Terms of Service</a></li>
+            <li><a href="./legal.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+     <div class="footer-bottom">
+         <p> ©Tamil Information Centre TIC Archives || 2025 All rights reserved</p>
+        
+</div>
+
+    </div>
+  </footer>
+<!-- footer  -->
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Mobile menu...
+        (function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNavOffcanvas = document.getElementById('mobileNavOffcanvas');
+            const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+            const mobileNavClose = document.getElementById('mobileNavClose');
+            
+            if (!mobileMenuBtn || !mobileNavOffcanvas) return;
+            
+            function openMobileMenu() {
+                mobileNavOffcanvas.classList.add('active');
+                mobileNavOverlay?.classList.add('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMobileMenu() {
+                mobileNavOffcanvas.classList.remove('active');
+                mobileNavOverlay?.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                mobileMenuBtn.focus();
+            }
+            
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+            mobileNavClose?.addEventListener('click', closeMobileMenu);
+            mobileNavOverlay?.addEventListener('click', closeMobileMenu);
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileNavOffcanvas.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+            
+            const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    const targetContent = document.getElementById(targetId);
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    
+                    dropdownToggles.forEach(t => {
+                        if (t !== this) {
+                            t.setAttribute('aria-expanded', 'false');
+                            const tId = t.getAttribute('data-target');
+                            document.getElementById(tId)?.classList.remove('active');
+                        }
+                    });
+                    
+                    targetContent?.classList.toggle('active');
+                    this.setAttribute('aria-expanded', !isExpanded);
+                });
+            });
+        })();
+        document.addEventListener('DOMContentLoaded', function () {
+
+    const allCards = document.querySelectorAll('.featured-grid .featured-card');
+    
+    const searchInput   = document.getElementById('searchInput');
+    const typeFilter    = document.getElementById('typeFilter');
+    const yearFilter    = document.getElementById('yearFilter');
+    const topicFilter   = document.getElementById('topicFilter');
+    const clearBtn      = document.getElementById('clearFiltersBtn');
+    const noResultsBox  = document.getElementById('noResults');
+
+    function filterCards() {
+        const searchText = searchInput.value.toLowerCase().trim();
+        
+        const selectedType  = typeFilter.value;
+        const selectedYear  = yearFilter.value;
+        const selectedTopic = topicFilter.value;
+
+        let visibleCount = 0;
+
+        allCards.forEach(card => {
+            // ---------------------------------------------------
+            // 1. Text search (title + description + anywhere in card)
+            // ---------------------------------------------------
+            const cardText = card.textContent.toLowerCase();
+            const matchesSearch = searchText === '' || cardText.includes(searchText);
+
+            // ---------------------------------------------------
+            // 2. Type / Category filter
+            // ---------------------------------------------------
+            const cardType = card.dataset.type || '';  
+            const matchesType = selectedType === '' || cardType === selectedType;
+
+            // ---------------------------------------------------
+            // 3. Year / Era filter
+            // ---------------------------------------------------
+            const cardYearRange = card.dataset.year || '';  
+            let matchesYear = true;
+            
+            if (selectedYear !== '') {
+                if (!cardYearRange) {
+                    matchesYear = false;
+                } else {
+                    const [start, end] = selectedYear.split('-').map(Number);
+                    const cardYears = cardYearRange.split('-').map(Number);
+                    if (cardYears.length === 2) {
+                        matchesYear = (cardYears[0] <= end && cardYears[1] >= start);
+                    } else {
+                        matchesYear = false;
+                    }
+                }
+            }
+
+            // ---------------------------------------------------
+            // 4. Topic filter
+            // ---------------------------------------------------
+            const cardTopic = card.dataset.topic || '';  
+            const matchesTopic = selectedTopic === '' || cardTopic.includes(selectedTopic);
+
+            // ---------------------------------------------------
+            // Final decision
+            // ---------------------------------------------------
+            const shouldShow = 
+                matchesSearch && 
+                matchesType && 
+                matchesYear && 
+                matchesTopic;
+
+            if (shouldShow) {
+                card.style.display = '';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        if (visibleCount === 0) {
+            noResultsBox.classList.remove('d-none');
+        } else {
+            noResultsBox.classList.add('d-none');
+        }
+    }
+
+    // -------------------------------------------------------
+    // Event listeners
+    // -------------------------------------------------------
+    searchInput.addEventListener('input', filterCards);
+    
+    typeFilter.addEventListener('change', filterCards);
+    yearFilter.addEventListener('change', filterCards);
+    topicFilter.addEventListener('change', filterCards);
+
+    // Clear all filters button
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            typeFilter.value = '';
+            yearFilter.value = '';
+            topicFilter.value = '';
+            filterCards();
+        });
+    }
+
+    filterCards();
+});
+    </script>
+</body>
+</html>

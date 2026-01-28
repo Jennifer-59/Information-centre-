@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Heritage Hub - TIC Archives</title>
+    <meta name="description" content="Tamil Information Centre - Committed to Human Rights and Community Development since 1983">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;700&display=swap" rel="stylesheet">
+  
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./HeritageHub.css">
+  
+    <style>
+  /*  .hero-image {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .hero-text {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            color: rgb(255, 255, 255);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }  
+        .hero-text h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+        } */
+        .heritage-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+           
+        }
+        .heritage-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        .card-content {
+            flex: 1;
+            padding: 1rem;
+        }
+        .tamil {
+            font-family: 'Noto Sans Tamil', sans-serif;
+            color: #333333;
+        }
+        .heritage-detail {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+   <!-- Header -->
+    <header role="banner">
+        <div class="header-container">
+            <div class="header-main">
+                <!-- Logo -->
+                <a href="{{ route('client.home') }}" class="logo" aria-label="Tamil Bookshop Archives Home">
+                    <img src="./image/newlogo.jpeg" alt="Tamil Bookshop Archives Logo" width="60" height="60">
+                    <div class="logo-text">
+                        <span class="ta">THE TIC <br>ARCHIVES</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                    <ul>
+                        <li>
+                            <a href="./index.html" 
+                               class="{{ Route::is('client.home') ? 'active' : '' }}"
+>
+                                Home
+                            </a>
+                        </li>
+
+                      
+
+                        <li class="dropdown-parent">
+                            <a href="./aboutus.html" 
+                               class="{{ Route::is('client.about') || Route::is('client.news') ? 'active' : '' }}"
+                               aria-haspopup="true">
+                                About
+                            </a>
+                            <div class="dropdown" role="menu">
+                                <a href="./aboutus.html" role="menuitem">About Us</a>
+                                 <!-- <a href="./news.html" role="menuitem">News</a>  -->
+                                <a href="./supportus.html" role="menuitem">Support Us</a>
+                            </div>
+                        </li>
+
+                        <li class="dropdown-parent">
+                            <a href="./archive.html" class="{{ Route::is('client.archivecentrecollection') ? 'active' : '' }}"
+                               aria-haspopup="true">
+                                Archive Centre
+                            </a>
+                            <!--  <div class="dropdown" role="menu">
+                                <a href="./archive.html" role="menuitem">Collection</a>
+                                <a href="./archive.html" role="menuitem">Online Catalogue</a>
+                                <a href="./archive.html" role="menuitem">Google Arts & Heritage</a>
+                            </div> 
+                        </li> -->
+
+                        <li class="dropdown-parent">
+                            <a href="./HeritageCentre.html" aria-haspopup="true">Exhibition </a>
+                            <!--  <div class="dropdown" role="menu">
+                                <a href="./ToL.html" role="menuitem">ToL Exhibition</a>
+                                <a href="./HeritageCentre.html" role="menuitem">Heritage Centre</a>
+                                <a href="./subjectguide.html" role="menuitem">Subject Guides</a>
+                                <a href="./historical-timeline.html" role="menuitem">Historical Timeline</a>
+                                <a href="./workshop.html" role="menuitem">Learning Workshops</a>
+                            </div>
+                        </li> -->
+
+                        <li class="dropdown-parent">
+                            <a href="./ToL.html" aria-haspopup="true">Heritage Museum</a>
+                          <!--    <div class="dropdown" role="menu">
+                                <a href="./event.html" role="menuitem">Latest Events</a>
+                                <a href="./project.html" role="menuitem">Projects & Programs</a>
+                                <a href="./collaborate.html" role="menuitem">Collaborate</a>
+                            </div>
+                        </li>-->
+
+                        <li class="dropdown-parent">
+                            <a href="#" aria-haspopup="true">Join</a>
+                            <div class="dropdown" role="menu">
+                                <a href="./member.html" role="menuitem">Membership</a>
+                                <a href="#donate" role="menuitem">Donate</a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="./publication.html" 
+                               class="{{ Route::is('client.publications') ? 'active' : '' }}">
+                                Shop
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html" 
+                               class="{{ Route::is('client.contactus') ? 'active' : '' }}">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" 
+                        id="mobileMenuBtn" 
+                        aria-label="Open mobile menu"
+                        aria-expanded="false"
+                        aria-controls="mobileNavOffcanvas">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Mobile Navigation Offcanvas -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <div class="mobile-nav-offcanvas" id="mobileNavOffcanvas" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div class="mobile-nav-header">
+            <span style="font-weight: 700; color: var(--accent-dark);">Menu</span>
+            <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close mobile menu">✕</button>
+        </div>
+        <nav class="mobile-nav-menu" role="navigation" aria-label="Mobile navigation">
+            <ul>
+                <li><a href="./index.html" class="{{ Route::is('client.home') ? 'active' : '' }}">Home</a></li>
+                
+                <li>
+                    <button class="mobile-dropdown-toggle" data-target="aboutDropdown" aria-expanded="false">
+                        About <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-content" id="aboutDropdown">
+                        <a href="./aboutus.html">About Us</a>
+                         <!-- <a href="./news.html">News</a>-->
+                        <a href="./supportus.html">Support Us</a>
+                    </div>
+                </li>
+                    <li><a href="./archive.html">  Archive Centre </a></li>
+
+                <!--   <li>
+                    <button class="mobile-dropdown-toggle" data-target="archiveDropdown" aria-expanded="false">
+                        Archive Centre 
+                    </button>
+                    <div class="mobile-dropdown-content" id="archiveDropdown">
+                        <a href="./archive.html">Collection</a>
+                       <a href="./archive.html">Online Catalogue</a>
+                        <a href="./archive.html">Google Arts & Heritage</a>
+                    </div>
+                </li>-->
+                         <li><a href="./Heritage Hub.html">   Exhibition</a></li>
+                  <!--<li>
+                    <button class="mobile-dropdown-toggle" data-target="exhibitionDropdown" aria-expanded="false">
+                Exhibition
+                    </button>
+                    <div class="mobile-dropdown-content" id="exhibitionDropdown">
+                        <a href="./ToL.html">ToL Exhibition</a>
+                        <a href="./HeritageCentre.html">Heritage Centre</a>
+                         <!--<a href="./subjectguide.html">Subject Guides</a>
+                        <a href="./historical-timeline.html">Historical Timeline</a>
+                        <a href="./workshop.html">Learning Workshops</a>
+                    </div>
+                </li>-->
+                     <li><a href="./ToL.html">Heritage Museum</a></li>
+                <!--  <li>
+                    <button class="mobile-dropdown-toggle" data-target="whatsOnDropdown" aria-expanded="false">
+                        What's On 
+                    </button>
+                    <div class="mobile-dropdown-content" id="whatsOnDropdown">
+                        <a href="./event.html">Latest Events</a>
+                        <a href="./project.html">Projects & Programs</a>
+                        <a href="./collaborate.html">Collaborate</a>
+                    </div>
+                </li>-->
+
+                <li>
+                    <button class="mobile-dropdown-toggle" data-target="joinDropdown" aria-expanded="false">
+                        Join <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-content" id="joinDropdown">
+                        <a href="./member.html">Membership</a>
+                        <a href="#donate">Donate</a>
+                    </div>
+                </li>
+
+                <li><a href="./publication.html">Shop</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+<!--/header-->
+<section class="heritage-brand">
+    <div class="brand-logo">
+        <img src="./image/tol.jpg" alt="TIC Logo" style="width:60px; height:auto;">
+    </div>
+    <div class="brand-text">
+        <span class="brand-title">Welcome to our Online Museum </span>
+       
+    </div>
+</section>
+  <main class="heritage-spa">
+  <div class="container">
+
+    <div class="heritage-spa-content">
+      <!-- Detail Content -->
+      <section class="heritage-detail">
+        <div class="hero-image">
+                    <img src="https://www.jurist.org/commentary/wp-content/uploads/sites/3/2021/01/Tamil_1611732629.jpg" alt="Eezham Tamil Heritage">
+
+      <!--      <img src="./image/heritage.jfif" alt="Eezham Tamil Heritage">  -->
+          <div class="hero-text">
+            <p>The Online Tamil Heritage Museum is a cultural and research-oriented platform dedicated to the documentation, 
+              preservation, and interpretation of Tamil history, culture, and heritage. Conceived as an authoritative and accessible resource, 
+              the museum brings together archival materials, scholarly research, and cultural narratives to examine
+               the historical experiences and contributions of Tamil communities within their local, national, and global contexts.
+<br><br>
+Through curated collections, exhibitions, and research initiatives, the museum facilitates critical inquiry, interdisciplinary scholarship,
+ and knowledge production. By linking historical documentation with contemporary cultural expression, the Online Tamil Heritage Museum 
+ supports long-term heritage preservation while contributing to academic discourse, public history, and intergenerational memory in the United Kingdom and beyond.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://telibrary.com/wp-content/uploads/2021/04/tamil-culture.jpg" alt="The Religious Heritage of Tamils">
+              <div class="card-content">
+                <h3 class="heritage-title">The Religious Heritage of Tamils</h3>
+                <p class="tamil">ஈழத் தமிழ் சமூகத்தில் கோவில்கள் வழிபாட்டுத் தலங்களாக மட்டுமல்லாமல் கல்வி, கலை, சமூக ஒன்றுகூடல் மற்றும் வரலாற்று நினைவுகளின் மையங்களாகவும் செயல்பட்டன.
+                     சைவம், வைணவம், நாட்டார் மற்றும் முன்னோர் வழிபாடுகள் ஒன்றிணைந்து ஆன்மீக வாழ்வை உருவாக்கின.</p>
+                <p class="heritage-desc">Temples in Eezham Tamil society function not only as places of worship but also as centers of education, arts, social gathering,
+                     and memory. Saiva, Vaishnava, folk, and ancestral practices together shape everyday religious life.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://images.nationalgeographic.org/image/upload/v1638892233/EducationHub/photos/brihadishwara-temple.jpg" alt="Architecture & Iconography">
+              <div class="card-content">
+                <h3 class="heritage-title">Architecture & Iconography</h3>
+                <p class="tamil"> ஈழத் தமிழ் கட்டிடக்கலை காலநிலை, பயன்படுத்தப்பட்ட பொருட்கள் மற்றும் சமூக அமைப்பை பிரதிபலிக்கிறது. கோவில்கள், 
+                    ஊர்தெய்வ ஆலயங்கள் மற்றும் வீடுகளில் காணப்படும் சிற்பங்கள் நம்பிக்கைகள் மற்றும் அடையாளங்களை வெளிப்படுத்துகின்றன.</p>
+                <p class="heritage-desc">Eezham Tamil architecture reflects climate, available materials, and social structure, seen in temples, 
+                    village shrines, and homes. Sculptures and symbols communicate religious stories, beliefs, and identity.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://c8.alamy.com/comp/3A1HMMP/stone-inscriptions-on-the-exterior-wall-of-brihadishvara-temple-is-10th-century-chola-temple-unesco-world-heritage-site-thanjavur-tamil-nadu-india-3A1HMMP.jpg" alt="The Tamil Heritage of Writing">
+              <div class="card-content">
+                <h3 class="heritage-title">The Tamil Heritage of Writing</h3>
+                <p class="tamil">தமிழ் எழுத்து மரபு பழமையான கல்வெட்டுகள், ஓலைச்சுவடிகள் முதல் நவீன அச்சுத் துறையுவரை விரிந்துள்ளது. 
+                  இவை சட்டம், மதம், இலக்கியம் மற்றும் வரலாற்றை பாதுகாத்தன.</p>
+                <p class="heritage-desc">Tamil writing traditions range from ancient inscriptions and palm-leaf
+                     manuscripts to modern print. These records preserved law, religion, literature, and historical memory.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://telibrary.com/wp-content/uploads/2021/05/tc6.jpg" alt="Tamil Literary Heritage">
+              <div class="card-content">
+                <h3 class="heritage-title">Tamil Literary Heritage</h3>
+                <p class="tamil">தமிழ் இலக்கியம் சங்கப் பாடல்கள், பக்தி இலக்கியம், நாட்டார் கதைகள் மற்றும் நவீன
+                     எழுத்துக்களை உள்ளடக்கியது. வாய்மொழி மரபுகள் முக்கியப் பங்கு வகித்தன.</p>
+                <p class="heritage-desc">Tamil literature includes Sangam poetry, devotional works, folk narratives, and modern writings, 
+                    with oral traditions playing a key role.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://cdni.haymarketmedia.in/utils/ImageResizer.ashx?n=https://cdni.haymarketmedia.in/utils/imageresizer.ashx?n=https://img.haymarketmedia.in/printweek/44d1446f-f24b-407b-acf9-34af87e1191f_Printhistort_11.jpg" alt="History of Publication in Tamil">
+              <div class="card-content">
+                <h3 class="heritage-title">History of Publication in Tamil</h3>
+                <p class="tamil">தமிழ் அச்சகங்கள் மற்றும் செய்தித்தாள்கள் கல்வி வளர்ச்சி, அரசியல் விழிப்புணர்வு 
+                    மற்றும் பண்பாட்டு மீளுருவாக்கத்திற்கு வழிவகுத்தன.</p>
+                <p class="heritage-desc">Tamil presses, newspapers, and journals contributed to education, political awareness, and cultural revival.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://www.poojn.in/wp-content/uploads/2025/04/Tamil-Nadu-Festivals-Celebrations-2025-A-Complete-Guide.jpeg.jpg" alt="Rituals and Festivals of Eezham Tamils">
+              <div class="card-content">
+                <h3 class="heritage-title">Rituals and Festivals of Eezham Tamils</h3>
+                <p class="tamil">வாழ்க்கைச் சடங்குகள், கோவில் திருவிழாக்கள் மற்றும் அறுவடைப் பண்டிகைகள் 
+                    சமூக வாழ்க்கையை ஆண்டு முழுவதும் ஒழுங்குபடுத்தின.</p>
+                <p class="heritage-desc">Life-cycle rituals, temple festivals, and harvest celebrations structured 
+                    social and cultural life throughout the year.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://cdn.britannica.com/07/128607-050-9C2F0100/Tea-plantation-Sri-Lanka.jpg" alt="fauna and flora of Sri Lanka">
+              <div class="card-content">
+                <h3 class="heritage-title">fauna and flora of Sri Lanka</h3>
+                <p class="tamil">தாவரங்களும் விலங்குகளும் தமிழ் மருத்துவம், உணவு மற்றும் சடங்குகளுடன் நெருங்கிய தொடர்புடையவை.</p>
+                <p class="heritage-desc">Plants and animals are closely connected to Tamil medicine, food practices, and rituals.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://media.gettyimages.com/id/167643320/photo/valveditturai-northern-province-sri-lanka-a-front-view-of-the-house-where-ltte-tamil-tiger.jpg?s=612x612&w=gi&k=20&c=7mBrpZivCwpyEEeQDQ0Qiy6VX0I5cLtpj0oVqsILO2c=" alt="Eezham Tamil household: architecture">
+              <div class="card-content">
+                <h3 class="heritage-title">Eezham Tamil household: architecture</h3>
+                <p class="tamil">பாரம்பரிய வீடுகள் முற்றம், காற்றோட்டம் மற்றும் கூட்டுக் குடும்ப வாழ்க்கையை கருத்தில் கொண்டு வடிவமைக்கப்பட்டன.</p>
+                <p class="heritage-desc">Traditional houses were designed with courtyards, ventilation, and shared spaces for extended families.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://c8.alamy.com/comp/KJKWF6/tamil-eelam-meeting-in-sarcelles-france-KJKWF6.jpg" alt="Eezham Tamil dress and ornaments">
+              <div class="card-content">
+                <h3 class="heritage-title">Eezham Tamil dress and ornaments</h3>
+                <p class="tamil">உடைகளும் நகைகளும் அடையாளம், சமூக நிலை மற்றும் சடங்கு முக்கியத்துவத்தை வெளிப்படுத்தின.</p>
+
+                <p class="heritage-desc">Clothing and ornaments expressed identity, social status, and ritual meaning.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://i.etsystatic.com/51892067/r/il/b24f71/7142400567/il_fullxfull.7142400567_e7vo.jpg" alt="traditional aesthetics of Tamils">
+              <div class="card-content">
+                <h3 class="heritage-title">traditional aesthetics of Tamils</h3>
+                <p class="tamil">தமிழ் அழகியல் சமநிலை, ஒழுங்கு மற்றும் இயற்கையுடனான ஒற்றுமையை வலியுறுத்துகிறது.</p>
+                <p class="heritage-desc">Tamil aesthetics emphasize balance, rhythm, symbolism, and harmony with nature.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://stories.my/wp-content/uploads/2011/01/Deco2.jpg" alt="Traditional decoration">
+              <div class="card-content">
+                <h3 class="heritage-title">Traditional decoration</h3>
+                <p class="tamil">கோலம் மற்றும் மலர் அலங்காரங்கள் வீடுகளையும் கோவில்களையும் புனித இடங்களாக மாற்றின.</p>
+                <p class="heritage-desc">Kolam designs and floral decorations transformed homes and temples into sacred spaces.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Pittu_At_Omax.jpg/250px-Pittu_At_Omax.jpg" alt="Food and beverages of Eezham Tamils">
+              <div class="card-content">
+                <h3 class="heritage-title">Food and beverages of Eezham Tamils</h3>
+                <p class="tamil">ஈழத் தமிழ் உணவுகள் அரிசி, காய்கறிகள், கடல் உணவுகள் மற்றும் மசாலாவை மையமாகக் கொண்டவை.</p>
+                <p class="heritage-desc">Eezham Tamil cuisine centers on rice, vegetables, seafood, and spices.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://media.istockphoto.com/id/470248962/photo/tea-plantations-sunset.jpg?s=612x612&w=0&k=20&c=xo98EQ7-n4_nKqvzy4204GErBr4W_iRplcTqzyhj_K0=" alt="Agrarian heritage of Eezham Tamils">
+              <div class="card-content">
+                <h3 class="heritage-title">Agrarian heritage of Eezham Tamils</h3>
+                <p class="tamil">நெல் சாகுபடி மற்றும் நீர்ப்பாசன முறைகள் கிராமிய சமூகத்தின் அடித்தளமாக இருந்தன.</p>
+                <p class="heritage-desc">Rice cultivation and irrigation systems formed the backbone of rural life.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://sc0.blr1.digitaloceanspaces.com/facebook/841512-61392-zgcqhjwxzv-1498269272.jpg" alt="Maritime heritage of Eezham Tamils">
+              <div class="card-content">
+                <h3 class="heritage-title">Maritime heritage of Eezham Tamils</h3>
+                <p class="tamil">மீன்பிடி மற்றும் கடற்கரை வாணிபம் தமிழர்களை பெருங்கடல் வர்த்தக வலையமைப்புகளுடன் இணைத்தது.</p>
+                <p class="heritage-desc">Fishing and coastal trade connected Tamil communities to Indian Ocean networks.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://telibrary.com/wp-content/uploads/2020/12/1.png" alt="Traditional crafts of Eezham Tamils">
+              <div class="card-content">
+                <h3 class="heritage-title">Traditional crafts of Eezham Tamils</h3>
+                <p class="tamil">நெசவு, மட்பாண்டம் மற்றும் மரப்பணிகள் வாழ்வாதாரத்தையும் கலை அறிவையும் வழங்கின.</p>
+                <p class="heritage-desc">Weaving, pottery, and woodcraft sustained livelihoods and artistic knowledge.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://telibrary.com/wp-content/uploads/2020/12/students_day.jpg" alt="Educational heritage of Eezham Tamils">
+              <div class="card-content">
+                <h3 class="heritage-title">Educational heritage of Eezham Tamils</h3>
+                <p class="tamil">கோவில் பள்ளிகளும் சமூகக் கல்வியும் எழுத்தறிவை வளர்த்தன.</p>
+                <p class="heritage-desc">Temple schools and community learning fostered literacy and education.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUyfMwdFRHgaJetTZShLRgJ6gklCWifPpdGA&s" alt="Mercantile heritage of Eezham Tamils">
+              <div class="card-content">
+                <h3 class="heritage-title">Mercantile heritage of Eezham Tamils</h3>
+                <p class="tamil">ஈழத் தமிழர்கள் வரலாறாகவே உள்நாட்டு மற்றும் கடற்கரை வாணிபத்தில் ஈடுபட்டவர்கள். 
+                  விவசாயப் பொருட்கள், உப்பு, மீன், துணி மற்றும் கைவினைப் பொருட்கள் வணிகத்தின் மையமாக இருந்தன.</p>
+                <p class="heritage-desc">Eezham Tamils historically engaged in inland and coastal trade,
+                   dealing in agricultural produce, salt, fish, textiles, and handicrafts.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://sciencecitykolkata.org.in/wp-content/uploads/2020/02/sciencetech-3.jpg" alt="Science and technology heritage">
+              <div class="card-content">
+                <h3 class="heritage-title">Science and technology heritage</h3>
+                <p class="tamil">நீர்ப்பாசனம், மருத்துவம், கட்டிடக்கலை, 
+                  உலோக வேலை மற்றும் வேளாண்மை அறிவு ஈழத் தமிழர்களின் பாரம்பரிய அறிவியல் மரபுகளை வெளிப்படுத்துகிறது.</p>
+                <p class="heritage-desc">Traditional knowledge in irrigation, medicine, architecture, 
+                  metalwork, and agriculture reflects the science and technology heritage of Eezham Tamils.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://images.csmonitor.com/csmarchives/2009/05/OCANTAMIL_P1.jpg?alias=standard_900x600" alt="The history and dimensions of Eezham Tamil diaspora">
+              <div class="card-content">
+                <h3 class="heritage-title">The history and dimensions of Eezham Tamil diaspora</h3>
+                <p class="tamil">காலனித்துவம், வேலைவாய்ப்பு மற்றும் போர் காரணமாக உருவான ஈழத் தமிழ் டயஸ்போரா,
+                   உலகளாவிய சமூக, அரசியல் மற்றும் பண்பாட்டு அடையாளங்களை உருவாக்கியது.</p>
+                <p class="heritage-desc">Colonialism, labor migration, and conflict shaped the Eezham Tamil diaspora,
+                   creating global social, political, and cultural networks.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://telibrary.com/wp-content/uploads/2021/05/thadkappu-kalai.jpg" alt="Traditional leisure activities of Eezham Tamils">
+              <div class="card-content">
+                <h3 class="heritage-title">Traditional leisure activities of Eezham Tamils</h3>
+                <p class="tamil">விளையாட்டுகள், கதை சொல்லல், பாடல், நாடகம் மற்றும் திருவிழாக்கள் சமூக
+                   ஒற்றுமையையும் மகிழ்ச்சியையும் வளர்த்தன.</p>
+                <p class="heritage-desc">Games, storytelling, music, drama, and festivals fostered leisure, joy, and community bonding.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb-PJAPgICFa1yCAXXKA1fFznWtH0vsbtZMQ&s" alt="Understanding beliefs such as astrology">
+              <div class="card-content">
+                <h3 class="heritage-title">Understanding beliefs such as astrology</h3>
+                <p class="tamil">ஜோதிடம், கனவுப் பொருள் விளக்கம் மற்றும் காலக் கணிப்பு போன்ற நம்பிக்கைகள் 
+                  வாழ்வியல் முடிவுகளில் முக்கிய இடம் பெற்றன.</p>
+                <p class="heritage-desc">Beliefs such as astrology, dream interpretation, and time calculation influenced daily life decisions.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/Nallur_Kandasamy_front_entrance.jpg" alt="The folk religion of Eezham Tamils">
+              <div class="card-content">
+                <h3 class="heritage-title">The folk religion of Eezham Tamils</h3>
+                <p class="tamil">ஊர்தெய்வ வழிபாடு, அம்மன் மரபுகள் மற்றும் பாதுகாவல் தெய்வ நம்பிக்கைகள்
+                   மக்கள் மத வாழ்வின் அடித்தளமாக இருந்தன.</p>
+                <p class="heritage-desc">Village deities, Amman traditions, and guardian spirit worship formed the foundation of folk religion.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://jfulgham3186.wordpress.com/wp-content/uploads/2012/09/law1.jpg" alt="The legal heritage">
+              <div class="card-content">
+                <h3 class="heritage-title">The legal heritage</h3>
+                <p class="tamil">பாரம்பரிய சட்ட நடைமுறைகள், சபை தீர்ப்புகள் மற்றும் சமூக ஒழுங்குகள் நீதியையும் ஒழுக்கத்தையும் பராமரித்தன.</p>
+                <p class="heritage-desc">Customary laws, council judgments, and social norms maintained justice and order.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://legalosphere.in/wp-content/uploads/2025/07/assets_task_01jzq05d3be5esgjb9kc5hdv1c_1752044931_img_0.webp" alt="Norms of family, kinship and lineage">
+              <div class="card-content">
+                <h3 class="heritage-title">Norms of family, kinship and lineage</h3>
+                <p class="tamil">குடும்பம், உறவின்மை மற்றும் வம்ச மரபுகள் சமூக அமைப்பின் மையமாக இருந்தன.</p>
+                <p class="heritage-desc">Family structures, kinship systems, and lineage traditions shaped social organization.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://images.squarespace-cdn.com/content/v1/5dba183556fe4a4cca51a750/1676075483370-XF16VFTLC0X10C7TSZO5/Matriarch+Image.jpg" alt="Gender: matriarchal and patriarchal heritages">
+              <div class="card-content">
+                <h3 class="heritage-title">Gender: matriarchal and patriarchal heritages</h3>
+                <p class="tamil">சில சமூகங்களில் தாய்வழி மரபுகளும், சிலவற்றில் தந்தைவழி மரபுகளும்
+                   இணைந்து பாலின உறவுகளை அமைத்தன.</p>
+                <p class="heritage-desc">Both matriarchal and patriarchal traditions influenced gender roles and inheritance patterns.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://www.tandfonline.com/cms/asset/48d5a573-12e8-46b7-a5e0-731fd3262c47/fgeo_a_654531_o_uf0002g.jpg" alt="Ideas of environment">
+              <div class="card-content">
+                <h3 class="heritage-title">Ideas of environment</h3>
+                <p class="tamil">இயற்கையுடன் இணைந்த வாழ்க்கை, நிலம், நீர் மற்றும் காடுகளின் மீது பொறுப்புணர்வை வளர்த்தது.</p>
+                <p class="heritage-desc">Environmental ideas emphasized harmony with land, water, and forests.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://dh-web.org/place.names/maps/safe_1.jpg" alt="Studies on place names">
+              <div class="card-content">
+                <h3 class="heritage-title">Studies on place names</h3>
+                <p class="tamil">இடப்பெயர்கள் வரலாறு, குடியேற்றம் மற்றும் பண்பாட்டு நினைவுகளை வெளிப்படுத்துகின்றன.</p>
+                <p class="heritage-desc">Place names reveal histories of settlement, culture, and memory.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://jinsa.org/wp-content/uploads/2018/02/ltte_2005.jpg" alt="Relationship of Tamils and Sinhalese in the island">
+              <div class="card-content">
+                <h3 class="heritage-title">Relationship of Tamils and Sinhalese in the island</h3>
+                <p class="tamil">தமிழர்–சிங்களர் உறவுகள் ஒத்துழைப்பு, பரிமாற்றம் மற்றும் மோதல்களால் வடிவமைக்கப்பட்ட வரலாற்றைக் கொண்டவை.</p>
+                <p class="heritage-desc">Tamil–Sinhalese relations were shaped by cooperation, exchange, and conflict over time.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://telibrary.com/wp-content/uploads/2023/10/te1-6.jpg" alt="Villages, towns, and cities">
+              <div class="card-content">
+                <h3 class="heritage-title">Villages, towns, and cities</h3>
+                <p class="tamil">கிராமங்கள், நகரங்கள் மற்றும் பட்டணங்கள் பொருளாதாரம், ஆட்சி மற்றும் சமூக வாழ்வின் மையங்களாக வளர்ந்தன.</p>
+                <p class="heritage-desc">Villages, towns, and cities evolved as centers of economy, governance, and social life.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://qph.cf2.quoracdn.net/main-qimg-a6d8e602ab18f5938393dc30e1882d49-pjlq" alt="Relationship of the Eezham Tamils and the Tamil Nadu Tamils">
+              <div class="card-content">
+                <h3 class="heritage-title">Relationship of the Eezham Tamils and the Tamil Nadu Tamils</h3>
+                <p class="tamil">மொழி, மதம், இலக்கியம் மற்றும் வர்த்தகம் ஈழத் தமிழர்களையும் தமிழகத் தமிழர்களையும் இணைத்தது.</p>
+                <p class="heritage-desc">Language, religion, literature, and trade connected Eezham Tamils with Tamil Nadu Tamils.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://images.squarespace-cdn.com/content/v1/6029d50f0b4b332aaec50a8c/4ff45eaf-f72a-4742-9abb-1a640a6f9d57/zdfwer4.gif" alt="The heritage of Upcountry Tamils">
+              <div class="card-content">
+                <h3 class="heritage-title">The heritage of Upcountry Tamils</h3>
+                <p class="tamil">மலைநாட்டு தமிழர்கள் தேயிலைத் தோட்ட வாழ்க்கை, உழைப்பு மற்றும் தனித்த பண்பாட்டை உருவாக்கினர்.</p>
+                <p class="heritage-desc">Upcountry Tamils developed a distinct heritage shaped by plantation life and labor history.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://live-production.wcms.abc-cdn.net.au/0a25a6650498804696507d4233f83364?impolicy=wcms_crop_resize&cropH=2813&cropW=5000&xPos=0&yPos=140&width=862&height=485" alt="The heritage of Eezham Tamil Christians">
+              <div class="card-content">
+                <h3 class="heritage-title">The heritage of Eezham Tamil Christians</h3>
+                <p class="tamil">கிறிஸ்தவ மரபுகள் கல்வி, இசை, சமூக சேவை மற்றும் எழுத்து வளர்ச்சியில் பங்களித்தன.</p>
+                <p class="heritage-desc">Eezham Tamil Christian heritage contributed to education, music, social service, and writing.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-rEhkO6bE4C1i4rzn1BZIedOPo3bw87qvBg&s" alt="The heritage of Eezham Tamil Muslims">
+              <div class="card-content">
+                <h3 class="heritage-title">The heritage of Eezham Tamil Muslims</h3>
+                <p class="tamil">ஈழத் தமிழ் முஸ்லிம்கள் வாணிபம், மத மரபுகள் மற்றும் மொழி பண்பாட்டில் முக்கிய பங்காற்றினர்.</p>
+                <p class="heritage-desc">Eezham Tamil Muslims played key roles in trade, religious traditions, and cultural life.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Coast_Veddas_of_Vakarai.jpeg" alt="The heritage of the Veddas of the island of Sri Lanka">
+              <div class="card-content">
+                <h3 class="heritage-title">The heritage of the Veddas of the island of Sri Lanka</h3>
+                <p class="tamil">வேடர்கள் பழங்குடி அறிவு, இயற்கை சார்ந்த வாழ்வு மற்றும் பண்பாட்டு மரபுகளை பாதுகாத்துள்ளனர்.</p>
+                <p class="heritage-desc">The Veddas preserve indigenous knowledge, nature-based lifestyles, and cultural traditions.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB_JbnOlv6gIWuxuVwKy2muw3_k5W0YPFs0g&s" alt="The legacy of Tamil film media">
+              <div class="card-content">
+                <h3 class="heritage-title">The legacy of Tamil film media</h3>
+                <p class="tamil">தமிழ் திரைப்படங்கள் சமூக சிந்தனை, அரசியல் மற்றும் பண்பாட்டு அடையாளத்தை வடிவமைத்தன.</p>
+                <p class="heritage-desc">Tamil cinema shaped social thought, politics, and cultural identity.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://image.slidesharecdn.com/pppreservationandconservationinyourlocalmuseum-140908224843-phpapp02/75/Preservation-and-conservation-in-your-local-museum-2-2048.jpg" alt="Musiology: Preservation and conservation techniques">
+              <div class="card-content">
+                <h3 class="heritage-title">Musiology: Preservation and conservation techniques</h3>
+                <p class="tamil">பாரம்பரிய பொருட்களின் பாதுகாப்பு மற்றும் பராமரிப்பு முறைகள் நீண்டகால நிலைத்தன்மையை உறுதி செய்கின்றன.</p>
+                <p class="heritage-desc">Preservation and conservation techniques ensure the long-term survival of heritage objects.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://tnpmcbe.in/images/ltte.jpg" alt="Musiology: Display and administration">
+              <div class="card-content">
+                <h3 class="heritage-title">Musiology: Display and administration</h3>
+                <p class="tamil">காட்சிப்படுத்தல் மற்றும் நிர்வாகம் பார்வையாளர்களுக்கான புரிதலும் அணுகலையும் மேம்படுத்துகிறது.</p>
+                <p class="heritage-desc">Display and administration practices enhance interpretation and public access.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://lh5.googleusercontent.com/Wc8hyvpEFFYCN79LcBF7MxTm7oYXy6Azx5oMR9FWOblB-B0L-Uz0ia7p2N8SN_h65Eh3ydPiQbYV7tCSAh_T3f-XLrHs7DMuM6Mk021796aD5N80jpH-rn1trkFfHq5H9CRlubs-" alt="Musiology: Audio-visual presentation">
+              <div class="card-content">
+                <h3 class="heritage-title">Musiology: Audio-visual presentation</h3>
+                <p class="tamil">ஒலி–ஒளி ஊடகங்கள் வரலாற்றை அனுபவமூட்டும் விதமாக வெளிப்படுத்துகின்றன.</p>
+                <p class="heritage-desc">Audio-visual media present history in immersive and engaging ways.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="heritage-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Buddhist_temple_Chennai_Tamil_Nadu_India.jpg" alt="Tamil Buddhism">
+              <div class="card-content">
+                <h3 class="heritage-title">Tamil Buddhism</h3>
+                <p class="tamil">பௌத்த மரபுகளுடன் தமிழர்களின் தொடர்பை தொல்லியல், கல்வெட்டுகள் மற்றும் இலக்கிய ஆதாரங்கள் வெளிப்படுத்துகின்றன.</p>
+                <p class="heritage-desc">Archaeological, inscriptional, and literary sources reveal Tamil engagement with Buddhism.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+
+ <!-- footer  -->
+   <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+  
+        <!-- PayPal Donate Button -->
+   
+
+    <!-- Existing Footer Content -->
+    <h3>Tamil News</h3>
+    <p style="color: #ccc; font-size: 0.9rem;">
+        Your trusted source for Tamil community news, culture, and heritage updates from Sri Lanka and around the world.
+    </p>
+    <p style="color: #999; font-size: 0.85rem; margin-top: 1rem;">
+        © Tamil Information Centre • Est. 1983
+    </p>
+     <div style="margin-bottom: 1.2rem;">
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+            <input type="hidden" name="hosted_button_id" value=""> 
+            <button type="submit" 
+                style="
+                    background-color:#0070ba;
+                    color:white;
+                    padding:10px 18px;
+                    border:none;
+                    border-radius:6px;
+                    cursor:pointer;
+                    font-size:0.95rem;
+                    font-weight:600;
+                    display:inline-flex;
+                    align-items:center;
+                    gap:8px;
+                "
+            >
+                <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" 
+                     alt="PayPal" 
+                     style="height:18px;">
+                Donate with PayPal
+            </button>
+        </form>
+    </div>
+</div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="./aboutus.html">About Us</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="./publication.html">Publications</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="./Heritage Hub.html">Heritage</a></li>
+            <li><a href="./Heritage Hub.html">Culture</a></li>
+            <li><a href="./Heritage Hub.html">Community</a></li>
+            <li><a href="./publication.html">Shop</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="./legal.html">Privacy Policy</a></li>
+            <li><a href="./legal.html">Terms of Service</a></li>
+            <li><a href="./legal.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+     <div class="footer-bottom">
+         <p> ©Tamil Information Centre TIC Archives || 2025 All rights reserved</p>
+        
+</div>
+
+    </div>
+  </footer>
+<!-- footer  -->
+
+
+    <!-- Full Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+
+        // ============================================
+        // MOBILE MENU FUNCTIONALITY
+        // ============================================
+        (function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNavOffcanvas = document.getElementById('mobileNavOffcanvas');
+            const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+            const mobileNavClose = document.getElementById('mobileNavClose');
+            
+            if (!mobileMenuBtn || !mobileNavOffcanvas) return;
+            
+            function openMobileMenu() {
+                mobileNavOffcanvas.classList.add('active');
+                mobileNavOverlay?.classList.add('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMobileMenu() {
+                mobileNavOffcanvas.classList.remove('active');
+                mobileNavOverlay?.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                mobileMenuBtn.focus();
+            }
+            
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+            mobileNavClose?.addEventListener('click', closeMobileMenu);
+            mobileNavOverlay?.addEventListener('click', closeMobileMenu);
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileNavOffcanvas.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+            
+            // Mobile dropdown toggles
+            const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    const targetContent = document.getElementById(targetId);
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    
+                    // Close all other dropdowns
+                    dropdownToggles.forEach(t => {
+                        if (t !== this) {
+                            t.setAttribute('aria-expanded', 'false');
+                            const tId = t.getAttribute('data-target');
+                            document.getElementById(tId)?.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current
+                    targetContent?.classList.toggle('active');
+                    this.setAttribute('aria-expanded', !isExpanded);
+                });
+            });
+        })();
+       
+document.addEventListener('DOMContentLoaded', function () {
+    const questions = document.querySelectorAll('.faq-question');
+
+    questions.forEach(question => {
+        question.addEventListener('click', function () {
+            const currentlyOpen = document.querySelector('.faq-question[aria-expanded="true"]');
+            const thisAnswer = this.nextElementSibling;
+            const thisIcon = this.querySelector('.icon');
+
+            // Close any open answer first
+            if (currentlyOpen && currentlyOpen !== this) {
+                currentlyOpen.setAttribute('aria-expanded', 'false');
+                currentlyOpen.nextElementSibling.classList.remove('open');
+            }
+
+            // Toggle current one
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            if (isExpanded) {
+                this.setAttribute('aria-expanded', 'false');
+                thisAnswer.classList.remove('open');
+            } else {
+                this.setAttribute('aria-expanded', 'true');
+                thisAnswer.classList.add('open');
+            }
+        });
+    });
+});
+    </script>
+</body>
+</html>

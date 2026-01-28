@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TIC Archives Members </title>
+    <meta name="description" content="@yield('meta_description', 'Tamil Bookshop Archives - Preserving Tamil heritage, culture, and literature since 1983')">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./member.css">
+     <link rel="stylesheet" href="./style.css">
+
+
+</head>
+<body>
+  <!-- Header -->
+    <header role="banner">
+        <div class="header-container">
+            <div class="header-main">
+                <!-- Logo -->
+                <a href="{{ route('client.home') }}" class="logo" aria-label="Tamil Bookshop Archives Home">
+                    <img src="./image/newlogo.jpeg" alt="Tamil Bookshop Archives Logo" width="60" height="60">
+                    <div class="logo-text">
+                        <span class="ta">THE TIC <br>ARCHIVES</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                    <ul>
+                        <li>
+                            <a href="./index.html" 
+                               class="{{ Route::is('client.home') ? 'active' : '' }}"
+>
+                                Home
+                            </a>
+                        </li>
+
+                      
+
+                        <li class="dropdown-parent">
+                            <a href="./aboutus.html" 
+                               class="{{ Route::is('client.about') || Route::is('client.news') ? 'active' : '' }}"
+                               aria-haspopup="true">
+                                About
+                            </a>
+                            <div class="dropdown" role="menu">
+                                <a href="./aboutus.html" role="menuitem">About Us</a>
+                                 <!-- <a href="./news.html" role="menuitem">News</a>  -->
+                                <a href="./supportus.html" role="menuitem">Support Us</a>
+                            </div>
+                        </li>
+
+                        <li class="dropdown-parent">
+                            <a href="./archive.html" class="{{ Route::is('client.archivecentrecollection') ? 'active' : '' }}"
+                               aria-haspopup="true">
+                                Archive Centre
+                            </a>
+                            <!--  <div class="dropdown" role="menu">
+                                <a href="./archive.html" role="menuitem">Collection</a>
+                                <a href="./archive.html" role="menuitem">Online Catalogue</a>
+                                <a href="./archive.html" role="menuitem">Google Arts & Heritage</a>
+                            </div> 
+                        </li> -->
+
+                        <li class="dropdown-parent">
+                            <a href="./HeritageCentre.html" aria-haspopup="true">Exhibition </a>
+                            <!--  <div class="dropdown" role="menu">
+                                <a href="./ToL.html" role="menuitem">ToL Exhibition</a>
+                                <a href="./HeritageCentre.html" role="menuitem">Heritage Centre</a>
+                                <a href="./subjectguide.html" role="menuitem">Subject Guides</a>
+                                <a href="./historical-timeline.html" role="menuitem">Historical Timeline</a>
+                                <a href="./workshop.html" role="menuitem">Learning Workshops</a>
+                            </div>
+                        </li> -->
+
+                        <li class="dropdown-parent">
+                            <a href="./ToL.html" aria-haspopup="true">Heritage Museum</a>
+                          <!--    <div class="dropdown" role="menu">
+                                <a href="./event.html" role="menuitem">Latest Events</a>
+                                <a href="./project.html" role="menuitem">Projects & Programs</a>
+                                <a href="./collaborate.html" role="menuitem">Collaborate</a>
+                            </div>
+                        </li>-->
+
+                        <li class="dropdown-parent">
+                            <a href="#" aria-haspopup="true">Join</a>
+                            <div class="dropdown" role="menu">
+                                <a href="./member.html" role="menuitem">Membership</a>
+                                <a href="#donate" role="menuitem">Donate</a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="./publication.html" 
+                               class="{{ Route::is('client.publications') ? 'active' : '' }}">
+                                Shop
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html" 
+                               class="{{ Route::is('client.contactus') ? 'active' : '' }}">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" 
+                        id="mobileMenuBtn" 
+                        aria-label="Open mobile menu"
+                        aria-expanded="false"
+                        aria-controls="mobileNavOffcanvas">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Mobile Navigation Offcanvas -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <div class="mobile-nav-offcanvas" id="mobileNavOffcanvas" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div class="mobile-nav-header">
+            <span style="font-weight: 700; color: var(--accent-dark);">Menu</span>
+            <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close mobile menu">✕</button>
+        </div>
+        <nav class="mobile-nav-menu" role="navigation" aria-label="Mobile navigation">
+            <ul>
+                <li><a href="./index.html" class="{{ Route::is('client.home') ? 'active' : '' }}">Home</a></li>
+                
+                <li>
+                    <button class="mobile-dropdown-toggle" data-target="aboutDropdown" aria-expanded="false">
+                        About <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-content" id="aboutDropdown">
+                        <a href="./aboutus.html">About Us</a>
+                         <!-- <a href="./news.html">News</a>-->
+                        <a href="./supportus.html">Support Us</a>
+                    </div>
+                </li>
+                    <li><a href="./archive.html">  Archive Centre </a></li>
+
+                <!--   <li>
+                    <button class="mobile-dropdown-toggle" data-target="archiveDropdown" aria-expanded="false">
+                        Archive Centre 
+                    </button>
+                    <div class="mobile-dropdown-content" id="archiveDropdown">
+                        <a href="./archive.html">Collection</a>
+                       <a href="./archive.html">Online Catalogue</a>
+                        <a href="./archive.html">Google Arts & Heritage</a>
+                    </div>
+                </li>-->
+                         <li><a href="./Heritage Hub.html">   Exhibition</a></li>
+                  <!--<li>
+                    <button class="mobile-dropdown-toggle" data-target="exhibitionDropdown" aria-expanded="false">
+                Exhibition
+                    </button>
+                    <div class="mobile-dropdown-content" id="exhibitionDropdown">
+                        <a href="./ToL.html">ToL Exhibition</a>
+                        <a href="./HeritageCentre.html">Heritage Centre</a>
+                         <!--<a href="./subjectguide.html">Subject Guides</a>
+                        <a href="./historical-timeline.html">Historical Timeline</a>
+                        <a href="./workshop.html">Learning Workshops</a>
+                    </div>
+                </li>-->
+                     <li><a href="./ToL.html">Heritage Museum</a></li>
+                <!--  <li>
+                    <button class="mobile-dropdown-toggle" data-target="whatsOnDropdown" aria-expanded="false">
+                        What's On 
+                    </button>
+                    <div class="mobile-dropdown-content" id="whatsOnDropdown">
+                        <a href="./event.html">Latest Events</a>
+                        <a href="./project.html">Projects & Programs</a>
+                        <a href="./collaborate.html">Collaborate</a>
+                    </div>
+                </li>-->
+
+                <li>
+                    <button class="mobile-dropdown-toggle" data-target="joinDropdown" aria-expanded="false">
+                        Join <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-content" id="joinDropdown">
+                        <a href="./member.html">Membership</a>
+                        <a href="#donate">Donate</a>
+                    </div>
+                </li>
+
+                <li><a href="./publication.html">Shop</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+<!--/header-->
+    <!-- Main Content -->
+<main id="main-content">
+    <div class="container">
+        <section class="header">
+            <h1><b>Join Us</b></h1>
+            <p>Explore our collection of Tamil heritage books and research materials</p>
+        </section>
+        
+        </div>
+</main>
+
+    <div class="container cards-section">
+        <div class="card">
+            <h2>Volunteers</h2>
+            <p>Join our dedicated team and contribute your skills to preserve Tamil heritage</p>
+        </div>
+        <div class="card">
+            <h2>Working with Partners</h2>
+            <p>Collaborate with us on meaningful projects and advocacy programs</p>
+        </div>
+    </div>
+<div class="container">
+    <div class="volunteer-box">
+        <h1 class="title">Become a Volunteer</h1>
+
+        <div class="main-content">
+            <div class="left-section">
+                <h2 class="section-title">Join Our Volunteer Community</h2>
+                <p class="community-text">
+                    TIC depends on volunteers for many key activities that drive our mission forward and preserve Tamil heritage for future generations.
+                </p>
+
+                <h3 class="section-title">Key Volunteer Activities:</h3>
+                <div class="activities-grid">
+                    <div class="activity-item">Documentation & Research</div>
+                    <div class="activity-item">Publications</div>
+                    <div class="activity-item">Organizing Events</div>
+                    <div class="activity-item">Fundraising</div>
+                    <div class="activity-item">Representation</div>
+                    <div class="activity-item">Administrative Support</div>
+                </div>
+
+<div class="apply-box">
+    <p>How to Apply</p>
+    <p>Anyone interested in volunteering can apply by completing the provided volunteer application form.</p>
+    
+    <!-- Apply Now Button -->
+    <a href="form.html" class="apply-btn">Apply Now</a>
+</div>            </div>
+
+            <div class="right-section">
+                <div class="sidebar-box">
+                    <div class="sidebar-title">Time Commitment</div>
+                    <p>Flexible hours based on your availability and project needs</p>
+                </div>
+
+                <div class="sidebar-box">
+                    <div class="sidebar-title">Location</div>
+                    <p>Remote and in-person opportunities available</p>
+                </div>
+
+                <div class="sidebar-box">
+                    <div class="sidebar-title">Benefits</div>
+                    <ul class="list">
+                        <li>• Skill development</li>
+                        <li>• Community networking</li>
+                        <li>• Cultural preservation</li>
+                        <li>• Professional references</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="document-section">
+        <div class="section-header">
+            <h2>Supporting Documents</h2>
+            <p>Relevant supporting documents are provided for further reference and detailed information about our programs and partnerships.</p>
+        </div>
+
+        <div class="document-cards-container">
+            <div class="document-card">
+                <h3>Volunteer Handbook</h3>
+                <p>Complete guide for IIC volunteers</p>
+                <a href="#" class="download-link">Download PDF</a>
+            </div>
+
+            <div class="document-card">
+                <h3>Partnership Guidelines</h3>
+                <p>Framework for organizational collaboration</p>
+                <a href="#" class="download-link">Download PDF</a>
+            </div>
+
+            <div class="document-card">
+                <h3>Annual Report</h3>
+                <p>IIC's latest activities and achievements</p>
+                <a href="#" class="download-link">Download PDF</a>
+            </div>
+
+            <div class="document-card">
+                <h3>Project Proposals</h3>
+                <p>Template for partnership proposals</p>
+                <a href="#" class="download-link">Download DOC</a>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <!-- footer  -->
+   <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+  
+        <!-- PayPal Donate Button -->
+   
+
+    <!-- Existing Footer Content -->
+    <h3>Tamil News</h3>
+    <p style="color: #ccc; font-size: 0.9rem;">
+        Your trusted source for Tamil community news, culture, and heritage updates from Sri Lanka and around the world.
+    </p>
+    <p style="color: #999; font-size: 0.85rem; margin-top: 1rem;">
+        © Tamil Information Centre • Est. 1983
+    </p>
+     <div style="margin-bottom: 1.2rem;">
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+            <input type="hidden" name="hosted_button_id" value=""> 
+            <button type="submit" 
+                style="
+                    background-color:#0070ba;
+                    color:white;
+                    padding:10px 18px;
+                    border:none;
+                    border-radius:6px;
+                    cursor:pointer;
+                    font-size:0.95rem;
+                    font-weight:600;
+                    display:inline-flex;
+                    align-items:center;
+                    gap:8px;
+                "
+            >
+                <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" 
+                     alt="PayPal" 
+                     style="height:18px;">
+                Donate with PayPal
+            </button>
+        </form>
+    </div>
+</div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#publications">Publications</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="#heritage">Heritage</a></li>
+            <li><a href="#">Culture</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#shop">Shop</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+     <div class="footer-bottom">
+         <p> ©Tamil Information Centre TIC Archives || 2025 All rights reserved</p>
+        
+</div>
+
+    </div>
+  </footer>
+<!-- footer  -->
+
+
+              
+                
+
+    <!-- Back to Top Button -->
+    <!-- <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button> -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Mobile Menu Script -->
+    <script>
+
+// ============================================
+// MOBILE MENU FUNCTIONALITY
+// ============================================
+(function() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNavOffcanvas = document.getElementById('mobileNavOffcanvas');
+    const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+    const mobileNavClose = document.getElementById('mobileNavClose');
+    
+    if (!mobileMenuBtn || !mobileNavOffcanvas) return;
+    
+    function openMobileMenu() {
+        mobileNavOffcanvas.classList.add('active');
+        mobileNavOverlay?.classList.add('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        
+        // Focus trap
+        const focusableElements = mobileNavOffcanvas.querySelectorAll('a, button');
+        if (focusableElements.length) {
+            focusableElements[0].focus();
+        }
+    }
+    
+    function closeMobileMenu() {
+        mobileNavOffcanvas.classList.remove('active');
+        mobileNavOverlay?.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        mobileMenuBtn.focus();
+    }
+    
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    mobileNavClose?.addEventListener('click', closeMobileMenu);
+    mobileNavOverlay?.addEventListener('click', closeMobileMenu);
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileNavOffcanvas.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Mobile dropdown toggles
+    const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const targetContent = document.getElementById(targetId);
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            // Close all other dropdowns
+            dropdownToggles.forEach(t => {
+                if (t !== this) {
+                    t.setAttribute('aria-expanded', 'false');
+                    const tId = t.getAttribute('data-target');
+                    document.getElementById(tId)?.classList.remove('active');
+                }
+            });
+            
+            // Toggle current dropdown
+            targetContent?.classList.toggle('active');
+            this.setAttribute('aria-expanded', !isExpanded);
+        });
+    });
+})();
+
+// ============================================
+// BACK TO TOP BUTTON
+// ============================================
+(function() {
+    const backToTop = document.getElementById('backToTop');
+    if (!backToTop) return;
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    });
+    
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+})();
+
+    // Add keyboard accessibility for card clicks
+    document.querySelectorAll('.featured-card, .new-item-card').forEach(card => {
+        card.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const link = this.querySelector('a');
+                if (link) {
+                    link.click();
+                }
+            }
+        });
+    });
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+
+
+</script>
+</body>
+</html>

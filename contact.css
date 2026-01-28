@@ -1,0 +1,476 @@
+/* ===================================================
+   Base Styles, Variables, and Typography (style.css)
+   =================================================== */
+
+/* 1. CSS Variables for Theme */
+:root {
+    --primary-bg: #f6e3c5;        /* Light Cream/Beige (BODY & GAP BG) */
+    --accent-dark: #0f2540;       /* Deep Blue/Navy */
+    --accent-muted: #bfa98b;      /* Muted Brown/Beige for links/accents */
+    --card-bg: #fdf7ef;           /* Card Background (lighter Cream/Minimal Light) */
+    --hover-bg: #e6d3bd;          /* Hover Background for dropdowns etc. */
+    --border-radius: 12px;        /* Corner Radius */
+    
+    /* Mapping new variables to generic usage */
+    --header-bg: var(--primary-bg); 
+    --footer-bg: var(--accent-dark);
+    --text-color: var(--accent-dark);
+    --link-color: var(--accent-dark);
+    --link-hover-color: var(--accent-muted);
+    --border-color: #E0E0E0; /* General light border */
+    
+    /* NEW: Card Transition for smooth hover effect */
+    --card-transition: all 0.3s ease-in-out; 
+}
+
+/* Base Reset and Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--primary-bg); /* Full Page Background Color */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--accent-dark);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+/* ===================================================
+   2. HEADER & NAVIGATION STYLES
+   =================================================== *
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--accent-dark);
+    cursor: pointer;
+    display: none; 
+}
+
+/* ===================================================
+   3. MOBILE OFFCANVAS STYLES
+   =================================================== */
+
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.mobile-nav-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+.mobile-nav-offcanvas {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    max-width: 80vw;
+    height: 100%;
+    background-color: var(--card-bg);
+    z-index: 999;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.mobile-nav-offcanvas.active {
+    transform: translateX(0);
+}
+
+.mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.mobile-nav-close {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.mobile-nav-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-nav-menu li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mobile-nav-menu li:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav-menu a {
+    display: block;
+    padding: 10px 0;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.mobile-nav-menu a.active {
+    color: var(--accent-muted);
+}
+
+/* Mobile Dropdown Styling */
+.mobile-dropdown-toggle {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 10px 0;
+    font-weight: 600;
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.mobile-dropdown-content {
+    display: none;
+    overflow: hidden;
+    padding: 5px 0 5px 20px;
+    background-color: var(--hover-bg); 
+    border-left: 3px solid var(--accent-muted);
+}
+
+.mobile-dropdown-content a {
+    font-weight: 400;
+    padding: 8px 0;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.mobile-dropdown-content.active {
+    display: block;
+}
+
+
+/* ===================================================
+   5. CONTACT PAGE SPECIFIC STYLES (UPDATED CARDS)
+   =================================================== */
+
+/* Page Header */
+/* Contact Page Hero Section (Consistent with Collaborate & About) */
+.page-header-section {
+    width: 100%; 
+    
+    /* Nav bar gap remove seiya margin-top: 0 
+       Kila vara section-ukku gap thara margin-bottom: 4rem */
+    margin: 0 auto 4rem auto; 
+    
+    text-align: center;
+    display: flex;
+    padding: 5rem 1rem 4rem; /* Image 1-il ulla height vara standard padding */
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(to bottom, var(--card-bg) 0%, var(--primary-bg) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.08); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    border-radius: var(--border-radius); 
+}
+
+.page-header-section .page-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--accent-dark);
+    margin: 0 0 1rem 0;
+    letter-spacing: -1.5px;
+    line-height: 1.2;
+}
+
+.page-header-section .page-subtitle {
+    font-size: 1.25rem;
+    color: var(--accent-dark);
+    opacity: 0.8;
+    margin: 0;
+    max-width: 850px;
+    line-height: 1.6;
+}
+.contact-grid-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;                
+    margin-top: -15.5rem;        
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Section Titles */
+.contact-grid-section h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--accent-muted); 
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.info-intro, .form-intro {
+    font-style: italic;
+    color: #6B7280;
+    margin-bottom: 30px;
+}
+
+/* 5.2 INDIVIDUAL CARD STYLING (Minimal Light Card + Hover) */
+
+/* Form Container (Card 1) */
+.enquiry-form-container {
+    background-color: var(--card-bg); /* #f6ece0 */
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); 
+    transition: var(--card-transition); 
+    order: 1; 
+}
+
+/* Contact Info Container (Card 2) */
+.contact-info-container {
+    background-color: var(--card-bg); /* #f6ece0 */
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); 
+    transition: var(--card-transition); 
+    
+    /* பழைய border மற்றும் padding நீக்கப்பட்டது */
+    border-left: none; 
+    padding-left: 40px; 
+    padding-right: 40px;
+    order: 2; 
+}
+
+/* HOVER EFFECT (Card Elevation) */
+.enquiry-form-container:hover,
+.contact-info-container:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px); 
+}
+
+/* 5.3 Contact Info Styling */
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--accent-muted); 
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.info-item strong {
+    display: block;
+    color: var(--accent-dark); 
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.info-item p, .info-item address {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+/* 5.4 Form Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.enquiry-form-container input, 
+.enquiry-form-container select, 
+.enquiry-form-container textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: #FFFFFF; /* Pure white input field for contrast */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.enquiry-form-container input:focus,
+.enquiry-form-container select:focus,
+.enquiry-form-container textarea:focus {
+    border-color: var(--accent-muted);
+    box-shadow: 0 0 0 3px rgba(191, 169, 139, 0.3); 
+    outline: none;
+}
+
+.enquiry-form-container textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--accent-muted); 
+    color: var(--accent-dark); 
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.submit-btn:hover {
+    background-color: var(--accent-dark); 
+    color: var(--card-bg); 
+    transform: translateY(-1px);
+}
+
+/* 5.5 Map Section */
+.map-location-section {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.map-location-section .section-title {
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 450px;
+    background-color: var(--hover-bg); 
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent-dark);
+    font-weight: 600;
+    font-size: 1.2rem;
+    overflow: hidden;
+}
+
+/* ===================================================
+   6. RESPONSIVENESS (Media Queries)
+   =================================================== */
+
+@media (max-width: 992px) {
+    /* Header/Nav Mobile Switch */
+    .main-nav {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    /* Contact Page Mobile Overrides */
+    .contact-grid-section {
+        grid-template-columns: 1fr; /* Stack into a single column */
+        gap: 30px; /* Reduced gap on mobile */
+        padding: 0 15px; /* No section padding, rely on container */
+    }
+    
+    .enquiry-form-container,
+    .contact-info-container {
+        padding: 30px; /* Reduced card padding on mobile */
+    }
+
+    /* Info container specific resets */
+    .contact-info-container {
+        border-left: none; /* Remove left border */
+        padding-left: 30px; /* Reset padding to card padding */
+        padding-right: 30px; 
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .map-placeholder {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Footer stacking on smaller screens */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-section {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+
+    .footer-section:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+
+    .footer-section ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 20px;
+    }
+    .footer-section ul li {
+        margin-bottom: 0;
+    }
+}

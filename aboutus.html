@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>About - TIC Archives</title>
+    <meta name="description" content="Tamil Information Centre - Committed to Human Rights and Community Development since 1983">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./aboutus.css">
+</head>
+<body>
+
+  <!-- Header -->
+    <header role="banner">
+        <div class="header-container">
+            <div class="header-main">
+                <!-- Logo -->
+                <a href="{{ route('client.home') }}" class="logo" aria-label="Tamil Bookshop Archives Home">
+                    <img src="./image/newlogo.jpeg" alt="Tamil Bookshop Archives Logo" width="60" height="60">
+                    <div class="logo-text">
+                        <span class="ta">THE TIC <br>ARCHIVES</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                    <ul>
+                        <li>
+                            <a href="./index.html" 
+                               class="{{ Route::is('client.home') ? 'active' : '' }}"
+>
+                                Home
+                            </a>
+                        </li>
+
+                      
+
+                        <li class="dropdown-parent">
+                            <a href="./aboutus.html" 
+                               class="{{ Route::is('client.about') || Route::is('client.news') ? 'active' : '' }}"
+                               aria-haspopup="true">
+                                About
+                            </a>
+                            <div class="dropdown" role="menu">
+                                <a href="./aboutus.html" role="menuitem">About Us</a>
+                                 <!-- <a href="./news.html" role="menuitem">News</a>  -->
+                                <a href="./supportus.html" role="menuitem">Support Us</a>
+                            </div>
+                        </li>
+
+                        <li class="dropdown-parent">
+                            <a href="./archive.html" class="{{ Route::is('client.archivecentrecollection') ? 'active' : '' }}"
+                               aria-haspopup="true">
+                                Archive Centre
+                            </a>
+                            <!--  <div class="dropdown" role="menu">
+                                <a href="./archive.html" role="menuitem">Collection</a>
+                                <a href="./archive.html" role="menuitem">Online Catalogue</a>
+                                <a href="./archive.html" role="menuitem">Google Arts & Heritage</a>
+                            </div> 
+                        </li> -->
+
+                        <li class="dropdown-parent">
+                            <a href="./HeritageCentre.html" aria-haspopup="true">Exhibition </a>
+                            <!--  <div class="dropdown" role="menu">
+                                <a href="./ToL.html" role="menuitem">ToL Exhibition</a>
+                                <a href="./HeritageCentre.html" role="menuitem">Heritage Centre</a>
+                                <a href="./subjectguide.html" role="menuitem">Subject Guides</a>
+                                <a href="./historical-timeline.html" role="menuitem">Historical Timeline</a>
+                                <a href="./workshop.html" role="menuitem">Learning Workshops</a>
+                            </div>
+                        </li> -->
+
+                        <li class="dropdown-parent">
+                            <a href="./ToL.html" aria-haspopup="true">Heritage Museum</a>
+                          <!--    <div class="dropdown" role="menu">
+                                <a href="./event.html" role="menuitem">Latest Events</a>
+                                <a href="./project.html" role="menuitem">Projects & Programs</a>
+                                <a href="./collaborate.html" role="menuitem">Collaborate</a>
+                            </div>
+                        </li>-->
+
+                        <li class="dropdown-parent">
+                            <a href="#" aria-haspopup="true">Join</a>
+                            <div class="dropdown" role="menu">
+                                <a href="./member.html" role="menuitem">Membership</a>
+                                <a href="#donate" role="menuitem">Donate</a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="./publication.html" 
+                               class="{{ Route::is('client.publications') ? 'active' : '' }}">
+                                Shop
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html" 
+                               class="{{ Route::is('client.contactus') ? 'active' : '' }}">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" 
+                        id="mobileMenuBtn" 
+                        aria-label="Open mobile menu"
+                        aria-expanded="false"
+                        aria-controls="mobileNavOffcanvas">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Mobile Navigation Offcanvas -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <div class="mobile-nav-offcanvas" id="mobileNavOffcanvas" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div class="mobile-nav-header">
+            <span style="font-weight: 700; color: var(--accent-dark);">Menu</span>
+            <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close mobile menu">✕</button>
+        </div>
+        <nav class="mobile-nav-menu" role="navigation" aria-label="Mobile navigation">
+            <ul>
+                <li><a href="./index.html" class="{{ Route::is('client.home') ? 'active' : '' }}">Home</a></li>
+                
+                <li>
+                    <button class="mobile-dropdown-toggle" data-target="aboutDropdown" aria-expanded="false">
+                        About <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-content" id="aboutDropdown">
+                        <a href="./aboutus.html">About Us</a>
+                         <!-- <a href="./news.html">News</a>-->
+                        <a href="./supportus.html">Support Us</a>
+                    </div>
+                </li>
+                    <li><a href="./archive.html">  Archive Centre </a></li>
+
+                <!--   <li>
+                    <button class="mobile-dropdown-toggle" data-target="archiveDropdown" aria-expanded="false">
+                        Archive Centre 
+                    </button>
+                    <div class="mobile-dropdown-content" id="archiveDropdown">
+                        <a href="./archive.html">Collection</a>
+                       <a href="./archive.html">Online Catalogue</a>
+                        <a href="./archive.html">Google Arts & Heritage</a>
+                    </div>
+                </li>-->
+                         <li><a href="./Heritage Hub.html">   Exhibition</a></li>
+                  <!--<li>
+                    <button class="mobile-dropdown-toggle" data-target="exhibitionDropdown" aria-expanded="false">
+                Exhibition
+                    </button>
+                    <div class="mobile-dropdown-content" id="exhibitionDropdown">
+                        <a href="./ToL.html">ToL Exhibition</a>
+                        <a href="./HeritageCentre.html">Heritage Centre</a>
+                         <!--<a href="./subjectguide.html">Subject Guides</a>
+                        <a href="./historical-timeline.html">Historical Timeline</a>
+                        <a href="./workshop.html">Learning Workshops</a>
+                    </div>
+                </li>-->
+                     <li><a href="./ToL.html">Heritage Museum</a></li>
+                <!--  <li>
+                    <button class="mobile-dropdown-toggle" data-target="whatsOnDropdown" aria-expanded="false">
+                        What's On 
+                    </button>
+                    <div class="mobile-dropdown-content" id="whatsOnDropdown">
+                        <a href="./event.html">Latest Events</a>
+                        <a href="./project.html">Projects & Programs</a>
+                        <a href="./collaborate.html">Collaborate</a>
+                    </div>
+                </li>-->
+
+                <li>
+                    <button class="mobile-dropdown-toggle" data-target="joinDropdown" aria-expanded="false">
+                        Join <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-content" id="joinDropdown">
+                        <a href="./member.html">Membership</a>
+                        <a href="#donate">Donate</a>
+                    </div>
+                </li>
+
+                <li><a href="./publication.html">Shop</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+<!--/header-->
+
+    <!-- Main Content -->
+<main id="main-content">
+   
+                <section class="archive-hero">
+            <div class="container">
+            <h1>About Tamil Information Centre</h1>
+                <p class="archive-tagline">
+                    Preserving memory, history, and human rights for future generations
+                </p>
+            </div>
+        </section>
+
+        <div class="established-text">
+            --- Established in 1979 ---
+        </div>
+
+        <section class="archive-history">
+            <article class="history-article">
+                
+                <p class="lead-text">
+                    The Tamil Information Centre (TIC) Digital Archive is an independent and authoritative 
+                    repository dedicated to the collection, preservation, and dissemination of historical,
+                     cultural, and human rights documentation relating to Tamil-speaking people in Sri Lanka.
+                </p>
+
+                <div class="content-main">
+                    <p>
+                        Established in 1979 by Tamil activists based in the United Kingdom, the Tamil Information 
+                        Centre has, for over four decades, played a pioneering role in the systematic documentation 
+                        of first-hand, authentic, and verifiable information. From its early operations in London 
+                        and Tamil Nadu, TIC emerged as one of the earliest and most professionally committed research
+                         and documentation organisations focused on the lived realities, historical experiences, 
+                         and human rights conditions of Tamil-speaking communities.
+                    </p>
+
+                    <p>
+                        The archive reflects TIC’s principled commitment to human rights grounded in justice, 
+                        equality, and respect for fundamental freedoms. TIC does not promote any particular
+                         political solution for Sri Lanka; rather, it maintains a neutral and rights-based approach,
+                          guided by the Universal Declaration of Human Rights (UDHR) and other internationally recognised human rights instruments.
+                    </p>
+
+                    <div class="highlight-box">
+                        <p>
+                            Over the years, TIC researchers and contributors undertook their work under
+                             extremely challenging and often dangerous conditions, facing threats from military 
+                             forces and armed groups in Sri Lanka and India. Despite these risks, they demonstrated 
+                             exceptional dedication in collecting, safeguarding, and preserving critical records.
+                        </p>
+                    </div>
+
+                    <p>
+                        The TIC Digital Archive contains a wide range of primary source materials, including affidavits, 
+                        habeas corpus applications, official and unofficial documents, correspondence from detainees 
+                        and political prisoners, eye-witness testimonies, reports from conflict zones, photographs, 
+                        and audio-visual recordings of interviews and speeches. 
+                    </p>
+
+                    <p>
+                        Through its extensive global network, TIC has collaborated with governmental and 
+                        non-governmental organisations, legal professionals, and human rights defenders. Accuracy, 
+                        integrity, and accountability form the foundation of the archive.
+                    </p>
+
+                    <div class="legacy-section">
+                        <p>
+                            The TIC Digital Archive is an extension of this legacy and a commitment to its continuation. 
+                            It stands as both a historical record and a living resource for research, education, 
+                            public engagement, and intergenerational memory.
+                        </p>
+                    </div>
+                     <p>
+                        At this crucial stage in the development of the TIC Digital Archive, as the organisation carries 
+                        forward the long-standing legacy established by its pioneers, supporters, and the wider Tamil-speaking community, 
+                        the public launch of these collections represents both a milestone and a responsibility. This moment is also one of remembrance. 
+                        The archive honours the memory and lifelong contributions of the founders and pioneers of the Tamil Information Centre, 
+                        including the late<b> Mr. Kanthasamy</b>, 
+                        the late<b> Mr. Varadakumar</b>, and the late <b>Fr. James Pathinathar</b>, as well as many others whose commitment, sacrifice, and vision laid the foundations for this work. Their journeys,
+                         principles, and dedication continue to guide the mission of TIC and inspire the preservation of these records for generations to come.
+                    </p>
+                </div>
+            </article>
+        </section>
+
+
+<section class="vision-mission">
+
+  <!-- Intro Card -->
+  <div class="vm-card vm-intro">
+      <h2>Vision and Mission</h2>
+      <p>
+          The TIC desires peace, stability, and harmony in the island of Sri Lanka where
+          fundamental human rights, dignity, and justice are upheld for all communities.
+      </p>
+  </div>
+
+  <div class="vm-cards">
+
+      <!-- Vision Card -->
+      <div class="vm-card">
+          <div class="icon-wrapper">
+              <i class="fa-solid fa-eye fa-3x"></i>
+          </div>
+          <h3>Vision</h3>
+          <ul class="vm-list">
+              <li>People live with dignity free from persecution, and their civil, political, economic, and cultural rights as enshrined in the UDHR and other UN instruments are recognised.</li>
+              <li>Self-preservation within their homeland is promoted, and every individual in any part of the island is respected, cared for and loved.</li>
+              <li>Human rights are respected, fostered and promoted without oppression.</li>
+              <li>The right of self-determination of all peoples is recognised, empowering them to freely determine their political status and pursue political, economic, social, and cultural development.</li>
+          </ul>
+      </div>
+
+      <!-- Mission Card -->
+      <div class="vm-card">
+          <div class="icon-wrapper">
+              <i class="fa-solid fa-bullseye fa-3x"></i>
+          </div>
+          <h3>Mission</h3>
+          <p class="mission-intro">
+              The TIC’s mission is to empower people, particularly those suffering persecution and human rights abuses, valuing distinct identities and improving quality of life through access to knowledge. In pursuing this mission, TIC strives to:
+          </p>
+          <ul class="vm-list">
+              <li>Assist in the search for a just and lasting peace in Sri Lanka.</li>
+              <li>Respond to the needs of victims of war or oppression in Sri Lanka.</li>
+              <li>Protect refugees and asylum-seekers at risk of persecution by providing information on Sri Lanka, refugee rights, and related issues.</li>
+              <li>Initiate advocacy and public campaigns to promote just policies and procedures by governments and international institutions.</li>
+          </ul>
+      </div>
+
+  </div>
+</section>
+
+        <section class="about-section guiding-principle">
+            <h2>The Guiding Principle</h2>
+            <p>A primary function of the TIC is to provide a forum for the exchange of views and information. 
+                The TIC fosters cooperation between governmental, non-governmental and intergovernmental agencies, 
+                and supports activities that promote human rights, peace and community development.</p>
+        </section>
+
+        <section class="about-section peace-building">
+            <h2>Peace Building</h2>
+            <p>The TIC continues to prioritise peace building as an important area of work, realising emphasis on 
+                solidarity with human rights and justice groups throughout the world. The knowledge and experience
+                 of the TIC in this field have now been transformed into common guidelines for the promotion of peace and 
+                 advocacy work and placed at the disposal of organisations involved in peace work, aimed at strengthening 
+                 cooperative partnership.</p>
+        </section>
+
+        <!--tic-glance-->
+<section class="tic-glance">
+      <!-- Intro Card -->
+    <div class="tic-intro">
+        <h2>Tamil Information Centre (TIC) at a Glance</h2>
+        <p>The<b> Tamil Information Centre (TIC)</b> is an independent, community-based, non-profit organisation dedicated
+             to the promotion and protection of the human rights of the Tamil-speaking people of Sri Lanka.
+              Established in <b>1979 in London, United Kingdom,</b> TIC was founded to empower Tamil-speaking communities
+               through access to knowledge, information, and a wide range of services, programmes, and initiatives.
+The core aim of TIC is to contribute towards the creation of a just, inclusive, and cohesive society—free from
+ persecution—where human dignity is respected, individual freedoms are protected, and fundamental human rights are upheld and promoted.
+        </p>
+    </div>
+    <div class="glance-grid">
+        <!-- First Row: 4 Cards -->
+        <div class="glance-card">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-building-columns fa-4x"></i>
+            </div>
+            <div class="glance-content">
+                <h3>Structure</h3>
+                <p class="details">The Tamil Information Centre is based in <b>London </b>and operates under the direction 
+                    of a <b>voluntary Board</b>, supported by a small number of staff, volunteers, and associates. 
+                    TIC draws upon a wide pool of skilled volunteers, programme partners, consultants,
+                     and subject-matter experts to deliver its work across human rights, community development, peace building, and documentation.</p>
+            </div>
+        </div>
+
+        <div class="glance-card">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-network-wired fa-4x"></i>
+            </div>
+            <div class="glance-content">
+                <h3>Communication, Cooperation and Network</h3>
+                <p class="details">A central function of TIC is to serve as a platform for the exchange of information,
+                     perspectives, and expertise. Over the years, TIC has developed strong working
+                      relationships with <b>governmental, non-governmental, and intergovernmental organisations</b>, 
+                      as well as individuals across the world.
+These relationships form TIC’s information and cooperation network and regularly give rise to seminars, 
+workshops, conferences, campaigns, and joint initiatives aimed at advancing human rights, peace, and sustainable development.</p>
+            </div>
+        </div>
+
+        <div class="glance-card">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-book-open fa-4x"></i>
+            </div>
+            <div class="glance-content">
+                <h3>Resource Centre and Documentation</h3>
+                <p class="details">TIC maintains a dedicated <b>documentation and resource centre </b>that serves as a comprehensive repository
+                     of materials relating to the Tamil-speaking people of Sri Lanka.
+                     The collection—now comprising<b> nearly 25,000 items</b>—includes documents obtained through 
+                     TIC’s own sources as well as external materials.
+This resource has become a significant reference point for researchers, journalists, campaigners, practitioners, 
+students, and media professionals. TIC also supports journalists, NGO representatives, researchers,
+ and students during visits to war-affected and sensitive areas in Sri Lanka, facilitating access to first-hand information and informed analysis.</p>
+            </div>
+        </div>
+
+        <div class="glance-card">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-magnifying-glass-chart fa-4x"></i>
+            </div>
+            <div class="glance-content">
+                <h3>Information, Research and Advocacy</h3>
+                <p class="details">TIC provides a broad range of specialist and general information services. The organisation recognises
+                     that <b>rigorous research and informed advocacy </b>are essential to
+                      influencing policy and practice, both within Sri Lanka and internationally.
+TIC’s publications include briefing papers, analytical reports, books, and thematic studies addressing political, 
+social, humanitarian, and human rights issues affecting the Tamil-speaking population. Where appropriate,
+ TIC has also engaged in strategic litigation.</p>
+            </div>
+        </div>
+
+        <!-- Second Row: 3 Cards -->
+        <div class="second-row-wrapper">
+            <div class="glance-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-bell fa-4x"></i>
+                </div>
+                <div class="glance-content">
+                    <h3>Current Awarenessand Information Service</h3>
+                    <p class="details">The Tamil Information Centre responds to a wide spectrum of
+                         enquiries from NGOs, journalists, researchers, students, refugee agencies, government bodies, 
+                         legal professionals, social workers, cultural practitioners, human rights defenders, and community organisations.
+Subjects addressed include history, displacement, refugees and asylum seekers, militarisation, 
+human rights violations, culture, education, employment, relief and rehabilitation, peace initiatives, 
+political movements, and national and international organisations.
+ Enquiries are handled by experienced documentalists and researchers, providing a cost-effective and reliable information service.</p>
+                </div>
+            </div>
+
+            <div class="glance-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-handshake fa-4x"></i>
+                </div>
+                <div class="glance-content">
+                    <h3>Liaison, Community Development, and Training</h3>
+                    <p class="details">TIC works closely with grassroots organisations, civil society groups, 
+                        resistance movements, and international agencies to promote dialogue, cooperation, and collective 
+                        action in pursuit of justice, peace, and human rights in Sri Lanka.
+Its community development programmes engage women, elders, refugees, and social, cultural, and human rights workers, aiming to 
+strengthen community resilience and participation. TIC conducts studies, training programmes, seminars, and workshops to enhance
+ skills, foster leadership, and encourage informed civic engagement.
+Book launches organised by TIC have also supported emerging and disadvantaged writers, contributing to cultural expression, 
+intellectual exchange, and social networking within the community.</p>
+                </div>
+            </div>
+
+            <div class="glance-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-dove fa-4x"></i>
+                </div>
+                <div class="glance-content">
+                    <h3>Peace Building, Campaigns, and Solidarity</h3>
+                    <p class="details">Peace building remains a priority area of TIC’s work. Drawing on decades of experience, 
+                        TIC promotes solidarity with global human rights and justice movements and shares its knowledge and best 
+                        practices with organisations engaged in peace advocacy.
+Campaigning is one of the most visible ways in which TIC represents its constituents. Through human rights alerts, urgent actions,
+ advocacy campaigns, and public engagement, TIC highlights abuses, mobilises support, and seeks accountability. These efforts are 
+ underpinned by solidarity and collective action, recognising that meaningful progress requires cooperation across diverse actors and networks.</p>
+                </div>
+            </div>
+
+              <div class="glance-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-folder-open fa-4x"></i>
+
+                </div>
+                <div class="glance-content">
+                    <h3>Documentation, Archives, and Heritage</h3>
+                    <p class="details">The Tamil Information Centre continues to collect artefacts, documents, books, 
+                        and other materials to preserve and present Tamil history, culture, and heritage. TIC has organised 
+                        numerous historical exhibitions and is actively working towards the establishment of a permanent 
+                        archive and heritage museum, ensuring that these histories are preserved and made accessible for present and future generations..</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        <section class="work-partners">
+            <h2>Work with partners</h2>
+            <p>We work with partners in two capacities, either on a joint project to conduct an event or program to
+                 reduce costs, or as part of our advocacy program where we bring together different actors with expertise and
+                  a variety of complementary skills to achieve our objectives.</p>
+            <p>In other words TIC partnership is about providing the spaces where creative thoughts and ideas can emerge, gain 
+                support and build momentum in order to bring about positive transformation. Partnership working can also help to avoid unnecessary duplication of effort.</p>
+<a href="./form.html" class="join-today">
+    Join Today
+</a>
+
+        </section>
+<!-- FAQ Section -->
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    
+    <div class="faq-accordion">
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+                What is the main purpose of TIC? 
+                <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>The primary purpose of the Tamil Information Centre (TIC) is to collect, preserve, and provide access to information, documentation, and research materials concerning Tamil-speaking communities and related issues in Sri Lanka. It serves as a vital resource hub for understanding the historical, social, political, and cultural contexts affecting these communities.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+                Does TIC run relief or development projects? 
+                <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>No, TIC does not directly implement relief or development projects on the ground. Instead, it focuses on supporting organisations, researchers, and community groups engaged in such work by providing reliable information, documentation, research assistance, and advocacy support.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+                Where is TIC based? 
+                <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>The Tamil Information Centre is based in London, United Kingdom. It operates under the guidance of a volunteer Board of Trustees, with a dedicated team of staff and volunteers who manage its collections, services, and outreach activities.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+                Who can use TIC's resources? 
+                <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>TIC's resources are open to everyone with a genuine interest in Tamil-speaking communities and Sri Lankan issues. This includes researchers, academics, journalists, NGOs, human rights organisations, students, diaspora community members, policymakers, and the general public seeking credible information.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+                How extensive is the TIC collection? 
+                <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>TIC maintains an extensive archive of nearly 25,000 items, including books, reports, newspapers, periodicals, photographs, audio-visual materials, and digital resources. The collection covers a wide range of topics such as conflict, displacement, human rights, peace-building, resettlement, culture, and post-war developments.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+                How can organisations collaborate with TIC? 
+                <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>TIC actively collaborates with local and international organisations through joint seminars, workshops, research initiatives, information-sharing, and capacity-building programs. Interested organisations can get in touch via the contact form on this website, email, or by visiting the centre to explore partnership opportunities.</p>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+
+<!-- footer  -->
+   <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+  
+        <!-- PayPal Donate Button -->
+   
+
+    <!-- Existing Footer Content -->
+    <h3>Tamil News</h3>
+    <p style="color: #ccc; font-size: 0.9rem;">
+        Your trusted source for Tamil community news, culture, and heritage updates from Sri Lanka and around the world.
+    </p>
+    <p style="color: #999; font-size: 0.85rem; margin-top: 1rem;">
+        © Tamil Information Centre • Est. 1983
+    </p>
+     <div style="margin-bottom: 1.2rem;">
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+            <input type="hidden" name="hosted_button_id" value=""> 
+            <button type="submit" 
+                style="
+                    background-color:#0070ba;
+                    color:white;
+                    padding:10px 18px;
+                    border:none;
+                    border-radius:6px;
+                    cursor:pointer;
+                    font-size:0.95rem;
+                    font-weight:600;
+                    display:inline-flex;
+                    align-items:center;
+                    gap:8px;
+                "
+            >
+                <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" 
+                     alt="PayPal" 
+                     style="height:18px;">
+                Donate with PayPal
+            </button>
+        </form>
+    </div>
+</div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="./aboutus.html">About Us</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="./publication.html">Publications</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="./Heritage Hub.html">Heritage</a></li>
+            <li><a href="./Heritage Hub.html">Culture</a></li>
+            <li><a href="./Heritage Hub.html">Community</a></li>
+            <li><a href="./publication.html">Shop</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="./legal.html">Privacy Policy</a></li>
+            <li><a href="./legal.html">Terms of Service</a></li>
+            <li><a href="./legal.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+     <div class="footer-bottom">
+         <p> ©Tamil Information Centre TIC Archives || 2025 All rights reserved</p>
+        
+</div>
+
+    </div>
+  </footer>
+<!-- footer  -->
+    <!-- Full Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ============================================
+        // PROTECTION MEASURES (Consolidated)
+        // ============================================
+    
+        // ============================================
+        // MOBILE MENU FUNCTIONALITY
+        // ============================================
+        (function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNavOffcanvas = document.getElementById('mobileNavOffcanvas');
+            const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+            const mobileNavClose = document.getElementById('mobileNavClose');
+            
+            if (!mobileMenuBtn || !mobileNavOffcanvas) return;
+            
+            function openMobileMenu() {
+                mobileNavOffcanvas.classList.add('active');
+                mobileNavOverlay?.classList.add('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMobileMenu() {
+                mobileNavOffcanvas.classList.remove('active');
+                mobileNavOverlay?.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                mobileMenuBtn.focus();
+            }
+            
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+            mobileNavClose?.addEventListener('click', closeMobileMenu);
+            mobileNavOverlay?.addEventListener('click', closeMobileMenu);
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileNavOffcanvas.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+            
+            // Mobile dropdown toggles
+            const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    const targetContent = document.getElementById(targetId);
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    
+                    // Close all other dropdowns
+                    dropdownToggles.forEach(t => {
+                        if (t !== this) {
+                            t.setAttribute('aria-expanded', 'false');
+                            const tId = t.getAttribute('data-target');
+                            document.getElementById(tId)?.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current
+                    targetContent?.classList.toggle('active');
+                    this.setAttribute('aria-expanded', !isExpanded);
+                });
+            });
+        })();
+       
+document.addEventListener('DOMContentLoaded', function () {
+    const questions = document.querySelectorAll('.faq-question');
+
+    questions.forEach(question => {
+        question.addEventListener('click', function () {
+            const currentlyOpen = document.querySelector('.faq-question[aria-expanded="true"]');
+            const thisAnswer = this.nextElementSibling;
+            const thisIcon = this.querySelector('.icon');
+
+            // Close any open answer first
+            if (currentlyOpen && currentlyOpen !== this) {
+                currentlyOpen.setAttribute('aria-expanded', 'false');
+                currentlyOpen.nextElementSibling.classList.remove('open');
+            }
+
+            // Toggle current one
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            if (isExpanded) {
+                this.setAttribute('aria-expanded', 'false');
+                thisAnswer.classList.remove('open');
+            } else {
+                this.setAttribute('aria-expanded', 'true');
+                thisAnswer.classList.add('open');
+            }
+        });
+    });
+});
+
+    </script>
+</body>
+</html>

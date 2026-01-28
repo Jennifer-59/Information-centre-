@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC Archives - Publications</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+      <link rel="stylesheet" href="./style.css">
+    
+    <style>
+    
+        /* body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        } */
+
+        /* Publications Container */
+       /* Publications Page Hero Section Style */
+/* Publications Page Hero Section Style */
+.page-header-section {
+    width: 100%; 
+    margin: 0 auto 0 !important;           /* bottom margin fully removed */
+    padding: 6rem 1rem 1.5rem !important;  /* bottom padding drastically reduced */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, var(--card-bg) 0%, var(--primary-bg) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.08); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    border-radius: var(--border-radius);
+}
+
+.page-header-section .page-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--accent-dark);
+    margin: 0 0 1rem 0;
+    letter-spacing: -1.5px;
+    line-height: 1.2;
+}
+
+.page-header-section .page-subtitle {
+    font-size: 1.25rem;
+    color: var(--accent-dark);
+    opacity: 0.8;
+    margin: 0;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+      .filter-box {
+    margin-top: -25rem !important;    
+    margin-bottom: 1.5rem;
+    padding: 1.2rem;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(15, 37, 64, 0.08);
+    z-index: 5;                       
+}
+
+        .filter-box {
+            background-color: var(--card-bg);
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(15, 37, 64, 0.1);
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            min-width: 180px;
+        }
+
+        .filter-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .filter-group select {
+            padding: 0.75rem 1rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+        }
+
+        .reset-btn {
+            background-color: var(--accent-dark);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .reset-btn:hover {
+            background-color: #1a3a5f;
+        }
+.category-filter {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.row.g-3 {
+    margin-top: 0 !important;
+}
+
+        /* Main Content Layout */
+        .publications-main-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 992px) {
+            .publications-main-content {
+                grid-template-columns: 300px 1fr;
+            }
+        }
+
+        /* Publication Guide - Fixed, Not Scrollable */
+        .publication-guide {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(15, 37, 64, 0.1);
+            height: fit-content;
+        }
+
+        .publication-guide h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            margin-bottom: 1rem;
+            border-left: 5px solid var(--accent-muted);
+            padding-left: 1rem;
+        }
+
+        .guide-section {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .guide-section:last-child {
+            border-bottom: none;
+        }
+
+        .guide-section h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .guide-section p {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Publications Header */
+        .publications-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .publications-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            margin: 0;
+        }
+
+        /* Publication Grid */
+        .publication-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Publication Card */
+        .pub-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .pub-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .pub-status-tag {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            color: white;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 0 4px 4px 0;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        .pub-status-tag.paid {
+            background-color: #d9534f;
+        }
+
+         .pub-status-tag.private {
+            background-color: var(--accent-dark);
+        }
+
+        .pub-status-tag.free {
+            background-color: #5cb85c;
+        }
+
+        .pub-image {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #eee;
+        }
+
+        .pub-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pub-details {
+            padding: 1rem;
+        }
+
+        .pub-type {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-muted);
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+        }
+
+        .pub-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .pub-price {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent-dark);
+            margin-bottom: 1rem;
+        }
+
+        .pub-action-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 0.65rem;
+            border-radius: 7px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-pay {
+            background-color: #d9534f;
+            color: white;
+        }
+
+        .btn-pay:hover {
+            background-color: #c9302c;
+        }
+
+        .btn-free {
+            background-color: #5cb85c;
+            color: white;
+        }
+
+        .btn-free:hover {
+            background-color: #4cae4c;
+        }
+
+         .btn-private {
+          background-color: var(--accent-dark);
+            color: white;
+        }
+
+        .btn-private:hover {
+            background-color: var(--accent-dark);
+        }
+
+        /* Pagination */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .pagination-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background-color: white;
+            color: var(--accent-dark);
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            background-color: var(--accent-dark);
+            color: white;
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination-btn.active {
+            background-color: var(--accent-dark);
+            color: white;
+        }
+
+        /* Modal Styles */
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+                --bs-backdrop-opacity: 0.;
+        }
+
+        .modal-backdrop.show {
+            display: flex;
+        }
+
+        .modal-content-wrapper {
+            background-color: white;
+            border-radius: 12px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .modal-content-wrapper {
+                grid-template-columns: 1fr 1.5fr;
+            }
+        }
+
+        .modal-book-details {
+            background: linear-gradient(135deg, #0f2540 0%, #1a3a5f 100%);
+            color: white;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .modal-book-image {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+        }
+
+        .modal-book-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-book-info p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-book-price {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-top: 1rem;
+        }
+
+        .modal-form-section {
+            padding: 2rem;
+        }
+
+        .modal-form-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--accent-dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn-submit {
+            flex: 1;
+            padding: 0.85rem;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #c9302c;
+        }
+
+        .btn-cancel {
+            flex: 1;
+            padding: 0.85rem;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-cancel:hover {
+            background-color: #5a6268;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .paypal-button-wrapper {
+    margin-top: 15px;
+}
+
+.paypal-btn {
+    width: 100%;
+    background-color: #ffc439;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.paypal-btn i {
+    color: #003087;
+    font-size: 18px;
+}
+
+.paypal-btn:hover {
+    background-color: #f2ba36;
+}
+/* ────────────────────────────────────────
+   Mobile-first base adjustments
+───────────────────────────────────────── */
+
+body {
+    font-size: 16px;           /* better base size for mobile */
+    line-height: 1.5;
+}
+
+.page-header-section {
+    padding: 1.5rem 1rem 1rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.page-title {
+    font-size: clamp(2.1rem, 8vw, 2.8rem) !important;
+}
+
+.page-subtitle {
+    font-size: clamp(1.05rem, 4.5vw, 1.25rem) !important;
+}
+
+/* ─────── Filter box ─────── */
+.filter-box {
+    margin-top: 1.5rem !important;     /* most important fix */
+    margin-bottom: 2rem;
+    padding: 1.25rem;
+}
+
+.filter-row {
+    flex-direction: column;
+    gap: 1.1rem;
+    align-items: stretch;
+}
+
+.filter-group {
+    min-width: auto;
+    width: 100%;
+}
+
+.reset-btn {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1rem;
+}
+
+/* ─────── Main layout ─────── */
+.publications-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Guide first on mobile → content second */
+.publication-guide {
+    order: -1;
+}
+
+/* Publication cards */
+.publication-grid {
+    grid-template-columns: 1fr;           /* one column on mobile */
+    gap: 1.25rem;
+}
+
+.pub-card {
+    font-size: 0.97rem;
+}
+
+.pub-image {
+    height: 180px;                        /* slightly smaller on mobile */
+}
+
+.pub-title {
+    font-size: 1.05rem;
+}
+
+.pub-price {
+    font-size: 1.25rem;
+}
+
+.pub-action-btn {
+    padding: 0.8rem;
+    font-size: 0.97rem;
+}
+
+/* Pagination */
+.pagination-container {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.pagination-btn {
+    min-width: 38px;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.9rem;
+}
+
+/* Modal — very important on mobile */
+.modal-backdrop {
+    padding: 0.8rem;
+}
+
+.modal-content-wrapper {
+    max-width: 100%;
+    max-height: 96vh;
+    margin: 0 auto;
+}
+
+.modal-book-details {
+    padding: 1.5rem 1.25rem;
+}
+
+.modal-book-image {
+    max-width: 160px;
+}
+
+.modal-form-section {
+    padding: 1.5rem 1.25rem;
+}
+
+/* ────────────────────────────────────────
+   Larger screens — progressive enhancement
+───────────────────────────────────────── */
+
+@media (min-width: 576px) {
+    .filter-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .filter-group {
+        flex: 1 1 45%;
+    }
+    
+    .reset-btn {
+        flex: 0 0 auto;
+        width: auto;
+        min-width: 140px;
+    }
+}
+
+@media (min-width: 768px) {
+    .page-header-section {
+        padding: 2.5rem 1.5rem 1.5rem !important;
+    }
+    
+    .publication-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    
+    .pub-image {
+        height: 200px;
+    }
+}
+
+@media (min-width: 992px) {
+    .publications-main-content {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 2.5rem;
+    }
+    
+    .publication-guide {
+        position: sticky;
+        top: 1.5rem;
+        align-self: start;
+    }
+    
+    .filter-box {
+        margin-top: 0 !important;
+    }
+    
+    .filter-row {
+        flex-wrap: nowrap;
+    }
+    
+    .filter-group {
+        flex: 1;
+        min-width: 200px;
+    }
+    
+    .reset-btn {
+        flex: 0 0 140px;
+    }
+}
+
+/* Prevent text zoom issues on iOS */
+input, textarea, select {
+    font-size: 16px !important;
+}
+
+        
+    </style>
+</head>
+<body>
+  <!-- Header -->
+    <header role="banner">
+        <div class="header-container">
+            <div class="header-main">
+                <!-- Logo -->
+                <a href="{{ route('client.home') }}" class="logo" aria-label="Tamil Bookshop Archives Home">
+                    <img src="./image/newlogo.jpeg" alt="Tamil Bookshop Archives Logo" width="60" height="60">
+                    <div class="logo-text">
+                        <span class="ta">THE TIC <br>ARCHIVES</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                    <ul>
+                        <li>
+                            <a href="./index.html" 
+                               class="{{ Route::is('client.home') ? 'active' : '' }}"
+>
+                                Home
+                            </a>
+                        </li>
+
+                      
+
+                        <li class="dropdown-parent">
+                            <a href="./aboutus.html" 
+                               class="{{ Route::is('client.about') || Route::is('client.news') ? 'active' : '' }}"
+                               aria-haspopup="true">
+                                About
+                            </a>
+                            <div class="dropdown" role="menu">
+                                <a href="./aboutus.html" role="menuitem">About Us</a>
+                                 <!-- <a href="./news.html" role="menuitem">News</a>  -->
+                                <a href="./supportus.html" role="menuitem">Support Us</a>
+                            </div>
+                        </li>
+
+                        <li class="dropdown-parent">
+                            <a href="./archive.html" class="{{ Route::is('client.archivecentrecollection') ? 'active' : '' }}"
+                               aria-haspopup="true">
+                                Archive Centre
+                            </a>
+                            <!--  <div class="dropdown" role="menu">
+                                <a href="./archive.html" role="menuitem">Collection</a>
+                                <a href="./archive.html" role="menuitem">Online Catalogue</a>
+                                <a href="./archive.html" role="menuitem">Google Arts & Heritage</a>
+                            </div> 
+                        </li> -->
+
+                        <li class="dropdown-parent">
+                            <a href="./HeritageCentre.html" aria-haspopup="true">Exhibition </a>
+                            <!--  <div class="dropdown" role="menu">
+                                <a href="./ToL.html" role="menuitem">ToL Exhibition</a>
+                                <a href="./HeritageCentre.html" role="menuitem">Heritage Centre</a>
+                                <a href="./subjectguide.html" role="menuitem">Subject Guides</a>
+                                <a href="./historical-timeline.html" role="menuitem">Historical Timeline</a>
+                                <a href="./workshop.html" role="menuitem">Learning Workshops</a>
+                            </div>
+                        </li> -->
+
+                        <li class="dropdown-parent">
+                            <a href="./ToL.html" aria-haspopup="true">Heritage Museum</a>
+                          <!--    <div class="dropdown" role="menu">
+                                <a href="./event.html" role="menuitem">Latest Events</a>
+                                <a href="./project.html" role="menuitem">Projects & Programs</a>
+                                <a href="./collaborate.html" role="menuitem">Collaborate</a>
+                            </div>
+                        </li>-->
+
+                        <li class="dropdown-parent">
+                            <a href="#" aria-haspopup="true">Join</a>
+                            <div class="dropdown" role="menu">
+                                <a href="./member.html" role="menuitem">Membership</a>
+                                <a href="#donate" role="menuitem">Donate</a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="./publication.html" 
+                               class="{{ Route::is('client.publications') ? 'active' : '' }}">
+                                Shop
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html" 
+                               class="{{ Route::is('client.contactus') ? 'active' : '' }}">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" 
+                        id="mobileMenuBtn" 
+                        aria-label="Open mobile menu"
+                        aria-expanded="false"
+                        aria-controls="mobileNavOffcanvas">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Mobile Navigation Offcanvas -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <div class="mobile-nav-offcanvas" id="mobileNavOffcanvas" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div class="mobile-nav-header">
+            <span style="font-weight: 700; color: var(--accent-dark);">Menu</span>
+            <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close mobile menu">✕</button>
+        </div>
+        <nav class="mobile-nav-menu" role="navigation" aria-label="Mobile navigation">
+            <ul>
+                <li><a href="./index.html" class="{{ Route::is('client.home') ? 'active' : '' }}">Home</a></li>
+                
+                <li>
+                    <button class="mobile-dropdown-toggle" data-target="aboutDropdown" aria-expanded="false">
+                        About <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-content" id="aboutDropdown">
+                        <a href="./aboutus.html">About Us</a>
+                         <!-- <a href="./news.html">News</a>-->
+                        <a href="./supportus.html">Support Us</a>
+                    </div>
+                </li>
+                    <li><a href="./archive.html">  Archive Centre </a></li>
+
+                <!--   <li>
+                    <button class="mobile-dropdown-toggle" data-target="archiveDropdown" aria-expanded="false">
+                        Archive Centre 
+                    </button>
+                    <div class="mobile-dropdown-content" id="archiveDropdown">
+                        <a href="./archive.html">Collection</a>
+                       <a href="./archive.html">Online Catalogue</a>
+                        <a href="./archive.html">Google Arts & Heritage</a>
+                    </div>
+                </li>-->
+                         <li><a href="./Heritage Hub.html">   Exhibition</a></li>
+                  <!--<li>
+                    <button class="mobile-dropdown-toggle" data-target="exhibitionDropdown" aria-expanded="false">
+                Exhibition
+                    </button>
+                    <div class="mobile-dropdown-content" id="exhibitionDropdown">
+                        <a href="./ToL.html">ToL Exhibition</a>
+                        <a href="./HeritageCentre.html">Heritage Centre</a>
+                         <!--<a href="./subjectguide.html">Subject Guides</a>
+                        <a href="./historical-timeline.html">Historical Timeline</a>
+                        <a href="./workshop.html">Learning Workshops</a>
+                    </div>
+                </li>-->
+                     <li><a href="./ToL.html">Heritage Museum</a></li>
+                <!--  <li>
+                    <button class="mobile-dropdown-toggle" data-target="whatsOnDropdown" aria-expanded="false">
+                        What's On 
+                    </button>
+                    <div class="mobile-dropdown-content" id="whatsOnDropdown">
+                        <a href="./event.html">Latest Events</a>
+                        <a href="./project.html">Projects & Programs</a>
+                        <a href="./collaborate.html">Collaborate</a>
+                    </div>
+                </li>-->
+
+                <li>
+                    <button class="mobile-dropdown-toggle" data-target="joinDropdown" aria-expanded="false">
+                        Join <span>▾</span>
+                    </button>
+                    <div class="mobile-dropdown-content" id="joinDropdown">
+                        <a href="./member.html">Membership</a>
+                        <a href="#donate">Donate</a>
+                    </div>
+                </li>
+
+                <li><a href="./publication.html">Shop</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+<!--/header-->
+    <!-- Main Content -->
+    <main class="publications-container">
+<main id="main-content" role="main" class="container pt-0 pb-5">
+
+    <div class="container">
+        <section class="page-header-section">
+            <h1 class="page-title">Publications</h1>
+            <p class="page-subtitle">Explore our collection of Tamil heritage books and research materials</p>
+        </section>
+        
+        </div>
+</main>
+        <!-- Filter Section -->
+
+            
+        <section class="filter-box">
+            <h3 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem;">
+                Filter Publications
+            </h3>
+            <form class="filter-form">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label for="publication-type">Publication Type(main type)</label>
+                        <select id="publication-type">
+                            <option>All Types</option>
+                            <option>TIC publication</option>
+                            <option>Other publication</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="category">Category (sub type)</label>
+                        <select id="category">
+                            <option>All Categories</option>
+                            <option>Periodicals</option>
+                            <option>Monographs</option>
+                             <option>Free Publications</option>
+                        </select>
+                    </div>
+                    <button type="reset" class="reset-btn">Reset Filters</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="publications-main-content">
+            <!-- Guide Section -->
+            <aside class="publication-guide">
+                <h2>Publications Guide</h2>
+                
+                <div class="guide-section">
+                    <h3>📚 Browse & Order</h3>
+                    <p>Browse our collection of publications. Free items can be downloaded immediately, paid items require a simple request form.</p>
+                </div>
+                
+                <div class="guide-section">
+                    <h3>💳 Payment Options</h3>
+                    <p>We accept major credit cards via PayPal secure checkout. All transactions are encrypted and secure.</p>
+                </div>
+
+                <div class="guide-section">
+                    <h3>📦 Shipping</h3>
+                    <p>Orders dispatched within 3–5 working days via Royal Mail. Handling fee applies.</p>
+                </div>
+
+                <div class="guide-section">
+                    <h3>📞 Contact Us</h3>
+                    <p><strong>Tamil Information Centre</strong><br>
+                    Kingston upon Thames, KT2 6PZ<br>
+                    Tel: 020 8546 1560<br>
+                    Email: info@tamilinfo.org</p>
+                </div>
+            </aside>
+
+            <!-- Publications Listing -->
+            <section class="publication-listings">
+                <div class="publications-header">
+                    <h2>Our Publications <span style="font-size: 0.9rem; font-weight: 400;" id="total-count">(12 books)</span></h2>
+                </div>
+
+                <div class="publication-grid" id="publicationGrid">
+                    <!-- Publications will be dynamically loaded here -->
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-container" id="pagination">
+                    <!-- Pagination buttons will be generated here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+    <!-- footer  -->
+   <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+  
+        <!-- PayPal Donate Button -->
+   
+
+    <!-- Existing Footer Content -->
+    <h3>Tamil News</h3>
+    <p style="color: #ccc; font-size: 0.9rem;">
+        Your trusted source for Tamil community news, culture, and heritage updates from Sri Lanka and around the world.
+    </p>
+    <p style="color: #999; font-size: 0.85rem; margin-top: 1rem;">
+        © Tamil Information Centre • Est. 1983
+    </p>
+     <div style="margin-bottom: 1.2rem;">
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+            <input type="hidden" name="hosted_button_id" value=""> 
+            <button type="submit" 
+                style="
+                    background-color:#0070ba;
+                    color:white;
+                    padding:10px 18px;
+                    border:none;
+                    border-radius:6px;
+                    cursor:pointer;
+                    font-size:0.95rem;
+                    font-weight:600;
+                    display:inline-flex;
+                    align-items:center;
+                    gap:8px;
+                "
+            >
+                <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" 
+                     alt="PayPal" 
+                     style="height:18px;">
+                Donate with PayPal
+            </button>
+        </form>
+    </div>
+</div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="./aboutus.html">About Us</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="./publication.html">Publications</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="./Heritage Hub.html">Heritage</a></li>
+            <li><a href="./Heritage Hub.html">Culture</a></li>
+            <li><a href="./Heritage Hub.html">Community</a></li>
+            <li><a href="./publication.html">Shop</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="./legal.html">Privacy Policy</a></li>
+            <li><a href="./legal.html">Terms of Service</a></li>
+            <li><a href="./legal.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+     <div class="footer-bottom">
+         <p> ©Tamil Information Centre TIC Archives || 2025 All rights reserved</p>
+        
+</div>
+
+    </div>
+  </footer>
+<!-- footer  -->
+
+
+
+  <!-- Accesss Modal -->
+
+   <!-- Payment Request Modal -->
+    <div class="modal-backdrop" id="accessModal">
+        <div class="modal-content-wrapper">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            
+            <!-- Left Side: Book Details -->
+            <div class="modal-book-details">
+                <img id="modalBookImage" src="" alt="Book Cover" class="modal-book-image">
+                <div class="modal-book-info">
+                    <h3 id="modalBookTitle"></h3>
+                    <p><strong>Type:</strong> <span id="modalBookType"></span></p>
+                    <p><strong>Category:</strong> <span id="modalBookCategory"></span></p>
+                    <p id="modalBookDescription"></p>
+                    <div class="modal-book-price" id="modalBookPrice"></div>
+                </div>
+            </div>
+
+            <!-- Right Side: Request Form -->
+            <div class="modal-form-section">
+                <h3>Payment Request Form</h3>
+                <form id="paymentForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+
+        
+                    <div class="form-group">
+                        <label for="message">Additional Notes</label>
+                        <textarea id="message"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Submit Request</button>
+                        <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+     <!-- Payment Request Modal -->
+    <div class="modal-backdrop" id="paymentModal">
+        <div class="modal-content-wrapper">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            
+            <!-- Left Side: Book Details -->
+            <div class="modal-book-details">
+                <img id="modalBookImage" src="" alt="Book Cover" class="modal-book-image">
+                <div class="modal-book-info">
+                    <h3 id="modalBookTitle"></h3>
+                    <p><strong>Type:</strong> <span id="modalBookType"></span></p>
+                    <p><strong>Category:</strong> <span id="modalBookCategory"></span></p>
+                    <p id="modalBookDescription"></p>
+                    <div class="modal-book-price" id="modalBookPrice"></div>
+
+                    <!-- Payment Details -->
+<div class="modal-payment-details">
+    <h4>Payment Methods</h4>
+
+    <div class="paypal-button-wrapper">
+    <button type="button" class="paypal-btn">
+        <i class="fab fa-paypal"></i>
+        Pay with PayPal
+    </button>
+</div>
+<br>
+    <p class="payment-note">
+        Secure payment via PayPal. Credit & Debit cards accepted.
+    </p>
+</div>
+
+                </div>
+            </div>
+
+            <!-- Right Side: Request Form -->
+            <div class="modal-form-section">
+                <h3>Payment Request Form</h3>
+                <form id="paymentForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+
+        
+                    <div class="form-group">
+                        <label for="message">Additional Notes</label>
+                        <textarea id="message"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Submit Request</button>
+                        <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Sample Publications Data
+const publications = [
+  {
+    id: 1,
+    title: "Tamil Civilization and Heritage",
+    type: "Book",
+    category: "Private",
+    price: "Private",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHFsRGq5FcTGZFe2f8TimfwFKbCbgREX7lSw&s",
+    description: "An in-depth study of ancient Tamil civilization and heritage"
+  },
+  {
+    id: 2,
+    title: "Tamil Literature Through Ages",
+    type: "Book",
+    category: "Paid",
+    price: "$24.99",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDYd0IEonnsFXBQ85Qy1HMKZw2YKLzDxSoig&s",
+    description: "Evolution of Tamil literature from Sangam to modern era"
+  },
+  {
+    id: 3,
+    title: "Tamil Nadu Cultural Report",
+    type: "Report",
+    category: "Free",
+    price: "FREE",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzPHKmg4f-70i7YjB_YBZvWloD7GgSkQkzdQ&s",
+    description: "Annual report on Tamil Nadu culture and traditions"
+  },
+  {
+    id: 4,
+    title: "History of Tamil Kingdoms",
+    type: "Book",
+    category: "Paid",
+    price: "$34.99",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWHQKy7593vgcssc3wysdfji0anYRa6GBr2g&s",
+    description: "Chola, Chera, and Pandya dynasties explained"
+  },
+  {
+    id: 5,
+    title: "Tamil Studies Journal",
+    type: "Journal",
+    category: "Free",
+    price: "FREE",
+    image: "https://ijtllsml.wordpress.com/wp-content/uploads/2017/05/b8rnurvccaesyop.jpg",
+    description: "Academic journal on Tamil studies and research"
+  },
+  {
+    id: 6,
+    title: "Guide to Tamil Cultural Practices",
+    type: "Book",
+    category: "Paid",
+    price: "$19.99",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREGTpJld3J0htnO6SqsKDUYYdAdPxM0M-21A&s",
+    description: "Festivals, rituals, and traditional practices"
+  },
+  {
+    id: 7,
+    title: "Tamil Community Magazine",
+    type: "Magazine",
+    category: "Free",
+    price: "FREE",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaI43_U5HGTzdgHbRu6ieDqBEpPxMcPMSWqw&s",
+    description: "Stories and news from Tamil communities worldwide"
+  },
+  {
+    id: 8,
+    title: "Learning the Tamil Language",
+    type: "Book",
+    category: "Paid",
+    price: "$21.99",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwDY9lGpZ61BjF7IaGQPfV8gZX7EQfAB4LNg&s",
+    description: "Structured guide for learning Tamil language basics"
+  },
+  {
+    id: 9,
+    title: "Modern Tamil Poetry Collection",
+    type: "Book",
+    category: "Free",
+    price: "FREE",
+    image: "https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d",
+    description: "Selected modern poetry inspired by Tamil themes"
+  },
+  {
+    id: 10,
+    title: "Tamil Economy and Society Report",
+    type: "Report",
+    category: "Paid",
+    price: "$14.99",
+    image: "https://ijtllsml.wordpress.com/wp-content/uploads/2017/05/b8rnurvccaesyop.jpg",
+    description: "Economic and social analysis of Tamil regions"
+  },
+  {
+    id: 11,
+    title: "Tamil Art and Architecture",
+    type: "Magazine",
+    category: "Private",
+    price: "Private",
+    image: "https://ijtllsml.wordpress.com/wp-content/uploads/2017/05/b8rnurvccaesyop.jpg",
+    description: "Traditional and modern Tamil art forms"
+  },
+  {
+    id: 12,
+    title: "Open Educational Resources on Tamil Studies",
+    type: "Book",
+    category: "Free",
+    price: "FREE",
+    image: "https://images.unsplash.com/photo-1529070538774-1843cb3265df",
+    description: "Free learning resources related to Tamil studies"
+  }
+];
+
+// Pagination Settings
+const itemsPerPage = 6;
+let currentPage = 1;
+let currentBook = null;
+
+// Render Publications
+function renderPublications(page = 1) {
+    const grid = document.getElementById('publicationGrid');
+    const start = (page - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const paginatedItems = publications.slice(start, end);
+
+    // Helper function to generate action button
+    const getActionButton = (pub) => {
+        switch(pub.category) {
+            case 'Paid':
+                return `<button class="pub-action-btn btn-pay" onclick="openPaymentModal(${pub.id})">Pay Now</button>`;
+            case 'Free':
+                return `<button class="pub-action-btn btn-free" onclick="downloadFree(${pub.id})">Download Now</button>`;
+            case 'Private':
+                return `<button class="pub-action-btn btn-private" onclick="openAccessModal(${pub.id})">🔒 Request Access</button>`;
+            default:
+                return '';
+        }
+    };
+
+    grid.innerHTML = paginatedItems.map(pub => `
+        <article class="pub-card">
+            <span class="pub-status-tag ${pub.category.toLowerCase()}">${pub.category.toUpperCase()}</span>
+            <div class="pub-image">
+                <img src="${pub.image}" alt="${pub.title}" loading="lazy">
+            </div>
+            <div class="pub-details">
+                <span class="pub-type">${pub.type}</span>
+                <h3 class="pub-title">${pub.title}</h3>
+                <div class="pub-price">${pub.price}</div>
+                ${getActionButton(pub)}
+            </div>
+        </article>
+    `).join('');
+
+    document.getElementById('total-count').textContent = `(${publications.length} books)`;
+    renderPagination();
+}
+
+// Render Pagination
+function renderPagination() {
+    const totalPages = Math.ceil(publications.length / itemsPerPage);
+    const pagination = document.getElementById('pagination');
+    
+    let html = `<button class="pagination-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>`;
+    
+    for (let i = 1; i <= totalPages; i++) {
+        html += `<button class="pagination-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+    }
+    
+    html += `<button class="pagination-btn" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>`;
+    
+    pagination.innerHTML = html;
+}
+
+// Change Page
+function changePage(page) {
+    const totalPages = Math.ceil(publications.length / itemsPerPage);
+    if (page < 1 || page > totalPages) return;
+    currentPage = page;
+    renderPublications(currentPage);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Open Payment Modal (for Paid items)
+function openPaymentModal(bookId) {
+    currentBook = publications.find(pub => pub.id === bookId);
+    if (!currentBook) return;
+
+    // Populate payment modal
+    const paymentModal = document.getElementById('paymentModal');
+    paymentModal.querySelector('#modalBookImage').src = currentBook.image;
+    paymentModal.querySelector('#modalBookTitle').textContent = currentBook.title;
+    paymentModal.querySelector('#modalBookType').textContent = currentBook.type;
+    paymentModal.querySelector('#modalBookCategory').textContent = currentBook.category;
+    paymentModal.querySelector('#modalBookDescription').textContent = currentBook.description;
+    paymentModal.querySelector('#modalBookPrice').textContent = currentBook.price;
+
+    // Show payment modal
+    paymentModal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+// Open Access Modal (for Private items)
+function openAccessModal(bookId) {
+    currentBook = publications.find(pub => pub.id === bookId);
+    if (!currentBook) return;
+
+    // Populate access modal
+    const accessModal = document.getElementById('accessModal');
+    accessModal.querySelector('#modalBookImage').src = currentBook.image;
+    accessModal.querySelector('#modalBookTitle').textContent = currentBook.title;
+    accessModal.querySelector('#modalBookType').textContent = currentBook.type;
+    accessModal.querySelector('#modalBookCategory').textContent = currentBook.category;
+    accessModal.querySelector('#modalBookDescription').textContent = currentBook.description;
+    accessModal.querySelector('#modalBookPrice').textContent = currentBook.price;
+
+    // Show access modal
+    accessModal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+// Close Modal
+function closeModal() {
+    document.getElementById('paymentModal').classList.remove('show');
+    document.getElementById('accessModal').classList.remove('show');
+    document.body.style.overflow = '';
+    
+    // Reset both forms
+    const paymentForm = document.querySelector('#paymentModal #paymentForm');
+    const accessForm = document.querySelector('#accessModal #paymentForm');
+    if (paymentForm) paymentForm.reset();
+    if (accessForm) accessForm.reset();
+}
+
+// Handle Form Submit
+function handleSubmit(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const formData = {
+        fullName: form.querySelector('#fullName').value,
+        email: form.querySelector('#email').value,
+        phone: form.querySelector('#phone').value,
+        message: form.querySelector('#message').value,
+        book: currentBook.title,
+        price: currentBook.price,
+        category: currentBook.category
+    };
+
+    console.log('Form submitted:', formData);
+    
+    // Show success message
+    if (currentBook.category === 'Private') {
+        alert(`Access request submitted for: ${currentBook.title}\n\nWe will contact you shortly via email.`);
+    } else {
+        alert(`Payment request submitted for: ${currentBook.title}\n\nTotal: ${currentBook.price}\n\nYou will receive payment instructions via email.`);
+    }
+    
+    closeModal();
+}
+
+// // Download Free Publication
+// function downloadFree(bookId) {
+//     const book = publications.find(pub => pub.id === bookId);
+//     alert(`Downloading: ${book.title}\n\nYour download will begin shortly.`);
+//     // Add actual download logic here
+// }
+
+function downloadFree(bookId) {
+   const filePath = 'image/e5.jpg'; // Path to your local image
+  const fileName = 'sample-test.jpg'; // Name of file when downloaded
+
+  // Create a temporary <a> element
+  const link = document.createElement('a');
+  link.href = filePath;
+  link.download = fileName; 
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+//   alert(`Downloading: ${fileName}\nYour download will begin shortly.`);
+}
+
+
+// Close modal on backdrop click
+document.getElementById('paymentModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeModal();
+    }
+});
+
+document.getElementById('accessModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeModal();
+    }
+});
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeModal();
+    }
+});
+
+// Initialize
+renderPublications(1);
+
+
+
+(function() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNavOffcanvas = document.getElementById('mobileNavOffcanvas');
+    const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+    const mobileNavClose = document.getElementById('mobileNavClose');
+    
+    if (!mobileMenuBtn || !mobileNavOffcanvas) return;
+    
+    function openMobileMenu() {
+        mobileNavOffcanvas.classList.add('active');
+        mobileNavOverlay?.classList.add('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        
+        // Focus trap
+        const focusableElements = mobileNavOffcanvas.querySelectorAll('a, button');
+        if (focusableElements.length) {
+            focusableElements[0].focus();
+        }
+    }
+    
+    function closeMobileMenu() {
+        mobileNavOffcanvas.classList.remove('active');
+        mobileNavOverlay?.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        mobileMenuBtn.focus();
+    }
+    
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    mobileNavClose?.addEventListener('click', closeMobileMenu);
+    mobileNavOverlay?.addEventListener('click', closeMobileMenu);
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileNavOffcanvas.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Mobile dropdown toggles
+    const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const targetContent = document.getElementById(targetId);
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            // Close all other dropdowns
+            dropdownToggles.forEach(t => {
+                if (t !== this) {
+                    t.setAttribute('aria-expanded', 'false');
+                    const tId = t.getAttribute('data-target');
+                    document.getElementById(tId)?.classList.remove('active');
+                }
+            });
+            
+            // Toggle current dropdown
+            targetContent?.classList.toggle('active');
+            this.setAttribute('aria-expanded', !isExpanded);
+        });
+    });
+})();
+
+// ============================================
+// BACK TO TOP BUTTON
+// ============================================
+(function() {
+    const backToTop = document.getElementById('backToTop');
+    if (!backToTop) return;
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    });
+    
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+})();
+
+    // Add keyboard accessibility for card clicks
+    document.querySelectorAll('.featured-card, .new-item-card').forEach(card => {
+        card.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const link = this.querySelector('a');
+                if (link) {
+                    link.click();
+                }
+            }
+        });
+    });
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+    </script>
+</body>
+</html>
